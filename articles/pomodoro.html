@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「番茄鐘學習計時器」專注溫書｜附Prompt範本</title>
+    <meta name="description" content="唔使下載App！教你用AI 5分鐘整個番茄鐘學習計時器網站：25分鐘專注+5分鐘休息、自訂時間、進度統計。學生溫書、上班族工作都啱用，附完整Prompt。">
+    <meta name="keywords" content="番茄鐘, Pomodoro, 學習計時器, AI教學, ChatGPT寫網站, 專注力訓練, 溫書計時器, 免費工具">
+    <meta property="og:title" content="用AI整「番茄鐘學習計時器」專注溫書">
+    <meta property="og:description" content="25分鐘專注+5分鐘休息，附完整Prompt範本">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">進階技巧 · 工具類</span>
+        <h1>【實戰】整個<br><span>「番茄鐘學習計時器」</span></h1>
+        <p>25分鐘專注 + 5分鐘休息，自訂時間、進度統計。學生同上班族都啱用。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約7分鐘 ｜ 難度：⭐⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 番茄鐘學習計時器</div>
+
+    <article class="prose">
+        <h2>番茄鐘係咩？點解咁有效？</h2>
+        <p>「番茄工作法」（Pomodoro Technique）係一個時間管理方法：<strong>專注工作 25 分鐘 → 休息 5 分鐘</strong>，每完成 4 個循環就休息長啲（15-30 分鐘）。佢有效係因為人嘅專注力有限，短衝刺式嘅專注反而比長時間硬撐效率高好多 —— 對溫書嘅學生同在家工作嘅上班族特別有用。</p>
+        <p>App Store 有大把番茄鐘 App，但好多有廣告、要收費、或者功能唔啱。用 AI 自己整一個，<strong>功能完全由你話事</strong>，仲可以放埋喺手機主畫面當 App 用。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>⏱️ 25分鐘專注 / 5分鐘休息自動切換</li>
+            <li>🔔 完成時有提示音效同震動（手機）</li>
+            <li>🎨 專注時深色背景、休息時綠色背景，一眼睇出狀態</li>
+            <li>📊 記錄今日完成咗幾多個番茄鐘</li>
+            <li>⚙️ 可以自訂專注同休息時間（例如 45/10）</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，專門設計生產力工具網頁。
+
+【任務】生成一個「番茄鐘學習計時器」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】中學生、大學生、在家工作嘅上班族
+
+【功能規格】
+- 預設：專注 25 分鐘 → 休息 5 分鐘，自動循環
+- 完成 4 個專注循環後，休息 15 分鐘（長休息）
+- 大數字倒數顯示（MM:SS），置中顯示
+- 三個按鈕：開始、暫停、重設
+- 每個階段完成：播放提示音（用 Web Audio API 生成，唔使用外部音效檔）+ 顯示鼓勵訊息
+- 專注模式：深藍色背景；休息模式：綠色背景（一眼分到）
+- 顯示「今日已完成 X 個番茄鐘」，用 localStorage 儲存紀錄
+- 設定區：可自訂專注/短休息/長休息分鐘數
+
+【設計要求】
+- 深色模式風格，暗色背景配亮色大字
+- 倒數數字要非常大（至少 80px）
+- 手機優先設計（響應式）
+- 加一個圓形進度環，顯示剩餘時間比例
+- 按鈕大、易按，有動畫效果
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片、音效檔或框架
+- 支援離線使用
+- 用 localStorage 儲存統計，刷新頁面唔會冇咗
+- 程式碼要有中文註釋
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>pomodoro.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，試撳「開始」</h3>
+                <p>應該會見到倒數開始、背景變色。等佢行完一個階段，聽吓提示音響唔響。</p>
+            </div>
+        </div>
+
+        <div class="tip-box">手機想用？將個 HTML 檔案傳去手機（WhatsApp 俾自己都得），用瀏覽器打開，然後喺瀏覽器選單揀「加到主畫面」，就會好似一個 App 咁有 icon 喺桌面。</div>
+
+        <h2>第三步：按需要微調</h2>
+        <p>直接喺同一個 AI 對話話俾佢知你想點改：</p>
+        <ul>
+            <li>「專注時間預設改做 45 分鐘，我係大學生」</li>
+            <li>「加個白噪音功能，專注嗰陣播落雨聲」</li>
+            <li>「加個每週統計圖表，睇吓我邊日最勤力」</li>
+            <li>「加個『任務名稱』欄位，記低每個番茄鐘做緊咩」</li>
+        </ul>
+
+        <h2>同學生哥嘅使用建議</h2>
+        <ul>
+            <li>📚 <strong>溫書</strong>：25分鐘專注一科，休息時唔好睇電話（會斷專注），起行飲杯水</li>
+            <li>📝 <strong>做功課</strong>：挑戰「一個番茄鐘內做完呢頁」，加少少遊戲感</li>
+            <li>🏃 <strong>長休息</strong>：4 個循環後真係離開張檯，眼睛同大腦都要休息</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：提示音唔響？</h3>
+            <p>A：瀏覽器規定要用戶「撳過嘢」先准播音。記住先撳「開始」先會有聲。如果都係唔得，叫 AI「將提示音改做瀏覽器通知 + 震動」。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：熄咗個分頁個計時仲行唔行？</h3>
+            <p>A：唔會行，呢類純前端網站要保持分頁開著。進階玩法可以叫 AI 加「背景計時」功能，用時間戳記計算。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：localStorage 嘅紀錄會唔會冇咗？</h3>
+            <p>A：只要你唔清除瀏覽器資料，紀錄會一直喺同一部裝置、同一個瀏覽器度。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>又一個「5分鐘作品」完成。你會發現個 Pattern 永遠一樣：<strong>講清楚規格 → AI 寫 → 儲存 → 用 → 唔啱再改</strong>。下次你想要嘅任何小工具 —— 飲水提醒、拉筋計時、背書神器 —— 都係咁整。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="math-kids.html">
+                <div class="emoji">🧮</div>
+                <h3>5分鐘整「小朋友數學練習網站」</h3>
+                <p>加法減法練習、星星獎勵、即時計分</p>
+            </a>
+            <a class="related-card" href="budget.html">
+                <div class="emoji">📒</div>
+                <h3>整個「家庭記帳工具」掌握使費</h3>
+                <p>收入支出記錄、分類統計、月度圖表</p>
+            </a>
+            <a class="related-card" href="stock-screener.html">
+                <div class="emoji">📈</div>
+                <h3>整個「AI 揀股篩選器」</h3>
+                <p>按自己準則快速篩選股票清單</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
