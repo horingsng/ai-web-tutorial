@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「個人化揀股篩選器」按自己準則揀股票｜附Prompt範本</title>
+    <meta name="description" content="教你用AI整專屬揀股篩選器：按自己嘅投資偏好（市盈率、股息率、行業）整理觀察名單、評分排序、筆記功能。唔使再俾人嘅「必買名單」牽住走，附完整Prompt。">
+    <meta name="keywords" content="揀股, 股票篩選器, stock screener, 投資工具, AI教學, 市盈率, 股息率, 觀察名單, 港股, 美股">
+    <meta property="og:title" content="用AI整「個人化揀股篩選器」按自己準則揀股票">
+    <meta property="og:description" content="按自己嘅投資偏好整理觀察名單、評分排序，附完整Prompt">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">投資理財 · 進階</span>
+        <h1>【實戰】整個<br><span>「個人化揀股篩選器」</span></h1>
+        <p>按自己嘅喜好、偏好、需求整理觀察名單、評分排序。唔使再俾人嘅「必買名單」牽住走。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約9分鐘 ｜ 難度：⭐⭐⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 個人化揀股篩選器</div>
+
+    <article class="prose">
+        <div class="warn-box">呢篇係<strong>技術教學</strong>，教你點樣用 AI 整工具整理自己嘅研究資料，並唔構成任何投資建議。投資涉及風險，過往表現唔代表將來，做決定前請諮詢持牌專業人士。</div>
+
+        <h2>點解要「個人化」篩選器？</h2>
+        <p>網上大把「十大必買股」名單，但每個人嘅情況都唔同：</p>
+        <ul>
+            <li>🎯 有人要<strong>收息</strong>（退休人士）— 最緊要股息率穩定</li>
+            <li>🚀 有人要<strong>增長</strong>（後生仔）— 睇收入增長同行業前景</li>
+            <li>🛡️ 有人要<strong>穩陣</strong> — 睇負債比率、盈利穩定性</li>
+            <li>💰 有人<strong>預算有限</strong> — 入場費太貴嘅股直接略過</li>
+        </ul>
+        <p>現成嘅免費 Screener（例如 Yahoo Finance 嗰個）功能又硬又唔貼身。自己整一個：<strong>準則你話事、權重你話事、仲可以加自己嘅研究筆記</strong>。佢唔會話你知買邊隻，但會幫你<strong>用自己嘅尺，度出一個屬於你嘅觀察名單</strong>。</p>
+
+        <h2>工具點運作？（講清楚先好整）</h2>
+        <p>呢個工具係一個「評分表」：你自己輸入研究返嚟嘅數據（由年報、財經網站睇返嚟），工具幫你：</p>
+        <ul>
+            <li>📋 儲存每隻股票嘅關鍵數據（市盈率、股息率、負債比率、行業…）</li>
+            <li>⚖️ 按<strong>你設定嘅權重</strong>自動評分（例如收息型：股息率佔 40 分）</li>
+            <li>📊 自動排名，一眼睇到邊隻最啱你嘅準則</li>
+            <li>📝 每股加研究筆記（「管理層誠信有疑問」「等佢跌穿 $50 先諗」）</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <div class="prompt-box">【角色】你係資深前端工程師，專門設計投資研究工具網頁。
+
+【任務】生成一個「個人化股票觀察名單評分器」，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】香港散戶投資者，想按自己準則整理股票研究
+
+【功能規格】
+- 新增股票：股票代號、名稱、市場（港股/美股）、行業、現價、入場費（每手金額）
+- 數據欄位：市盈率 PE、股息率%、收入增長率%、負債比率%、自由評分（1-10，對間公司嘅主觀信心）
+- 權重設定區：五個準則（PE、股息率、增長、負債、主觀信心）各自嘅重要程度（0-100%），用 slider 調較
+- 自動評分：按權重計算每隻股票嘅總分（0-100），邏輯：PE 越細越高分、股息率越高越高分、增長越高越高分、負債越細越高分、主觀信心直接用
+- 名單自動按總分排序，前三名有金銀銅牌標示
+- 每隻股票可以摺疊展開，入面有筆記欄（多行文字）
+- 可以刪除股票
+- 全部資料用 localStorage 儲存
+
+【設計要求】
+- 深色專業風格，似財經終端機
+- 總分用大數字 + 顏色（80+綠色、60-79黃色、60以下灰色）
+- 手機同電腦都用到（響應式）
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架
+- 離線可用，冇任何網絡請求
+- 程式碼要有中文註釋
+- 頁面底部加免責聲明：「本工具僅供整理個人研究，不構成投資建議」
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存並建立你嘅名單</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>儲存做 stocks.html</h3>
+                <p>老規矩：複製完整代碼 → 記事本 → 另存新檔 → 「所有檔案」→ UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>設定你嘅權重（最緊要嘅一步）</h3>
+                <p>問自己：我最重視咩？收息型可以試：股息率 40%、負債 25%、主觀信心 20%、PE 15%、增長 0%。增長型就將增長同收入權重調高。<strong>冇標準答案，呢個就係「個人化」嘅意思。</strong></p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>輸入你研究過嘅股票</h3>
+                <p>喺財經網站（AASTOCKS、Yahoo Finance）搵到嘅數據逐隻入落去。入完五六隻，個排名就開始有參考價值。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div>
+                <h3>寫筆記，定期更新</h3>
+                <p>每隻股寫低「點解留意佢」「咩價位先考慮」「有咩風險」。一個月後更新數據，排名會郁 —— 呢個過程本身已經令你成為更自律嘅投資者。</p>
+            </div>
+        </div>
+
+        <h2>點樣用得聰明？</h2>
+        <ul>
+            <li>🔍 <strong>佢係「篩選」唔係「聖杯」</strong>：工具幫你排序研究優先次序，但最後決定一定要落返基本面研究</li>
+            <li>📅 <strong>定期覆核</strong>：出完業績就更新數據，排名郁咗要問自己點解</li>
+            <li>🧘 <strong>主觀信心欄好有用</strong>：逼你將「感覺」量化，你會發現自己對邊啲公司真係了解、邊啲只係道聽途說</li>
+        </ul>
+
+        <h2>常見自訂要求</h2>
+        <ul>
+            <li>「加個欄位記錄我嘅目標價同止蝕價」</li>
+            <li>「加『已持有』分頁，分開觀察名單同持倉」</li>
+            <li>「加匯出 CSV，我想喺 Excel 再分析」</li>
+            <li>「評分邏輯加入 PEG（市盈率相對增長比率）」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：點解唔直接連線攞即時股價？</h3>
+            <p>A：即時數據要 API 同伺服器，複雜好多（我哋遲啲出進階篇教）。而家手動入數據其實有個好處：<strong>逼你真係研究過先入</strong>，唔會亂咁加股票。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：個評分準唔準？</h3>
+            <p>A：佢準確執行<strong>你設定嘅邏輯</strong>，但垃圾入垃圾出 —— 如果你嘅權重唔合理或者數據入錯，結果都會誤導。當佢係幫你整理思路嘅工具，唔係預言機。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：美股港股嘅數據喺邊度搵？</h3>
+            <p>A：Yahoo Finance、AASTOCKS、富途、公司年報都有。建議用公司官方年報嘅數字最穩陣。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>投資最危險嘅唔係冇工具，係<strong>用緊人哋嘅尺嚟度自己嘅決定</strong>。你今日整嘅唔只係一個網頁，係一套屬於你自己嘅投資紀律。由乱咁聽消息，變成有系統咁研究 —— 呢個先係散戶最值錢嘅升級。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="budget.html">
+                <div class="emoji">📒</div>
+                <h3>整個「家庭記帳工具」掌握使費</h3>
+                <p>收入支出記錄、分類統計、月度圖表</p>
+            </a>
+            <a class="related-card" href="quote-generator.html">
+                <div class="emoji">💰</div>
+                <h3>小店主必學：「報價單生成器」</h3>
+                <p>輸入產品價格，一鍵生成專業報價單</p>
+            </a>
+            <a class="related-card" href="math-kids.html">
+                <div class="emoji">🧮</div>
+                <h3>5分鐘整「小朋友數學練習網站」</h3>
+                <p>加法減法練習、星星獎勵、即時計分</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
