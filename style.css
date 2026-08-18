@@ -1,0 +1,200 @@
+/* AI建站教學 — 共用樣式 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary: #4F46E5;
+    --primary-dark: #3730A3;
+    --secondary: #F59E0B;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --text: #1F2937;
+    --text-light: #6B7280;
+    --border: #E5E7EB;
+    --success: #10B981;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; color: white; text-decoration: none; }
+.logo span { color: var(--secondary); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--secondary); }
+
+/* Page Hero */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 3.5rem 0 2.5rem;
+    text-align: center;
+}
+.page-hero h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.75rem; }
+.page-hero h1 span { color: var(--secondary); }
+.page-hero p { opacity: 0.9; font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.article-meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.75; }
+.article-tag-hero {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 0.25rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    backdrop-filter: blur(10px);
+}
+
+/* Main content */
+main { padding: 3rem 0; }
+.prose { background: white; border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border); }
+.prose h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 2.5rem 0 1rem;
+    padding-left: 0.9rem;
+    border-left: 5px solid var(--primary);
+    line-height: 1.4;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-size: 1.2rem; font-weight: 700; margin: 1.75rem 0 0.75rem; }
+.prose p { margin-bottom: 1.1rem; }
+.prose ul, .prose ol { margin: 0 0 1.25rem 1.5rem; }
+.prose li { margin-bottom: 0.5rem; }
+.prose strong { color: var(--primary-dark); }
+.prose a { color: var(--primary); font-weight: 600; }
+.prose img { max-width: 100%; border-radius: 12px; margin: 1rem 0; }
+
+/* Prompt / Code box */
+.prompt-box {
+    background: #1F2937;
+    color: #E5E7EB;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.25rem 0 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    position: relative;
+}
+.prompt-box::before {
+    content: '📋 可直接複製嘅 Prompt';
+    display: block;
+    color: var(--secondary);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+}
+
+/* Step cards */
+.step {
+    display: flex;
+    gap: 1rem;
+    background: #F9FAFB;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+.step-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+.step h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.step p { margin: 0; color: var(--text-light); font-size: 0.95rem; }
+
+/* Tips / Warning box */
+.tip-box, .warn-box {
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+}
+.tip-box { background: #ECFDF5; border: 1px solid #A7F3D0; }
+.tip-box::before { content: '💡 貼士：'; font-weight: 700; color: #047857; }
+.warn-box { background: #FFFBEB; border: 1px solid #FDE68A; }
+.warn-box::before { content: '⚠️ 注意：'; font-weight: 700; color: #B45309; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--primary-dark); }
+.faq-item p { margin: 0; color: var(--text-light); font-size: 0.95rem; }
+
+/* Ad */
+.ad-label { font-size: 0.75rem; color: var(--text-light); text-align: center; margin: 2rem auto 0.5rem; max-width: 728px; text-transform: uppercase; letter-spacing: 1px; }
+.ad-container {
+    background: var(--card);
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin: 0 auto 2rem;
+    max-width: 728px;
+    min-height: 90px;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* Related articles */
+.related { margin-top: 3rem; }
+.related h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1.25rem; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.related-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block;
+}
+.related-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+.related-card .emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+.related-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; line-height: 1.4; }
+.related-card p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+
+/* Footer */
+footer { background: var(--text); color: white; padding: 3rem 0 2rem; text-align: center; margin-top: 3rem; }
+.footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-links a:hover { color: white; }
+.copyright { color: rgba(255,255,255,0.5); font-size: 0.875rem; }
+
+/* Breadcrumb */
+.breadcrumb { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem; }
+.breadcrumb a { color: var(--primary); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+    .page-hero h1 { font-size: 1.65rem; }
+    .prose { padding: 1.5rem; }
+    .prose h2 { font-size: 1.3rem; }
+    .nav-links { display: none; }
+}
