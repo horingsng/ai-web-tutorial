@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「生字卡認字練習」俾小朋友溫書｜附Prompt範本</title>
+    <meta name="description" content="家長必學！用AI 5分鐘整個生字卡認字練習網站：自訂字庫、抽問模式、答啱星星獎勵、進度記錄。中文英文生字都得，資料只存自己部機。附完整Prompt。">
+    <meta name="keywords" content="生字卡, 認字練習, 小朋友學習App, 自製字卡, 中文認字, 英文生字, AI教學, 家長教學, 免費學習工具, 默書溫習">
+    <meta property="og:title" content="用AI整「生字卡認字練習」俾小朋友溫書">
+    <meta property="og:description" content="自訂字庫、抽問模式、星星獎勵。默書前溫習神器，附完整Prompt範本。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 家長必學</span>
+        <h1>【實戰】整個<br><span>「生字卡認字練習」</span></h1>
+        <p>自訂字庫、隨機抽問、星星獎勵。默書前溫習神器，中文英文生字都用得。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約7分鐘 ｜ 難度：⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 生字卡認字練習</div>
+
+    <article class="prose">
+        <h2>點解要自己整生字卡？</h2>
+        <p>每個香港家長都經歷過：聽日默書，今晚同小朋友抽問生字。傳統做法係自己寫字卡、或者買現成嘅 —— 但現成字卡永遠唔會啱你個小朋友今個星期嘅默書範圍。</p>
+        <p>自己用 AI 整一個：<strong>將老師派嘅生字表打落去，即刻變成一個有獎勵、有記錄嘅認字遊戲</strong>。中文默書、英文 Spelling 都用得，下星期換批生字，改幾隻字就得。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>🃏 生字卡模式：撳一下翻面，睇字睇解釋/讀音</li>
+            <li>🎲 隨機抽問：唔會次次同一順序，小朋友冇得靠背位置</li>
+            <li>⭐ 答啱有星星，儲夠星星有鼓勵畫面</li>
+            <li>📊 記低邊啲字答錯過，最後出個「要重溫」清單</li>
+            <li>✏️ 家長可以自己改字庫，今個星期默咩就入咩</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，同時係兒童學習遊戲設計專家。
+
+【任務】生成一個「生字卡認字練習」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】5-9 歲香港小朋友（由家長協助設定字庫）
+
+【功能規格】
+- 兩個模式：「學習模式」（逐張卡睇，撳卡翻面顯示答案）同「測驗模式」（隨機抽問）
+- 字卡內容：正面顯示題目（例如英文單字 apple），背面顯示答案（中文意思 + 例句）
+- 測驗模式：顯示題目，小朋友口頭答，家長撳「答啱」或「答錯」掣
+- 答啱加一粒星星，畫面頂部顯示星星總數
+- 答錯嘅字會記低，測驗完結後顯示「需要重溫」清單
+- 內置 10 張示範字卡（英文生字配中文意思）
+- 有「編輯字庫」區域：一個大文字框，每行一張卡，格式係「題目|答案」，儲存後即刻生效
+- 用 localStorage 儲存字庫同星星紀錄
+
+【設計要求】
+- 鮮豔活潑風格，適合小朋友
+- 字卡要超大，字體至少 40px
+- 撳掣要夠大，細路手指都撳得中
+- 翻面有簡單動畫效果
+- 手機優先設計（響應式）
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架，用 Emoji 做裝飾
+- 支援離線使用
+- 程式碼要有中文註釋
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>flashcards.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，試玩示範字卡</h3>
+                <p>應該見到字卡、兩個模式切換、星星計數。試撳翻面同「答啱/答錯」。</p>
+            </div>
+        </div>
+
+        <h2>第三步：入返自己嘅默書範圍</h2>
+        <p>撳「編輯字庫」，跟住個格式每行一張卡：</p>
+        <div class="prompt-box">apple|蘋果 🍎 例句：I eat an apple.
+water|水 💧 例句：I drink water.
+朋友|朋友係一齊玩嘅人
+學校|我哋每日返學嘅地方</div>
+        <p>英文生字、中文字詞、甚至乘數表（「6×7|42」）都用得 —— <strong>個格式係「題目|答案」，入咩都得</strong>。</p>
+
+        <div class="tip-box">手機想用？將個 HTML 檔案 WhatsApp 俾自己，手機瀏覽器打開，選單揀「加到主畫面」，小朋友撳個 icon 就玩得，仲唔會亂撳去其他網站。</div>
+
+        <h2>按需要微調（直接同 AI 講）</h2>
+        <ul>
+            <li>「加個語音功能，撳字卡會讀出嚟」（用瀏覽器內置語音合成，英文特別有用）</li>
+            <li>「答啱十題之後彈個慶祝動畫出嚟」</li>
+            <li>「加個計時模式，限時 60 秒答最多題」</li>
+            <li>「字庫分開『中文』『英文』兩組，可以揀邊組溫」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：語音功能讀中文得唔得？</h3>
+            <p>A：得，不過要睇裝置有冇裝中文語音包。iPhone 預設有廣東話/普通話。叫 AI「語音朗讀要支援廣東話」就得。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：字庫可以入幾多張卡？</h3>
+            <p>A：幾百張都冇問題，localStorage 好夠装。不過建議按星期分檔，每星期嘅默書範圍一個檔案，溫書先至集中。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：星星紀錄會唔會冇咗？</h3>
+            <p>A：只要你唔清除瀏覽器資料，紀錄會一直喺同一部裝置。如果想換機保留，叫 AI 加個「匯出/匯入紀錄」功能。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>由「老師派張生字表」到「小朋友主動想玩認字遊戲」，距離只係一個 Prompt。呢個工具最勁嘅地方係<strong>跟足你小朋友學校嘅進度</strong> —— 今個星期默咩，今晚就溫咩。仲想要更多家長神器？睇埋 <a href="math-kids.html">數學練習網站教學</a>。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="math-kids.html">
+                <div class="emoji">🧮</div>
+                <h3>5分鐘整「小朋友數學練習網站」</h3>
+                <p>加法減法練習、星星獎勵、即時計分</p>
+            </a>
+            <a class="related-card" href="prompt-tips.html">
+                <div class="emoji">🎯</div>
+                <h3>AI 寫 Prompt 嘅 5 個秘訣</h3>
+                <p>點樣「落柯打」先有完美成品</p>
+            </a>
+            <a class="related-card" href="pomodoro.html">
+                <div class="emoji">⏱️</div>
+                <h3>整個「番茄鐘學習計時器」</h3>
+                <p>25分鐘專注法，溫書效率翻倍</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
