@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】點樣將整好嘅工具免費放上网？GitHub Pages 圖文教學｜附步驟</title>
+    <meta name="description" content="用AI整咗個工具，想俾朋友撳條link就用得？GitHub Pages 完全免費、唔使伺服器知識，10分鐘將你嘅 HTML 檔案變成一個真正嘅網址。手把手圖文步驟。">
+    <meta name="keywords" content="GitHub Pages教學, 免費架網站, 免費web hosting, 網站免費寄存, 整網站教學, 免費網址, 靜態網站寄存, github pages 中文教學">
+    <meta property="og:title" content="點樣將整好嘅工具免費放上网？GitHub Pages 教學">
+    <meta property="og:description" content="完全免費、唔使伺服器知識。10分鐘將你嘅 HTML 檔案變成一條可以分享嘅網址。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 最後一步</span>
+        <h1>將你嘅工具<br><span>免費放上网</span></h1>
+        <p>整咗個工具得自己用？學識 GitHub Pages，撳條 link 全世界都用得 —— 完全免費。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約9分鐘 ｜ 難度：⭐⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 免費放上网教學</div>
+
+    <article class="prose">
+        <h2>整完工具，點解要放上网？</h2>
+        <p>你跟住我哋嘅教學，整咗個 HTML 工具喺自己部電腦 —— 但有一日你會想：</p>
+        <ul>
+            <li>📱 喺手機用返同一個工具（唔使傳檔案）</li>
+            <li>👨‍👩‍👧 俾屋企人、朋友一齊用（send 條 link 搞掂）</li>
+            <li>💼 擺上履歷/Portfolio 俾人睇你識做嘢</li>
+        </ul>
+        <p>傳統架網站要租伺服器、買域名、識 set server —— 又貴又複雜。但 <strong>GitHub Pages 係免費嘅</strong>：全世界最大嘅程式碼平台，俾你免費寄存靜態網站，冇流量上限、冇廣告、自動有 HTTPS 加密。我哋呢個網站都係咁做。</p>
+
+        <div class="tip-box">你唔使識 Git、唔使打指令 —— 全部用瀏覽器撳掣搞掂。呢篇教學假設你已經整好一個 HTML 檔案（例如跟 <a href="pomodoro.html">番茄鐘教學</a> 整嗰個）。</div>
+
+        <h2>第一步：開個 GitHub 帳號（免費）</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>去 github.com，撳「Sign up」</h3>
+                <p>用電郵註冊，用戶名諗個你鍾意嘅 —— 佢會變成你網址嘅一部分：<code>你嘅用戶名.github.io</code>。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>驗證電郵</h3>
+                <p>去信箱撳驗證連結，帳號就開通咗。</p>
+            </div>
+        </div>
+
+        <h2>第二步：開一個 Repository（倉庫）</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>撳右上角「+」→「New repository」</h3>
+                <p>Repository 即係一個放檔案嘅文件夾。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>填個名，例如 <code>my-tools</code></h3>
+                <p>呢個名都會出現喺網址入面：<code>你嘅用戶名.github.io/my-tools</code>。揀 <strong>Public</strong>（免費版 GitHub Pages 一定要公開）。撳「Create repository」。</p>
+            </div>
+        </div>
+
+        <h2>第三步：上傳你嘅 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>喺 Repository 頁面撳「uploading an existing file」</h3>
+                <p>或者撳「Add file」→「Upload files」。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>將你個 HTML 檔案拖入去</h3>
+                <p>重要：<strong>將檔名改做 <code>index.html</code></strong> —— 呢個係所有網站嘅「大門」檔名，有咗佢，條 link 先會直接打開你個工具。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>撳「Commit changes」</h3>
+                <p>Commit 即係「儲存版本」嘅意思，撳掣就得，唔使寫嘢。</p>
+            </div>
+        </div>
+
+        <h2>第四步：開啟 GitHub Pages</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>Repository 頁面頂部撳「Settings」</h3>
+                <p>左邊選單搵到「Pages」。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>「Source」揀「Deploy from a branch」</h3>
+                <p>Branch 揀 <code>main</code>，右邊揀 <code>/(root)</code>，撳「Save」。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>等 1-2 分鐘，refresh 個頁面</h3>
+                <p>頂部會出現一個綠色框，寫住你嘅網址：<code>https://你嘅用戶名.github.io/my-tools</code> —— <strong>撳入去，你個工具已經喺網上！</strong></p>
+            </div>
+        </div>
+
+        <h2>第五步：分享俾全世界</h2>
+        <p>條 link WhatsApp 俾朋友、放上 IG bio、貼喺履歷 —— 任何人撳入去都用得你個工具。之後想改嘢？返去 Repository 撳個檔案 → 鉛筆 icon 編輯 → Commit，一分鐘後網站自動更新。</p>
+
+        <div class="warn-box">注意：Public Repository 即係任何人睇到你個檔案嘅代碼。你自己整嘅工具冇問題（代碼俾人睇唔會蝕底），但千祈唔好放密碼、API key 呢類敏感資料入去。</div>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：開咗 Pages 但條 link 打開係 404？</h3>
+            <p>A：九成係檔名唔係 <code>index.html</code>（大小階都要啱）。另一個可能係等唔夠 —— 第一次部署有時要 5-10 分鐘。去 Settings → Pages 睇到綠色框先算完成。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：localStorage 嘅資料會同步去唔同裝置嗎？</h3>
+            <p>A：唔會。localStorage 係「每部裝置各自儲存」—— 你電話入嘅數，電腦睇唔到。放上网解決嘅係「唔使傳檔案、人人用得」，唔係資料同步。想同步就要資料庫，屬於進階課題。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：一個帳號可以放幾多個工具？</h3>
+            <p>A：每開一個新 Repository 就係一個新工具，數量冇限制。想好似我哋咁整成一個有好多頁嘅網站（首頁＋教學文），都係同一個 Repository 入面放多幾個 HTML 檔案就得。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：github.io 條網址好樣衰，可唔可以用自己個域名？</h3>
+            <p>A：可以，例如我哋呢個站就係用自己域名。流程係：買域名 → 喺 DNS 指去 GitHub → Repository 設定填返個域名。不過建議你先玩熟免費版，有需要先買域名（大概幾十蚊美金一年）。</p>
+        </div>
+
+        <h2>總結：你而家已經識晒成個循環</h2>
+        <p>諗功能 → 寫 Prompt → AI 生成 → 本地測試 → 放上网分享 —— 呢五步就係「AI 建站」嘅完整流程。由今日起，你腦入面嗰啲「如果有個 App 可以...」嘅諗法，全部都可以自己實現。想搵下一個整咩？去 <a href="../index.html#articles">文章庫</a> 睇吓其他實戰教學啦。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="prompt-tips.html">
+                <div class="emoji">🎯</div>
+                <h3>AI 寫 Prompt 嘅 5 個秘訣</h3>
+                <p>放上网之前，先寫好你嘅 Prompt</p>
+            </a>
+            <a class="related-card" href="savings-tracker.html">
+                <div class="emoji">💰</div>
+                <h3>整個「儲蓄目標追蹤器」</h3>
+                <p>睇住個進度條儲錢，愈儲愈有動力</p>
+            </a>
+            <a class="related-card" href="web-app-vs-app.html">
+                <div class="emoji">🌐</div>
+                <h3>點解唔整App要整「網頁版」？</h3>
+                <p>上架要錢要審批；網頁版一步到位</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>

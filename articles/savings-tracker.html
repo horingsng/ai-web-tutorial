@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「儲蓄目標追蹤器」：睇住個進度條儲錢｜附Prompt範本</title>
+    <meta name="description" content="想儲錢旅行/買嘢但成日唔知儲到邊？用AI 5分鐘整個儲蓄目標追蹤器：自訂目標金額、每次入數、進度條視覺化、里程碑慶祝。資料只存自己部機，附完整Prompt。">
+    <meta name="keywords" content="儲蓄目標, 儲錢App, 儲錢進度, 理財工具, 自製儲蓄追蹤器, saving tracker, AI教學, 免費理財工具, 進度條">
+    <meta property="og:title" content="用AI整「儲蓄目標追蹤器」：睇住個進度條儲錢">
+    <meta property="og:description" content="自訂目標、入數記錄、進度條視覺化。儲錢最緊要見到進度，附完整Prompt範本。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 理財工具</span>
+        <h1>【實戰】整個<br><span>「儲蓄目標追蹤器」</span></h1>
+        <p>儲錢最緊要見到進度。自訂目標、每次入數、進度條一格格填滿 —— 成就感先係儲錢嘅動力。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約7分鐘 ｜ 難度：⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 儲蓄目標追蹤器</div>
+
+    <article class="prose">
+        <h2>點解儲錢要「睇到進度」先儲得埋？</h2>
+        <p>心理學有個概念叫「目標漸近效應」：愈接近目標，人愈有動力。但現實係 —— 你啲錢瞓喺銀行戶口，淨係一個數字，冇任何感覺。所以好多人的儲錢大計，都係無聲無息咁放棄咗。</p>
+        <p>坊間嘅記帳 App 有儲蓄功能，但又係嗰幾個老問題：要註冊、有廣告、七成功能你唔用、啲財務資料仲要放上人哋個 server。自己整一個就簡單直接：<strong>一個目標、一條進度條、每次入數撳一下</strong> —— 冇多餘嘢。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>🎯 自訂儲蓄目標（名稱＋金額），例如「日本之旅 $15,000」</li>
+            <li>📊 超大進度條，每次入數即刻睇到填滿幾多</li>
+            <li>💰 入數記錄：每次入幾多、咩日期，一目了然</li>
+            <li>🎉 每過 25% 有里程碑慶祝，100% 有完成動畫</li>
+            <li>📱 手機用得，資料存自己部機，唔使註冊</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，擅長設計簡潔實用嘅個人理財工具。
+
+【任務】生成一個「儲蓄目標追蹤器」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】想儲錢但唔想用複雜 App 嘅香港打工仔
+
+【功能規格】
+- 可以建立多個儲蓄目標，每個目標有：名稱、目標金額、目標日期（選填）
+- 每個目標顯示：已儲金額、目標金額、完成百分比、超大進度條
+- 進度條要跟百分比變色：0-25% 紅色、25-50% 橙色、50-75% 藍色、75-100% 綠色
+- 每個目標可以「入數」：輸入金額，即刻更新進度條
+- 入數記錄列表：顯示每次入數嘅日期同金額，最新排最前
+- 每個目標可以「刪除」或「編輯」
+- 完成度每過 25%，彈出鼓勵訊息（例如「儲咗一半啦！繼續加油 💪」）
+- 達成 100% 時有慶祝動畫（用 CSS/Emoji 做，唔使外部資源）
+- 所有資料用 localStorage 儲存，閂咗瀏覽器都唔會冇
+
+【設計要求】
+- 簡潔清新風格，重點係個進度條要夠大夠搶眼
+- 金額顯示要加千分位（例如 $15,000）
+- 手機優先設計（響應式），按鈕要夠大
+- 主色調用深藍色，進度條用漸變色
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架，用 Emoji 做裝飾
+- 支援離線使用
+- 程式碼要有中文註釋
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>savings.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，建立第一個目標</h3>
+                <p>試吓開個「日本之旅 $15,000」，入一筆數，睇個進度條郁 —— 呢吓就係你之後每次入數嘅動力來源。</p>
+            </div>
+        </div>
+
+        <h2>第三步：加入日常生活</h2>
+        <p>將個檔案傳上手機（WhatsApp / 電郵俾自己），瀏覽器打開後揀「加到主畫面」—— 出街慳返杯咖啡錢，即刻撳一下入數，睇住個條升，過癮過打機。</p>
+
+        <div class="tip-box">進階玩法：同 AI 講「每個目標加個『每日要儲幾多』嘅提示，用目標日期計返出嚟」，你就會知每日要慳幾多先趕得切。</div>
+
+        <h2>按需要微調（直接同 AI 講）</h2>
+        <ul>
+            <li>「加個『扣數』功能，有時要拎返啲錢出嚟」</li>
+            <li>「主畫面加個所有目標嘅總進度概覽」</li>
+            <li>「入數可以加備註，例如『花紅』『慳咗 lunch 錢』」</li>
+            <li>「加個匯出 CSV 功能，可以 backup 啲記錄」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：啲資料放喺邊？安唔安全？</h3>
+            <p>A：所有資料只存喺你部機嘅瀏覽器（localStorage），唔會上傳去任何 server。唔清除瀏覽器資料就會一直喺度 —— 相比啲理財 App 要你将財務資料交俾第三方，呢個係最安全嘅做法。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：可唔可以同屋企人夾住儲一個目標？</h3>
+            <p>A：localStorage 版本係單機嘅。想多人共用，可以叫 AI「改用 Google Sheets 做資料庫」—— 不過咁就要跟返 <a href="custom-tools.html">進階做法</a>，新手建議先用單機版。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：我想追蹤嘅唔係錢，係減肥/儲里數得唔得？</h3>
+            <p>A：絕對得！改返個 Prompt：「將金額改做公里／磅」，同一個結構就變咗任何目標嘅追蹤器 —— 呢個就係客製化嘅威力。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>儲錢失敗通常唔係因為收入，係因為「睇唔到進度」所以冇動力。一個專屬嘅進度條，成本係 5 分鐘，回報係你終於儲到嗰個目標。整完想知點樣放上网俾朋友用？睇埋 <a href="publish-github-pages.html">免費放上网教學</a>。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="budget.html">
+                <div class="emoji">💰</div>
+                <h3>整個「個人記帳工具」</h3>
+                <p>收入支出記錄、分類統計、月度報告</p>
+            </a>
+            <a class="related-card" href="publish-github-pages.html">
+                <div class="emoji">🚀</div>
+                <h3>點樣將工具免費放上网？</h3>
+                <p>GitHub Pages 教學，朋友撳條 link 就用得</p>
+            </a>
+            <a class="related-card" href="prompt-tips.html">
+                <div class="emoji">🎯</div>
+                <h3>AI 寫 Prompt 嘅 5 個秘訣</h3>
+                <p>點樣「落柯打」先有完美成品</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
