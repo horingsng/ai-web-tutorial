@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「To-do List待辦清單」：極簡無廣告｜附Prompt範本</title>
+    <meta name="description" content="想搵個乾淨嘅待辦事項App咁難？用AI 5分鐘自己整一個：新增剔走待辦、分類優先級、到期日提醒、進度統計。資料只存自己部機，附完整Prompt範本。">
+    <meta name="keywords" content="待辦事項app, to do list 免費, 待辦清單, todo list 中文版, 任務管理, 清單app推薦, AI教學, 免費效率工具">
+    <meta property="og:title" content="用AI整「To-do List待辦清單」：極簡無廣告">
+    <meta property="og:description" content="新增剔走待辦、優先級、到期日、進度統計。資料只存自己部機。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 效率工具</span>
+        <h1>【實戰】整個<br><span>「To-do List 待辦清單」</span></h1>
+        <p>開 App 要睇廣告先加到一項 task？自己整嘅極簡版：打開就入，入完就走。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約6分鐘 ｜ 難度：⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › To-do List 待辦清單</div>
+
+    <article class="prose">
+        <h2>點解 To-do App 越嚟越難用？</h2>
+        <p>你淨係想記低「聽日交租」呢五個字，但而家嘅待辦 App 要你：開帳號 → 揀計劃 → 彈個訂閱優惠 → 開「工作區」→ 揀「專案」→ 先加到一項。研究顯示人嘅短期記憶得幾秒 —— 搞完呢輪，你已經唔記得自己要記咩。</p>
+        <p>To-do list 嘅本質係<strong>快</strong>。自己整一個：打開、打字、撳加入、閂 —— 三秒搞掂。冇帳號、冇廣告、冇訂閱，仲可以跟足你嘅習慣改。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>⚡ 頂部輸入框打字撳加入，三秒一項</li>
+            <li>🏷️ 優先級：高（紅）/ 中（黃）/ 低（灰），自動排次序</li>
+            <li>📅 到期日（選填），過期自動標紅提醒</li>
+            <li>✅ 撳一下就剔走，剔走嘅自動沉底加刪除線</li>
+            <li>📊 頂部顯示今日進度：「5 項完成 3 項」</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，擅長設計極簡高效嘅生產力工具。
+
+【任務】生成一個「To-do List 待辦清單」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】想要一個極簡、快速、冇廣告嘅待辦清單嘅香港人
+
+【功能規格】
+- 頂部一個大輸入框 + 「加入」按鈕，撳 Enter 都加到
+- 每項待辦顯示：剔選框、內容、優先級顏色點、到期日（如有）、刪除掣
+- 加入時可以揀優先級：高（紅）/ 中（黃）/ 低（灰），預設中
+- 加入時可以揀到期日（日期選擇器，選填）
+- 排序邏輯：未完成排前面，按優先級高至低排；已完成沉底，加刪除線同變灰
+- 剔選框撳一下切換完成/未完成
+- 到期日已過但未完成嘅項目，日期顯示紅色 + 「已過期」標籤
+- 今日到期嘅項目，日期顯示橙色 + 「今日到期」標籤
+- 頂部顯示進度統計：「共 X 項 · 完成 Y 項 · 今日到期 Z 項」
+- 「清除已完成」按鈕
+- 所有資料用 localStorage 儲存
+
+【設計要求】
+- 極簡風格，白底，大量留白，重點係「快」
+- 手機優先設計（響應式）
+- 每項待辦係一張圓角卡片，好撳易睇
+- 加入新項目時有輕微動畫
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架
+- 完全離線可用
+- 程式碼要有中文註釋
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>todo.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，即刻入幾項試吓</h3>
+                <p>入「聽日交租」揀高優先、揀聽日做到期日，應該見到紅點同「今日到期」式標籤（如果到期日係今日）。剔走佢，睇吓佢沉唔沉底。</p>
+            </div>
+        </div>
+
+        <h2>第三步：放上手機主畫面</h2>
+        <p>將個檔案傳上手機，瀏覽器開啟 → 「加到主畫面」。以後諗到要做咩，撳 icon、打字、撳加入 —— 三秒搞掂，快過喺 WhatsApp 群組 send 俾自己。</p>
+
+        <div class="tip-box">想分「工作」「私人」兩類？同 AI 講「加個分類功能，每項可以揀類別，頂部可以篩選」—— 你嘅工具，你想點就點。</div>
+
+        <h2>按需要微調（直接同 AI 講）</h2>
+        <ul>
+            <li>「加個編輯功能，撳項目中間可以改內容」</li>
+            <li>「加個搜尋框，即打即篩」</li>
+            <li>「每日第一次打開時，彈出今日到期嘅項目提醒」</li>
+            <li>「加個匯出功能，將清單變成文字方便分享」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：換咗電話啲資料會唔會跟？</h3>
+            <p>A：唔會，localStorage 係每部裝置獨立嘅。想跨裝置同步就要加後端資料庫，屬於進階玩法 —— 大部分人其實手機一份清單就夠。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：同手機內建備忘錄有咩分別？</h3>
+            <p>A：備忘錄係「記嘢」，呢個係「管嘢」—— 有優先級、有到期提醒、有進度統計、剔走自動沉底。仲有就係：呢個係你自己整嘅，想加咩功能一句說話就得。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：可唔可以整俾成個團隊用？</h3>
+            <p>A：單機版唔得，但你可以跟 <a href="publish-github-pages.html">放上网教學</a> 將佢放上网，團隊各自用自己嗰份。想真正多人協作，就要學埋接資料庫 —— 嗰個係下一階段嘅教學。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>生產力工具嘅最高境界係「感覺唔到佢存在」—— 諗到就記低，記低就繼續做嘢。自己整嘅 To-do list 就係咁：冇帳號、冇廣告、冇學習成本。到呢篇為止，你手上應該已經有十幾個自己整嘅工具，唔該晒 App Store 👋。想睇多啲？去 <a href="../index.html#articles">文章庫</a> 慢慢揀。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="pomodoro.html">
+                <div class="emoji">⏱️</div>
+                <h3>整個「番茄鐘計時器」</h3>
+                <p>清單配番茄鐘，效率雙倍</p>
+            </a>
+            <a class="related-card" href="bmi-calculator.html">
+                <div class="emoji">💪</div>
+                <h3>整個「BMI 健康計算機」</h3>
+                <p>BMI、TDEE、卡路里一撳計到</p>
+            </a>
+            <a class="related-card" href="custom-tools.html">
+                <div class="emoji">🛠️</div>
+                <h3>點解要自己整工具？</h3>
+                <p>現成App嘅4大罪狀，睇完你就明</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>

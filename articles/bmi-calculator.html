@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「BMI健康計算機」：TDEE卡路里一撳計到｜附Prompt範本</title>
+    <meta name="description" content="減肥健身第一步係知自己嘅數字！用AI 5分鐘整個健康計算機：BMI、TDEE、每日卡路里上限一次過計好，唔使下載App唔使睇廣告。附完整Prompt範本。">
+    <meta name="keywords" content="BMI計算, TDEE計算, 卡路里計算, BMI計算機, 減肥計算, 基礎代謝率, AI教學, 免費健康工具">
+    <meta property="og:title" content="用AI整「BMI健康計算機」：TDEE卡路里一撳計到">
+    <meta property="og:description" content="BMI、TDEE、每日卡路里上限一次過計好，唔使下載App唔使睇廣告。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 健身減肥必備</span>
+        <h1>【實戰】整個<br><span>「BMI 健康計算機」</span></h1>
+        <p>BMI、TDEE、每日卡路里上限 —— 減肥增肌要知嘅三個數字，一撳計好。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約6分鐘 ｜ 難度：⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › BMI 健康計算機</div>
+
+    <article class="prose">
+        <h2>減肥第一步，唔係節食，係「知數」</h2>
+        <p>好多人減肥淨係「食少啲」，但少幾多先啱？食得太少身體會慳能源，越減越難瘦。科學做法係先計三個數：<strong>BMI</strong>（你而家嘅體重狀況）、<strong>TDEE</strong>（你一日實際燒幾多卡路里）、<strong>每日卡路里上限</strong>（想減就要食得少過 TDEE 大概 300-500 kcal）。</p>
+        <p>網上嘅 BMI 計算機十居其九係廣告農場 —— 計條數要先睇三個廣告，仲要碌到頁尾先見到個掣。自己整一個：<strong>輸入身高體重年齡，三個數一撳出齊</strong>，五秒搞掂。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>⚖️ BMI 計算 + 標準範圍對照（過輕/正常/過重/肥胖分級）</li>
+            <li>🔥 TDEE 計算：跟性別、年齡、身高、體重、活動量計每日總消耗</li>
+            <li>🎯 減脂/維持/增肌三個目標嘅每日卡路里建議</li>
+            <li>📏 顯示你身高對應嘅「健康體重範圍」</li>
+            <li>📱 手機用得，離線計到，數據唔出你部機</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，同時熟悉健身營養學嘅計算公式。
+
+【任務】生成一個「BMI 健康計算機」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】想減肥或健身嘅香港人，唔想下載 App
+
+【功能規格】
+- 輸入欄位：性別（男/女切換掣）、年齡、身高（cm）、體重（kg）、活動量（5 級選擇：久坐/輕量/中度/高度/運動員）
+- 撳「計算」後一次過顯示：
+  1. BMI 數值（小數點後一位）+ 所屬級別（過輕 <18.5 / 正常 18.5-22.9 / 過重 23-24.9 / 肥胖 ≥25，用亞洲標準）
+  2. BMI 級別用顏色顯示：正常綠色、過輕同過重黃色、肥胖紅色
+  3. 健康體重範圍（按身高用 BMI 18.5-22.9 反推）
+  4. BMR 基礎代謝率（用 Mifflin-St Jeor 公式）
+  5. TDEE（BMR × 活動量系數：1.2 / 1.375 / 1.55 / 1.725 / 1.9）
+  6. 三個目標嘅每日卡路里：減脂（TDEE - 400）、維持（TDEE）、增肌（TDEE + 300）
+- 結果區域用大卡片顯示，數字要超大
+- 每個數字下面有一句中文解釋（例如「呢個係你瞓喺度一日都會燒嘅卡路里」）
+- 用 localStorage 記住上次輸入嘅數據
+
+【設計要求】
+- 簡潔專業風格，健康感配色（白底 + 綠色主調）
+- 手機優先設計（響應式）
+- 按鈕要夠大，數字要夠搶眼
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架
+- 完全離線可用
+- 程式碼要有中文註釋
+- 頁面底部加一句免責聲明：「以上數據僅供參考，如有健康問題請諮詢醫生」
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>bmi.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，計吓自己嘅數</h3>
+                <p>輸入你嘅資料撳計算 —— BMI、TDEE、三個目標卡路里應該一次過出齊。可以用網上任何 BMI 計算機對一對 BMI 嗰個數驗證吓。</p>
+            </div>
+        </div>
+
+        <h2>第三步：點用呢三個數</h2>
+        <ul>
+            <li><strong>想減脂</strong>：每日食「減脂」嗰個數，唔好再低 —— 低過 BMR 身體會抗議</li>
+            <li><strong>想增肌</strong>：食「增肌」嗰個數 + 夠蛋白質 + 重量訓練</li>
+            <li><strong>BMI 過重</strong>：目標係行入「健康體重範圍」，唔使一步到位的</li>
+        </ul>
+
+        <div class="tip-box">想追蹤進度？同 AI 講「加個體重記錄功能，每次磅重入數，畫條走勢線」—— 就變成你嘅私人減重日記，配合 <a href="savings-tracker.html">儲蓄追蹤器教學</a> 嘅進度條概念一樣。</div>
+
+        <h2>按需要微調（直接同 AI 講）</h2>
+        <ul>
+            <li>「加個體脂率估算（用美國海軍公式，要輸入頸圍腰圍）」</li>
+            <li>「加個每日蛋白質建議（體重 × 1.6-2.2g）」</li>
+            <li>「加個飲水量建議（體重 × 33ml）」</li>
+            <li>「加個目標日期倒數，預計幾時到健康體重」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：BMI 點解用亞洲標準唔用世衛標準？</h3>
+            <p>A：研究發現亞洲人喺較低 BMI 已經有較高嘅健康風險，所以亞洲標準係 23 以上算過重（世衛係 25）。我哋個 Prompt 已經寫明用亞洲標準，啱香港人用。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：肌肉多嘅人 BMI 咪好唔準？</h3>
+            <p>A：啱，BMI 分唔到肌肉同脂肪，健身人士會被誤判「過重」。所以個工具仲有 TDEE 同其他指標互補 —— 想更準，叫 AI 加體脂率估算功能。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：我嘅身高體重資料會上傳去邊？</h3>
+            <p>A：邊度都唔會去。所有計算喺你部機做，資料只存你嘅瀏覽器。相比啲健康 App 要你開帳號交數據，呢個係最私隱嘅做法。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>知道自己嘅數字，先至談得上管理身體。五秒計好三個關鍵數，唔使睇廣告、唔使開帳號、唔使俾人收咗你嘅健康數據。整完不妨睇埋 <a href="todo-list.html">To-do List 教學</a>，將你嘅健身計劃變成每日行動清單。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="todo-list.html">
+                <div class="emoji">✅</div>
+                <h3>整個「To-do List 待辦清單」</h3>
+                <p>極簡待辦清單，將計劃變行動</p>
+            </a>
+            <a class="related-card" href="savings-tracker.html">
+                <div class="emoji">🐷</div>
+                <h3>整個「儲蓄目標追蹤器」</h3>
+                <p>同一個進度條概念，改做減重用都得</p>
+            </a>
+            <a class="related-card" href="pomodoro.html">
+                <div class="emoji">⏱️</div>
+                <h3>整個「番茄鐘計時器」</h3>
+                <p>25分鐘專注法，工作讀書都啱</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
