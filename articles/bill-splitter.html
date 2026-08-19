@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「飯局AA制分帳器」：夾錢一撳計清｜附Prompt範本</title>
+    <meta name="description" content="食飯夾錢次次計到嘈交？用AI 5分鐘整個AA制分帳器：有人冇食到某碟餸都計到、加一服務費自動計、每人俾幾多一撳列出。附完整Prompt範本。">
+    <meta name="keywords" content="AA制計算, 分帳app, 夾錢計算機, 拆數, 飯局分帳, bill splitter, AI教學, 免費分帳工具">
+    <meta property="og:title" content="用AI整「飯局AA制分帳器」：夾錢一撳計清">
+    <meta property="og:description" content="唔均分都計到、加一自動計、每人俾幾多一撳列出。附完整Prompt範本。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 朋友聚會必備</span>
+        <h1>【實戰】整個<br><span>「飯局AA制分帳器」</span></h1>
+        <p>「我冇食到嗰碟和牛喎」—— 唔均分都計到，每人俾幾多一撳列出，唔使再嗌交。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約6分鐘 ｜ 難度：⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 飯局AA制分帳器</div>
+
+    <article class="prose">
+        <h2>夾錢，香港人嘅世紀難題</h2>
+        <p>八個人食飯，埋單 $2,347。有人淨係飲咗茶、有人叫咗支酒、有人中途走咗、加一服務費點攤…… 最後一定係有個人攞住張單撳計數機撳五分鐘，全枱人等佢，計完仲有人嗌「唔啱喎」。</p>
+        <p>分帳 App 大把，但要全枱人都裝同一個 App、註冊、開群組 —— 為一餐飯搞咁多嘢？自己整一個：<strong>打開網頁，逐碟餸輸入邊個有份食，一撳列出每人俾幾多</strong>，send 個截圖上群組就收錢。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>👥 輸入所有人名（例如：明、欣、Jason、阿May）</li>
+            <li>🍜 逐項輸入：項目名、金額、剔選邊幾個有份</li>
+            <li>🧾 加一服務費自動攤分（可以自己較百分比）</li>
+            <li>💸 一撳出結果：每人應俾幾多，列到清清楚楚</li>
+            <li>📋 「複製結果」掣，即刻貼上 WhatsApp 群組</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，擅長設計簡潔實用嘅生活計算工具。
+
+【任務】生成一個「飯局AA制分帳器」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】香港人，同朋友食飯夾錢用
+
+【功能規格】
+- 第一步區域：輸入參與者名單，撳「加入」逐個加，顯示成一排人名標籤，可以刪除
+- 第二步區域：逐項消費輸入——項目名稱、金額、剔選邊幾個參與者有份（預設全剔）
+- 消費項目列表顯示喺下面，可以刪除
+- 服務費設定：一個輸入框較百分比（預設 10%），自動按每人消費比例攤分
+- 撳「計算」後顯示結果：每個人名 + 佢有份嘅項目小計 + 服務費 + 應付總額
+- 結果底部顯示全單總數，方便對單
+- 「複製結果」按鈕：將結果變成純文字（例如「明：$325.5（項目 $296 + 加一 $29.5）」），方便貼上 WhatsApp
+- 金額顯示到小數點後一位
+- 用 localStorage 記住人名單，下次開唔使再入
+
+【設計要求】
+- 簡潔風格，流程由上至下好清晰
+- 手機優先設計（響應式），喺餐廳用電話撳為主
+- 人名標籤用彩色圓角設計，每人一隻色，結果都跟返隻色
+- 按鈕要夠大
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架
+- 支援離線使用
+- 程式碼要有中文註釋
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>split-bill.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，模擬一餐飯試計</h3>
+                <p>入幾個名、入幾碟餸、撳計算 —— 對一對總數同你入嘅項目夾唔夾。</p>
+            </div>
+        </div>
+
+        <h2>第三步：放上手機，飯局實戰</h2>
+        <p>將個檔案 WhatsApp 俾自己，手機瀏覽器開啟 → 「加到主畫面」。埋單嗰陣攞出嚟，逐碟輸入，一撳出數，「複製結果」貼上群組 —— 全個過程一分鐘，仲型過係咁撳計數機。</p>
+
+        <div class="tip-box">成班固定朋友成日食飯？人名單會自動記住，下次開直接用。想再勁啲，同 AI 講「加個記錄功能，儲低每次飯局邊個俾咗未」。</div>
+
+        <h2>按需要微調（直接同 AI 講）</h2>
+        <ul>
+            <li>「加個『邊個先找咗數』功能，自動計其他人要過數俾佢幾多」</li>
+            <li>「結果加埋 PayMe / FPS 收款提示字眼」</li>
+            <li>「有人中途走咗打八折計，加個折扣選項」</li>
+            <li>「加個旅行模式：多條數夾埋一齊，最後總結邊個欠邊個」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：同 Splitwise 之類嘅 App 有咩分別？</h3>
+            <p>A：Splitwise 要全枱人裝 App 開帳號先入到數。呢個係你一部機搞掂，計完 send 個結果就得 —— 一餐飯嘅場景，快就係王道。長期旅行夾錢先考慮嗰類 App。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：加一服務費點攤先公平？</h3>
+            <p>A：預設係按每人消費比例攤（食多啲俾多啲加一），呢個係最公平嘅做法。想平均攤都得，同 AI 講「服務費改為按人頭平均攤分」。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：啲數會唔會儲上網俾人睇到？</h3>
+            <p>A：唔會。所有計算喺你部機嘅瀏覽器做，人名同金額都唔會離開你部機 —— 食咗幾多錢飯，得你知。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>夾錢唔再係飯局嘅尷尬位。自己整嘅分帳器，規則自己定 —— 唔均分、加一、有人早走，全部一撳計清。想再玩多啲計數工具？睇埋 <a href="currency-converter.html">匯率換算器</a> 同 <a href="bmi-calculator.html">BMI 健康計算機</a> 教學。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="currency-converter.html">
+                <div class="emoji">💱</div>
+                <h3>整個「匯率換算器」</h3>
+                <p>旅行唱錢一撳即計，離線用得</p>
+            </a>
+            <a class="related-card" href="bmi-calculator.html">
+                <div class="emoji">💪</div>
+                <h3>整個「BMI 健康計算機」</h3>
+                <p>BMI、TDEE、每日卡路里一目了咲</p>
+            </a>
+            <a class="related-card" href="todo-list.html">
+                <div class="emoji">✅</div>
+                <h3>整個「To-do List 待辦清單」</h3>
+                <p>極簡待辦清單，資料唔出你部機</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>

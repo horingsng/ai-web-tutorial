@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】用AI整「匯率換算器」：旅行唱錢一撳即計｜附Prompt範本</title>
+    <meta name="description" content="去日本旅行唱錢唔知蝕定賺？用AI 5分鐘整個匯率換算器：日元港元台幣一撳即計、自訂匯率、離線用得。唔使再下載廣告App，附完整Prompt範本。">
+    <meta name="keywords" content="匯率換算, 唱錢計算機, 日元兌港元, 匯率計算, currency converter, 旅行唱錢, AI教學, 免費匯率工具">
+    <meta property="og:title" content="用AI整「匯率換算器」：旅行唱錢一撳即計">
+    <meta property="og:description" content="日元港元台幣一撳即計、自訂匯率、離線用得。附完整Prompt範本。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#features">為何選我們</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">新手入門 · 旅行必備</span>
+        <h1>【實戰】整個<br><span>「匯率換算器」</span></h1>
+        <p>唱錢嗰陣心算半日？一撳即計，仲可以對住找換店個牌價較準，睇吓佢賺你幾多。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約6分鐘 ｜ 難度：⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 匯率換算器</div>
+
+    <article class="prose">
+        <h2>點解唔用現成嘅匯率App？</h2>
+        <p>App Store 一大把匯率 App，但你真係用嗰吓就知：開 App 先彈 5 秒全屏廣告、匯率牌價唔知邊日嘅、想計「$8,500 港紙唱到幾多日圓」仲要撳十吓先輸入到。最嬲係去到日本嘅找換店門口，你只想快快手計一條數啫。</p>
+        <p>自己整一個：<strong>打開就係輸入框，預設好你成日用嘅貨幣組合，離線都計到</strong>（唱錢嗰陣成日冇 data）。仲可以加個「找換店牌價對照」功能，一眼睇出佢個價靚唔靚。</p>
+
+        <h2>成品功能預覽</h2>
+        <ul>
+            <li>💱 輸入金額，即時顯示兌換結果（雙向都得）</li>
+            <li>🌏 預設港人常用貨幣：港元、日元、台幣、人民幣、美金、英鎊、歐元</li>
+            <li>✏️ 匯率可以自己較 —— 對住找換店嘅牌價輸入，計出嚟就係實收數</li>
+            <li>🧮 一撳「反轉」互換兩邊貨幣</li>
+            <li>✈️ 離線用得，飛機mode 都計到數</li>
+        </ul>
+
+        <h2>第一步：複製 Prompt 俾 AI</h2>
+        <p>開啟 ChatGPT、Claude 或 Kimi，成段複製貼上：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，擅長設計簡潔實用嘅金融計算工具。
+
+【任務】生成一個「匯率換算器」網站，單一 HTML 檔案，可直接開啟使用。
+
+【目標用戶】香港人，主要用嚟旅行唱錢同海外網購計數
+
+【功能規格】
+- 頂部一個大金額輸入框，下面兩個貨幣選擇（左邊「由」，右邊「兌」）
+- 預設貨幣：HKD 港元、JPY 日元、TWD 台幣、CNY 人民幣、USD 美金、GBP 英鎊、EUR 歐元、KRW 韓圜、THB 泰銖
+- 每種貨幣顯示旗幟 Emoji + 貨幣代碼 + 中文名
+- 輸入金額後即時顯示兌換結果，唔使撳掣
+- 中間一個「⇄ 反轉」按鈕，互換兩邊貨幣
+- 結果要顯示千分位（例如 ¥185,000）同埋「1 HKD = 18.5 JPY」呢類匯率參考
+- 「匯率設定」區域：可以修改任何貨幣兌港元嘅匯率，修改後即時生效
+- 預設匯率寫死喺 code 度（例如 1 HKD ≈ 18.5 JPY），用註釋標明「請自行更新」
+- 用 localStorage 記住用戶改過嘅匯率同最後使用嘅貨幣組合
+
+【設計要求】
+- 簡潔風格，重點係個金額輸入框同結果要超大
+- 手機優先設計（響應式），數字鍵盤友善（input type 用 decimal）
+- 主色調深藍色
+
+【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片、框架或 API，用 Emoji 做貨幣旗幟
+- 完全離線可用
+- 程式碼要有中文註釋
+
+【輸出】
+請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。</div>
+
+        <h2>第二步：儲存做 HTML 檔案</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div>
+                <h3>複製 AI 輸出嘅完整代碼</h3>
+                <p>由 <code>&lt;!DOCTYPE html&gt;</code> 到最後 <code>&lt;/html&gt;</code>，一行都唔好漏。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div>
+                <h3>記事本貼上，另存新檔</h3>
+                <p>檔名 <code>currency.html</code>，儲存類型揀「所有檔案」，編碼 UTF-8。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div>
+                <h3>雙擊開啟，試計一條數</h3>
+                <p>打 1000 港紙，揀兌日元，應該即時見到結果。試撳「反轉」掣。</p>
+            </div>
+        </div>
+
+        <h2>第三步：出發前較準匯率</h2>
+        <p>去 Google 搜「港元 日元 匯率」，或者直接對住你幫襯開嗰間找換店嘅牌價，喺「匯率設定」度輸入 —— 之後計出嚟嘅就係<strong>你真係收到嘅數</strong>，唔使再俾「中間價」呃。</p>
+
+        <div class="tip-box">點解唔叫 AI 自動上網拎最新匯率？可以嘅，叫佢「接入免費匯率 API（例如 exchangerate.host）」就得 —— 但咁樣離線就用唔到。旅行場景離線更加緊要，所以我哋揀咗手動較匯率版。兩樣想要？叫 AI「兩個模式都要，有得切換」。</div>
+
+        <h2>按需要微調（直接同 AI 講）</h2>
+        <ul>
+            <li>「加個手續費欄位，輸入百分比後喺結果扣埋」</li>
+            <li>「加個常用金額快捷掣：$100 / $500 / $1000 / $5000」</li>
+            <li>「記低我最近用過嘅 5 個貨幣組合，排最前」</li>
+            <li>「加個深色模式，夜晚網購計數唔刺眼」</li>
+        </ul>
+
+        <h2>常見問題 FAQ</h2>
+        <div class="faq-item">
+            <h3>Q：匯率會自動更新嗎？</h3>
+            <p>A：呢個版本係手動較匯率 —— 好處係離線用得、仲可以對準找換店實價。想要自動更新，叫 AI 加「免費匯率 API」就得，不過冇網嘅時候就用唔到。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：點解我計出嚟同找換店收嘅唔同？</h3>
+            <p>A：因為網上匯率係「中間價」，找換店會食差價。所以你應該直接輸入找換店個牌價做匯率，咁先係實收數 —— 呢個正正係自己整工具嘅價值。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：可以放喺手機桌面當 App 用嗎？</h3>
+            <p>A：可以！將個檔案傳上手機開啟，瀏覽器選單揀「加到主畫面」，以後撳 icon 直入，快過開 App 仲冇廣告。</p>
+        </div>
+
+        <h2>總結</h2>
+        <p>下次去旅行，唔使再喺找換店門口撳計數機撳到面阻阻。自己嘅匯率器，自己嘅牌價，一撳有數。整完之後，不妨睇埋 <a href="bill-splitter.html">飯局 AA 制分帳器</a> —— 同朋友食飯夾錢都係一撳搞掂。</p>
+    </article>
+
+    <div class="ad-label">贊助商廣告</div>
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="bill-splitter.html">
+                <div class="emoji">🍻</div>
+                <h3>整個「飯局AA制分帳器」</h3>
+                <p>唔均分、加一服務費，一撳計清</p>
+            </a>
+            <a class="related-card" href="budget.html">
+                <div class="emoji">📒</div>
+                <h3>整個「家庭記帳工具」</h3>
+                <p>收入支出記錄、分類統計、月度圖表</p>
+            </a>
+            <a class="related-card" href="publish-github-pages.html">
+                <div class="emoji">🚀</div>
+                <h3>點樣將工具免費放上网？</h3>
+                <p>整完放上网，同行朋友一齊用</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
