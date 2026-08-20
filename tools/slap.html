@@ -3,29 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>出氣相靶｜上載張相狂摑出氣・上班摸魚遊戲・免費工具｜AI建站教學</title>
-    <meta name="description" content="免費出氣小遊戲：上載任何相片（老細、前度、星期一都得），用手指狂摑發洩，有聲效有計數。相片只留喺你部機，唔會上傳。上班摸魚必備。">
+    <title>出氣公仔｜上載老細張相變出氣袋・上班摸魚遊戲・免費工具｜AI建站教學</title>
+    <meta name="description" content="免費出氣小遊戲：上載任何相片，自動抽出個頭變成出氣公仔，摑到佢又跳又叫仲會瘀晒。相片只留喺你部機。上班摸魚必備。">
     <meta name="keywords" content="上班摸魚遊戲, 出氣遊戲, 發洩遊戲, 打老細遊戲, 解壓小遊戲, 免費網頁遊戲">
     <link rel="stylesheet" href="../style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
 <style>
 .sl-card{max-width:520px;margin:0 auto;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:1.5rem;text-align:center;}
-.sl-upload{border:2px dashed #475569;border-radius:12px;padding:2rem 1rem;color:#94a3b8;cursor:pointer;transition:border-color .2s;}
+.sl-upload{border:2px dashed #475569;border-radius:12px;padding:2rem 1rem;color:#94a3b8;cursor:pointer;}
 .sl-upload:hover{border-color:#38bdf8;color:#7dd3fc;}
 .sl-upload .sl-icon{font-size:2.5rem;display:block;margin-bottom:.5rem;}
+.sl-cal{display:none;}
+.sl-cal.sl-on{display:block;}
+.sl-calbox{position:relative;width:100%;max-width:320px;margin:0 auto 1rem;touch-action:none;}
+.sl-calbox img{width:100%;display:block;border-radius:12px;}
+.sl-ring{position:absolute;width:110px;height:110px;border:3px solid #fbbf24;border-radius:50%;box-shadow:0 0 0 9999px rgba(0,0,0,.55);cursor:move;left:calc(50% - 55px);top:20%;}
+.sl-btn{background:#0ea5e9;border:none;color:#fff;border-radius:10px;padding:.8rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;}
+.sl-btn:active{transform:scale(.96);}
 .sl-arena{display:none;}
 .sl-arena.sl-on{display:block;}
-.sl-target{position:relative;width:100%;max-width:320px;margin:0 auto;border-radius:16px;overflow:hidden;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;}
-.sl-target img{width:100%;display:block;pointer-events:none;}
-.sl-target.sl-hit{animation:slap .18s ease;}
-@keyframes slap{0%{transform:rotate(0) scale(1);}30%{transform:rotate(-6deg) scale(.96);}60%{transform:rotate(4deg) scale(1.02);}100%{transform:rotate(0) scale(1);}}
-.sl-pow{position:absolute;font-size:1.8rem;pointer-events:none;animation:pow .5s ease forwards;}
-@keyframes pow{from{opacity:1;transform:scale(1) translateY(0);}to{opacity:0;transform:scale(1.8) translateY(-40px);}}
-.sl-count{margin:1rem 0 .5rem;font-size:1.2rem;color:#f1f5f9;}
+.sl-doll{position:relative;width:220px;margin:0 auto;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:transform .3s;}
+.sl-doll.sl-jump{animation:jump .35s ease;}
+@keyframes jump{0%{transform:translateY(0);}40%{transform:translateY(-36px) rotate(-4deg);}70%{transform:translateY(4px);}100%{transform:translateY(0);}}
+.sl-doll.sl-ko{transform:rotate(90deg) translateY(30px);}
+.sl-head{position:relative;width:130px;height:130px;margin:0 auto;border-radius:50%;overflow:hidden;border:4px solid #fbbf24;background:#0f172a;z-index:2;}
+.sl-head img{position:absolute;}
+.sl-bruise{position:absolute;font-size:1.3rem;pointer-events:none;}
+.sl-body{font-size:5.5rem;line-height:1;margin-top:-14px;position:relative;z-index:1;}
+.sl-eyes{position:absolute;top:0;left:0;right:0;text-align:center;font-size:2rem;pointer-events:none;z-index:3;display:none;padding-top:38px;}
+.sl-eyes.sl-on{display:block;}
+.sl-yell{position:absolute;top:-2.6rem;left:50%;transform:translateX(-50%);background:#fef3c7;color:#92400e;padding:.3rem .8rem;border-radius:12px;font-size:.9rem;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none;z-index:4;}
+.sl-yell.sl-show{opacity:1;}
+.sl-count{margin:1rem 0 .3rem;font-size:1.2rem;color:#f1f5f9;}
 .sl-count b{color:#7dd3fc;font-size:1.8rem;}
 .sl-msg{color:#94a3b8;font-size:.9rem;min-height:1.4rem;}
 .sl-reset{background:none;border:1px solid #475569;color:#94a3b8;border-radius:10px;padding:.5rem 1rem;margin-top:.8rem;cursor:pointer;font-size:.9rem;}
 .sl-note{color:#64748b;font-size:.8rem;margin-top:1rem;}
+.sl-dl{background:none;border:1px solid #22c55e;color:#22c55e;width:100%;padding:.8rem;font-weight:700;border-radius:10px;cursor:pointer;font-size:1rem;margin-top:.5rem;}
+.sl-dl:active{transform:scale(.97);}
 </style>
 </head>
 <body>
@@ -35,15 +50,16 @@
         <ul class="nav-links">
             <li><a href="../index.html#tool">Prompt生成器</a></li>
             <li><a href="../index.html#articles">教學文章</a></li>
-            <li><a href="../index.html#features">為何選我們</a></li>
+            <li><a href="../index.html#tools">免費工具</a></li>
         </ul>
     </nav>
 </header>
 
 <main class="container">
-    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 出氣相靶</div>
-    <h1 style="text-align:center;margin:1rem 0 0.5rem;">👋 出氣相靶</h1>
-    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">上載張相，狂摑出氣・張相唔會離開你部機</p>
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 出氣公仔</div>
+    <h1 style="text-align:center;margin:1rem 0 0.5rem;">👊 出氣公仔</h1>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">上載張相，佢就變成你嘅出氣袋・又跳又叫仲會瘀</p>
+
     <div class="sl-card">
         <div class="sl-upload" id="slUpload">
             <span class="sl-icon">🖼️</span>
@@ -51,9 +67,24 @@
             <small>（老細？前度？星期一？你話事）</small>
         </div>
         <input type="file" id="slFile" accept="image/*" style="display:none;">
+
+        <div class="sl-cal" id="slCal">
+            <p style="color:#94a3b8;font-size:.9rem;margin-bottom:.6rem;">黃圈對準佢個頭（可以拖郁），啱位就開打：</p>
+            <div class="sl-calbox" id="slCalbox">
+                <img id="slCalImg" alt="校準">
+                <div class="sl-ring" id="slRing"></div>
+            </div>
+            <button class="sl-btn" id="slStart">👊 開打！</button>
+        </div>
+
         <div class="sl-arena" id="slArena">
-            <div class="sl-target" id="slTarget">
-                <img id="slImg" alt="出氣相靶">
+            <div class="sl-doll" id="slDoll">
+                <div class="sl-yell" id="slYell">哎吔！</div>
+                <div class="sl-head" id="slHead">
+                    <img id="slHeadImg" alt="">
+                    <div class="sl-eyes" id="slEyes">😵‍💫</div>
+                </div>
+                <div class="sl-body">🧍</div>
             </div>
             <div class="sl-count">已摑 <b id="slNum">0</b> 吓</div>
             <div class="sl-msg" id="slMsg">摑啦，唔使客氣。</div>
@@ -65,13 +96,13 @@
     <div class="sl-card" style="margin-top:1.5rem;text-align:left;">
         <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 鍾意？拎走佢！</h2>
         <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">呢個遊戲係一個獨立 HTML 檔。撳下面個制下載落部機——雙擊即用，<strong style="color:#7dd3fc;">離線都玩得</strong>，send 俾同事一齊出氣都得。</p>
-        <button class="sl-reset" id="slDownload" style="border-color:#22c55e;color:#22c55e;width:100%;padding:.8rem;font-weight:700;">⬇️ 下載呢個遊戲（HTML 單檔）</button>
+        <button class="sl-dl" id="slDownload">⬇️ 下載呢個遊戲（HTML 單檔）</button>
         <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講</h2>
         <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載咗個檔之後，上載去 ChatGPT / Claude / Kimi，跟住抄下面任何一句：</p>
         <ul style="color:#cbd5e1;font-size:.9rem;line-height:2;padding-left:1.2rem;">
+            <li>「加武器系統：拖鞋、藤條、摺凳，唔同武器唔同威力同聲效」</li>
+            <li>「加多啲慘叫對白，我想自己寫十句俾佢講」</li>
             <li>「加個 30 秒限時模式，同朋友鬥摑得多」</li>
-            <li>「加手機震動，每摑一吓機身震一下」</li>
-            <li>「加個最高紀錄，用 localStorage 記住」</li>
         </ul>
         <p style="color:#64748b;font-size:.85rem;line-height:1.7;">唔識落 prompt？睇我哋篇<a href="../articles/prompt-tips.html" style="color:#38bdf8;">落 Prompt 五個技巧</a>；整完想放上网？睇<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>。</p>
     </div>
@@ -99,24 +130,70 @@
 </footer>
 <script>
 const $ = id => document.getElementById(id);
-let count = 0, audioCtx = null;
+let count = 0, audioCtx = null, natW = 0, natH = 0;
 
 $('slUpload').onclick = () => $('slFile').click();
-$('slReset').onclick = () => $('slFile').click();
+$('slReset').onclick = () => { $('slArena').classList.remove('sl-on'); $('slCal').classList.remove('sl-on'); $('slUpload').style.display = 'block'; $('slFile').click(); };
 
-$('slFile').onchange = e => {
+$('slFile').onchange = async e => {
   const f = e.target.files[0];
   if(!f) return;
-  const r = new FileReader();
-  r.onload = ev => {
-    $('slImg').src = ev.target.result;
-    $('slUpload').style.display = 'none';
-    $('slArena').classList.add('sl-on');
-    count = 0; $('slNum').textContent = 0;
-    $('slMsg').textContent = '摑啦，唔使客氣。';
-  };
-  r.readAsDataURL(f);
+  const url = URL.createObjectURL(f);
+  const img = $('slCalImg');
+  img.src = url;
+  await img.decode();
+  natW = img.naturalWidth; natH = img.naturalHeight;
+  $('slUpload').style.display = 'none';
+  $('slArena').classList.remove('sl-on');
+  $('slCal').classList.add('sl-on');
+  try{
+    if('FaceDetector' in window){
+      const det = new FaceDetector();
+      const faces = await det.detect(img);
+      if(faces.length){
+        const b = faces[0].boundingBox;
+        const box = $('slCalbox');
+        const sx = box.clientWidth / natW;
+        const ring = $('slRing');
+        ring.style.left = (b.x * sx + b.width * sx / 2 - 55) + 'px';
+        ring.style.top = (b.y * sx + b.height * sx / 2 - 55) + 'px';
+      }
+    }
+  }catch(err){}
   e.target.value = '';
+};
+
+(function(){
+  const ring = $('slRing'), box = $('slCalbox');
+  let dragging = false, ox = 0, oy = 0;
+  ring.addEventListener('pointerdown', e => { dragging = true; ox = e.clientX - ring.offsetLeft; oy = e.clientY - ring.offsetTop; ring.setPointerCapture(e.pointerId); });
+  ring.addEventListener('pointermove', e => {
+    if(!dragging) return;
+    let x = e.clientX - ox, y = e.clientY - oy;
+    x = Math.max(0, Math.min(x, box.clientWidth - 110));
+    y = Math.max(0, Math.min(y, box.clientHeight - 110));
+    ring.style.left = x + 'px'; ring.style.top = y + 'px';
+  });
+  ring.addEventListener('pointerup', () => dragging = false);
+})();
+
+$('slStart').onclick = () => {
+  const box = $('slCalbox'), ring = $('slRing');
+  const sx = natW / box.clientWidth, sy = natH / box.clientHeight;
+  const cx = (ring.offsetLeft + 55) * sx, cy = (ring.offsetTop + 55) * sy;
+  const r = 55 * sx;
+  const c = document.createElement('canvas');
+  c.width = c.height = 260;
+  const ctx = c.getContext('2d');
+  ctx.drawImage($('slCalImg'), cx - r, cy - r, r * 2, r * 2, 0, 0, 260, 260);
+  $('slHeadImg').src = c.toDataURL();
+  $('slCal').classList.remove('sl-on');
+  $('slArena').classList.add('sl-on');
+  count = 0; $('slNum').textContent = 0;
+  $('slMsg').textContent = '摑啦，唔使客氣。';
+  $('slDoll').classList.remove('sl-ko');
+  $('slEyes').classList.remove('sl-on');
+  document.querySelectorAll('.sl-bruise').forEach(b => b.remove());
 };
 
 function slapSound(){
@@ -134,43 +211,53 @@ function slapSound(){
   src.start();
 }
 
+const yells = ['哎吔！','唔好打塊面！','我錯啦！','救命呀！','點解又係我！','停手啦老闆……咪玩啦！','我請你食飯好冇？','呢吓真係痛！'];
+const bruises = ['🤕','🩹','🤕','🩹','👊'];
 const msgs = [
   [10, '唔錯，開始有火。'],
-  [30, '啪啪啪，啲氣出緊喇。'],
-  [50, '老細：我做錯咗咩……'],
-  [100, '一百吓！你今日真係受咗好多委屈。'],
-  [200, '兩百吓！建議你放假。'],
-  [500, '五百吓！！呢個唔係遊戲，係治療。'],
-  [1000, '一千吓。你贏咗，張相已經唔敢郁。']
+  [30, '佢塊面開始瘀喇……'],
+  [50, '眼冒金星！繼續！'],
+  [100, 'KO！佢瞓低咗。你順氣未？']
 ];
+
+$('slDoll').addEventListener('pointerdown', () => {
+  if($('slDoll').classList.contains('sl-ko')) return;
+  count++;
+  $('slNum').textContent = count;
+  const d = $('slDoll');
+  d.classList.remove('sl-jump');
+  void d.offsetWidth;
+  d.classList.add('sl-jump');
+  slapSound();
+  const y = $('slYell');
+  y.textContent = yells[Math.floor(Math.random() * yells.length)];
+  y.classList.add('sl-show');
+  clearTimeout(y._t);
+  y._t = setTimeout(() => y.classList.remove('sl-show'), 600);
+  if(count % 10 === 0){
+    const b = document.createElement('span');
+    b.className = 'sl-bruise';
+    b.textContent = bruises[(count / 10 - 1) % bruises.length];
+    b.style.left = (10 + Math.random() * 80) + 'px';
+    b.style.top = (10 + Math.random() * 80) + 'px';
+    $('slHead').appendChild(b);
+  }
+  if(count >= 50) $('slEyes').classList.add('sl-on');
+  if(count === 100){
+    d.classList.add('sl-ko');
+    $('slMsg').textContent = 'KO！佢瞓低咗。換張相再嚟過？';
+  }
+  for(const [n, m] of msgs) if(count === n && n !== 100) $('slMsg').textContent = m;
+});
 
 $('slDownload').onclick = () => {
   const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = '出氣相靶.html';
+  a.download = '出氣公仔.html';
   a.click();
   URL.revokeObjectURL(a.href);
 };
-
-$('slTarget').addEventListener('pointerdown', e => {
-  count++;
-  $('slNum').textContent = count;
-  const t = $('slTarget');
-  t.classList.remove('sl-hit');
-  void t.offsetWidth;
-  t.classList.add('sl-hit');
-  slapSound();
-  const pow = document.createElement('span');
-  pow.className = 'sl-pow';
-  pow.textContent = ['💥','👋','💢','⭐'][count % 4];
-  const r = t.getBoundingClientRect();
-  pow.style.left = (e.clientX - r.left - 14) + 'px';
-  pow.style.top = (e.clientY - r.top - 14) + 'px';
-  t.appendChild(pow);
-  setTimeout(() => pow.remove(), 500);
-  for(const [n, m] of msgs) if(count === n) $('slMsg').textContent = m;
-});
 </script>
 </body>
 </html>
