@@ -68,6 +68,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://aibuildhk.com/articles/company-website-firebase.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://aibuildhk.com/tools/bill-splitter.html</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -98,8 +104,14 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://aibuildhk.com/tools/product-page.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://aibuildhk.com/learning-park.html</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
