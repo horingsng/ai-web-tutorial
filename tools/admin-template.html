@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司後台管理模板｜登入＋多人共用資料・免費模板｜AI建站教學</title>
+    <meta name="description" content="免費公司後台管理模板：員工登入、訂單列表、狀態篩選、新增刪改，接駁 Firebase 就多人即時同步。未接駁前內置示範模式，即刻試到。">
+    <meta name="keywords" content="公司後台系統, 管理系統模板, Firebase教學, 訂單管理系統, 員工管理系統, 免費網頁模板">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+<style>
+.ad-wrap{max-width:860px;margin:0 auto;}
+.ad-banner{background:#422006;border:1px solid #f59e0b;color:#fbbf24;border-radius:10px;padding:.7rem 1rem;font-size:.85rem;margin-bottom:1rem;line-height:1.6;}
+.ad-shell{background:#0f172a;border:1px solid #334155;border-radius:16px;overflow:hidden;}
+.ad-top{display:flex;justify-content:space-between;align-items:center;background:#1e293b;padding:.8rem 1.2rem;border-bottom:1px solid #334155;}
+.ad-top b{color:#f1f5f9;font-size:1.05rem;}
+.ad-top .ad-user{color:#64748b;font-size:.8rem;}
+.ad-body{display:flex;min-height:420px;}
+.ad-side{width:150px;background:#1e293b;border-right:1px solid #334155;padding:1rem .6rem;flex-shrink:0;}
+.ad-side button{display:block;width:100%;background:none;border:none;color:#94a3b8;text-align:left;padding:.6rem .7rem;border-radius:8px;cursor:pointer;font-size:.92rem;margin-bottom:.2rem;}
+.ad-side button.ad-act{background:#0c2233;color:#7dd3fc;}
+.ad-main{flex:1;padding:1.2rem;min-width:0;}
+.ad-filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.ad-chip{background:#0f172a;border:1px solid #475569;color:#94a3b8;border-radius:999px;padding:.3rem .8rem;font-size:.8rem;cursor:pointer;}
+.ad-chip.ad-on{border-color:#0ea5e9;color:#7dd3fc;background:#0c2233;}
+.ad-table{width:100%;border-collapse:collapse;font-size:.9rem;}
+.ad-table th{color:#64748b;text-align:left;padding:.5rem .6rem;border-bottom:1px solid #334155;font-weight:600;}
+.ad-table td{color:#e2e8f0;padding:.55rem .6rem;border-bottom:1px solid #1e293b;}
+.ad-badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.75rem;font-weight:700;}
+.ad-b0{background:#422006;color:#fbbf24;}
+.ad-b1{background:#0c2233;color:#38bdf8;}
+.ad-b2{background:#052e16;color:#4ade80;}
+.ad-del{background:none;border:none;color:#f87171;cursor:pointer;font-size:.85rem;}
+.ad-form{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:1rem;margin-bottom:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.ad-form input,.ad-form select{background:#0f172a;border:1px solid #475569;color:#f1f5f9;border-radius:8px;padding:.6rem .8rem;font-size:.95rem;width:100%;}
+.ad-form .ad-full{grid-column:1 / -1;}
+.ad-btn{background:#0ea5e9;border:none;color:#fff;border-radius:8px;padding:.7rem;font-size:1rem;font-weight:700;cursor:pointer;}
+.ad-btn:active{transform:scale(.97);}
+.ad-login{max-width:380px;margin:0 auto;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:1.8rem;}
+.ad-login h2{color:#f1f5f9;font-size:1.2rem;margin-bottom:1rem;text-align:center;}
+.ad-login input{width:100%;background:#0f172a;border:1px solid #475569;color:#f1f5f9;border-radius:10px;padding:.8rem .9rem;font-size:1rem;margin-bottom:.7rem;}
+.ad-login .ad-btn{width:100%;}
+.ad-err{color:#f87171;font-size:.85rem;text-align:center;margin-top:.5rem;min-height:1.2rem;}
+.ad-ghost{width:100%;background:none;border:1px solid #475569;color:#94a3b8;border-radius:10px;padding:.7rem;font-size:.9rem;cursor:pointer;margin-top:.6rem;}
+@media (max-width:640px){.ad-side{width:110px;}.ad-form{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#tools">免費工具</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 公司後台管理模板</div>
+    <h1 style="text-align:center;margin:1rem 0 0.5rem;">🗂️ 公司後台管理模板</h1>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">員工登入・訂單列表・多人即時同步（接駁 Firebase 後）</p>
+
+    <div class="ad-wrap">
+        <div class="ad-banner" id="adBanner">🧪 <strong>示範模式</strong>：而家資料只存喺你部機，可以即刻試玩。貼上你自己嘅 Firebase 密鑰，就會自動變成多人同步嘅正式版（<a href="../articles/company-website-firebase.html" style="color:#fbbf24;">睇教學點攞密鑰</a>，10 分鐘搞掂）。</div>
+        <div class="ad-shell">
+            <div class="ad-top">
+                <b>🗂️ 公司後台（訂單管理）</b>
+                <span class="ad-user" id="adUser"></span>
+            </div>
+            <div class="ad-body">
+                <div class="ad-side">
+                    <button class="ad-act" id="adNavList">📋 訂單列表</button>
+                    <button id="adNavAdd">➕ 新增訂單</button>
+                    <button id="adLogout" style="margin-top:1rem;color:#f87171;">🚪 登出</button>
+                </div>
+                <div class="ad-main" id="adMain"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-wrap" style="margin-top:1.5rem;">
+        <div class="ad-shell" style="padding:1.5rem;">
+            <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 拎走佢，變成你公司個系統</h2>
+            <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">撳下面個制下載個 HTML 檔。跟住<a href="../articles/company-website-firebase.html" style="color:#38bdf8;">Firebase 教學</a>攞你公司嘅密鑰，貼入檔案頂部 <code style="color:#fbbf24;">firebaseConfig</code> 位置，放上网——就係你公司嘅正式後台。</p>
+            <button class="ad-btn" id="adDownload" style="background:#22c55e;color:#052e16;">⬇️ 下載呢個模板（HTML 單檔）</button>
+            <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講（連方法都教埋你）</h2>
+            <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載個檔，上載去 ChatGPT / Claude / Kimi，跟住抄。每句都講埋<strong style="color:#7dd3fc;">用咩技術做</strong>：</p>
+            <ul style="color:#cbd5e1;font-size:.9rem;line-height:1.9;padding-left:1.2rem;">
+                <li><strong style="color:#fbbf24;">換用途</strong>：「呢個後台係用 Firestore 一個叫 orders 嘅 collection 存資料。幫我改成『客戶管理』：欄位變成 客戶名／電話／跟進狀態／下次跟進日期，collection 改名做 customers，介面用字跟住改。」</li>
+                <li><strong style="color:#fbbf24;">加搜尋同分頁</strong>：「幫個列表加搜尋框：用 Firestore 嘅 where 加 orderBy 做 server-side 篩選，或者資料少就直接前端 filter。加個簡單分頁（每頁 20 條）。」</li>
+                <li><strong style="color:#fbbf24;">加權限分級</strong>：「加返個 role 欄位：Firestore 入面每個 user 文檔記住 admin 定 staff，admin 先見到刪除制。Firestore Rules 都要跟住改，寫明俾我貼。」</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+<script>
+// ============================================================
+// 👇👇👇 貼上你自己嘅 Firebase 密鑰（睇教學：company-website-firebase.html）
+// 貼咗之後，呢個模板就會由「示範模式」變成多人同步嘅正式版
+const firebaseConfig = null;
+/* 貼嘅話會係咁嘅格式：
+const firebaseConfig = {
+  apiKey: "AIza...",
+  authDomain: "xxx.firebaseapp.com",
+  projectId: "xxx",
+  storageBucket: "xxx.appspot.com",
+  messagingSenderId: "...",
+  appId: "..."
+};
+*/
+// ============================================================
+
+const $ = id => document.getElementById(id);
+const STATUSES = ['未出貨', '已出貨', '已收錢'];
+let orders = [], filter = '全部', view = 'list', user = null;
+let demoMode = !firebaseConfig;
+let fb = {}; // firebase functions
+
+async function initFirebase(){
+  const app = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+  const auth = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js');
+  const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+  const a = app.initializeApp(firebaseConfig);
+  fb.auth = auth.getAuth(a);
+  fb.db = fs.getFirestore(a);
+  fb.fns = { ...auth, ...fs };
+  fb.fns.onAuthStateChanged(fb.auth, u => {
+    user = u;
+    if(u){ showApp(); subscribe(); }else{ showLogin(); }
+  });
+}
+
+// ---------- 資料層：demo 用 localStorage，正式用 Firestore ----------
+function seedOrders(){
+  return [
+    { id: 'd1', customer: '陳記茶餐廳', item: '廣告燈箱', amount: 3800, status: 0 },
+    { id: 'd2', customer: 'ABC 補習社', item: '宣傳單張 x500', amount: 680, status: 1 },
+    { id: 'd3', customer: '開心果雜貨店', item: '產品介紹網頁', amount: 2500, status: 2 }
+  ];
+}
+function loadDemo(){ orders = JSON.parse(localStorage.getItem('adOrders') || 'null') || seedOrders(); saveDemo(); render(); }
+function saveDemo(){ localStorage.setItem('adOrders', JSON.stringify(orders)); }
+function subscribe(){
+  const { collection, onSnapshot, query, orderBy } = fb.fns;
+  onSnapshot(query(collection(fb.db, 'orders'), orderBy('createdAt', 'desc')), snap => {
+    orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    render();
+  });
+}
+async function addOrder(data){
+  if(demoMode){
+    orders.unshift({ id: 'd' + Date.now(), ...data });
+    saveDemo(); render();
+  }else{
+    const { collection, addDoc, serverTimestamp } = fb.fns;
+    await addDoc(collection(fb.db, 'orders'), { ...data, createdAt: serverTimestamp() });
+  }
+}
+async function delOrder(id){
+  if(demoMode){ orders = orders.filter(o => o.id !== id); saveDemo(); render(); }
+  else{ const { doc, deleteDoc } = fb.fns; await deleteDoc(doc(fb.db, 'orders', id)); }
+}
+async function cycleStatus(id){
+  const o = orders.find(x => x.id === id);
+  if(!o) return;
+  const ns = (o.status + 1) % STATUSES.length;
+  if(demoMode){ o.status = ns; saveDemo(); render(); }
+  else{ const { doc, updateDoc } = fb.fns; await updateDoc(doc(fb.db, 'orders', id), { status: ns }); }
+}
+
+// ---------- 畫面 ----------
+function showLogin(){
+  $('adUser').textContent = '';
+  $('adMain').innerHTML = '';
+  document.querySelector('.ad-side').style.display = 'none';
+  $('adMain').innerHTML = `
+    <div class="ad-login" style="margin:2rem auto;">
+      <h2>🗂️ 員工登入</h2>
+      <input id="adEmail" type="email" placeholder="公司 email">
+      <input id="adPass" type="password" placeholder="密碼">
+      <button class="ad-btn" id="adDoLogin">登入</button>
+      <div class="ad-err" id="adErr"></div>
+      ${demoMode ? '<button class="ad-ghost" id="adDemo">🧪 示範模式：唔使帳號，一撳直入</button>' : ''}
+    </div>`;
+  $('adDoLogin').onclick = async () => {
+    if(demoMode){ enterDemo(); return; }
+    try{
+      await fb.fns.signInWithEmailAndPassword(fb.auth, $('adEmail').value, $('adPass').value);
+    }catch(e){ $('adErr').textContent = '登入失敗：' + e.message; }
+  };
+  if(demoMode) $('adDemo').onclick = enterDemo;
+}
+function enterDemo(){
+  user = { email: 'demo@示範模式' };
+  document.querySelector('.ad-side').style.display = 'block';
+  showApp();
+  loadDemo();
+}
+function showApp(){
+  document.querySelector('.ad-side').style.display = 'block';
+  $('adUser').textContent = user && user.email ? user.email : '';
+  view = 'list';
+  render();
+}
+function render(){
+  if(!user) return;
+  $('adNavList').classList.toggle('ad-act', view === 'list');
+  $('adNavAdd').classList.toggle('ad-act', view === 'add');
+  if(view === 'add'){
+    $('adMain').innerHTML = `
+      <div class="ad-form">
+        <input id="fCustomer" placeholder="客戶名">
+        <input id="fItem" placeholder="項目／貨品">
+        <input id="fAmount" type="number" min="0" placeholder="金額（$）">
+        <select id="fStatus">${STATUSES.map((s, i) => `<option value="${i}">${s}</option>`).join('')}</select>
+        <button class="ad-btn ad-full" id="fAdd">➕ 加入訂單</button>
+      </div>`;
+    $('fAdd').onclick = async () => {
+      const c = $('fCustomer').value.trim(), it = $('fItem').value.trim(), am = parseFloat($('fAmount').value) || 0;
+      if(!c || !it || am <= 0) return;
+      await addOrder({ customer: c, item: it, amount: am, status: parseInt($('fStatus').value) });
+      view = 'list';
+      if(demoMode) render();
+    };
+    return;
+  }
+  const list = filter === '全部' ? orders : orders.filter(o => STATUSES[o.status] === filter);
+  $('adMain').innerHTML = `
+    <div class="ad-filters">
+      ${['全部', ...STATUSES].map(s => `<button class="ad-chip ${filter === s ? 'ad-on' : ''}" data-f="${s}">${s}</button>`).join('')}
+    </div>
+    <table class="ad-table">
+      <tr><th>客戶</th><th>項目</th><th>金額</th><th>狀態</th><th></th></tr>
+      ${list.map(o => `
+        <tr>
+          <td>${o.customer}</td>
+          <td>${o.item}</td>
+          <td>$${Number(o.amount).toLocaleString()}</td>
+          <td><span class="ad-badge ad-b${o.status}" style="cursor:pointer" onclick="cycleStatus('${o.id}')" title="撳一下轉狀態">${STATUSES[o.status]}</span></td>
+          <td><button class="ad-del" onclick="delOrder('${o.id}')">刪除</button></td>
+        </tr>`).join('') || '<tr><td colspan="5" style="color:#64748b;text-align:center;padding:2rem;">暫時冇單</td></tr>'}
+    </table>
+    <p style="color:#64748b;font-size:.78rem;margin-top:.6rem;">💡 撳狀態標籤可以直接轉狀態（未出貨 → 已出貨 → 已收錢）</p>`;
+  document.querySelectorAll('.ad-chip').forEach(ch => ch.onclick = () => { filter = ch.dataset.f; render(); });
+}
+
+$('adNavList').onclick = () => { view = 'list'; render(); };
+$('adNavAdd').onclick = () => { view = 'add'; render(); };
+$('adLogout').onclick = async () => {
+  if(demoMode){ user = null; orders = []; showLogin(); }
+  else await fb.fns.signOut(fb.auth);
+};
+
+$('adDownload').onclick = () => {
+  const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '公司後台模板.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+
+// 開波：有密鑰就行 Firebase，冇就示範模式
+if(demoMode){ $('adBanner').style.display = 'block'; showLogin(); }
+else{ $('adBanner').style.display = 'none'; initFirebase().catch(e => { $('adBanner').style.display = 'block'; $('adBanner').innerHTML = '⚠️ Firebase 連唔到，檢查吓你貼嘅密鑰啱唔啱。'; showLogin(); }); }
+</script>
+</body>
+</html>
