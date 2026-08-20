@@ -545,7 +545,7 @@
     <div class="container">
         <div class="section-header">
             <h2>🎯 AI Prompt 生成器</h2>
-            <p>輸入你想要嘅網站功能，我幫你生成「AI聽得明」嘅專業指令</p>
+            <p>自己玩嘅小工具定係公司多人用嘅系統都得——答幾條問題，我幫你生成「AI聽得明」嘅專業指令</p>
         </div>
 
         <div class="tool-box">
@@ -578,6 +578,32 @@
                     <option value="minimal">簡約專業（適合商務）</option>
                     <option value="dark">深色模式（適合工具）</option>
                     <option value="cute">可愛卡通（適合遊戲）</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>邊個會用呢個網站？</label>
+                <select id="audience">
+                    <option value="self">自己／屋企人／小朋友（單機用）</option>
+                    <option value="team">公司同事／熟客（幾個至幾十人一齊用）</option>
+                    <option value="public">公開放上網俾任何人用</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>資料要點存？</label>
+                <select id="storage">
+                    <option value="none">唔使存（玩完就算，例如小遊戲）</option>
+                    <option value="local">存喺用家自己部機（離線都用得）</option>
+                    <option value="cloud">多人共享資料（要雲端資料庫，例如公司系統）</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>需唔需要登入？</label>
+                <select id="login">
+                    <option value="no">唔使，開到即用</option>
+                    <option value="yes">要，email／密碼登入（員工或會員先用到）</option>
                 </select>
             </div>
 
@@ -817,6 +843,16 @@
             </article>
 
             <article class="article-card">
+                <div class="article-image">🏪</div>
+                <div class="article-content">
+                    <span class="article-tag">小商店開賣</span>
+                    <h3>產品介紹頁模板</h3>
+                    <p>一頁式開賣：產品卡、價錢、WhatsApp 落單制。改兩行就係你間店。</p>
+                    <a href="tools/product-page.html" class="read-more">即刻睇 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
                 <div class="article-image">🎠</div>
                 <div class="article-content">
                     <span class="article-tag">小朋友學習</span>
@@ -902,6 +938,9 @@ function generatePrompt() {
     const targetUser = document.getElementById('targetUser').value || '一般用戶';
     const description = document.getElementById('description').value;
     const style = document.getElementById('style').value;
+    const audience = document.getElementById('audience').value;
+    const storage = document.getElementById('storage').value;
+    const login = document.getElementById('login').value;
 
     if (!siteType || !description) {
         alert('請填寫網站類型同功能描述！');
@@ -923,9 +962,52 @@ function generatePrompt() {
         other: '自定義工具'
     };
 
+    const audienceMap = {
+        self: '自己或屋企人單機使用',
+        team: '公司同事或熟客一齊用（幾個至幾十人）',
+        public: '公開放上網俾任何人用'
+    };
+
+    // 商業路線：多人用／雲端資料／要登入
+    const isOnline = storage === 'cloud' || audience !== 'self' || login === 'yes';
+
+    let techSection, dataSection = '', outputLine;
+    if (isOnline) {
+        dataSection = `
+【資料與帳號（重要）】
+- 用 Firebase（免費額度夠中小企用）做後端：
+${login === 'yes' ? '- 用 Firebase Authentication 做 email／密碼登入，未登入唔俾入主頁面\n' : ''}${storage === 'cloud' ? '- 用 Cloud Firestore 存取共享資料，所有用戶見到同一份最新資料\n' : ''}- 喺檔案最頂留一個 firebaseConfig 物件位（寫明「貼上你自己嘅 Firebase 密鑰」），我會自己貼
+- Firebase SDK 可以用官方 CDN 載入
+
+`;
+        techSection = `【技術要求】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- Firebase SDK 可以用官方 CDN，其餘唔好用外部框架
+- 程式碼要有註釋，特別係 firebaseConfig 嗰位，教我點貼
+- 我之後會用 GitHub Pages 免費放上网`;
+        outputLine = '請輸出完整 HTML code，我會貼上自己嘅 Firebase 密鑰後放上网使用。';
+    } else {
+        techSection = `【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架
+- 支援離線使用
+- 程式碼要有註釋，方便用戶理解`;
+        if (storage === 'local') {
+            dataSection = `
+【資料儲存】
+- 用 localStorage 將資料存喺用家自己部機，閂咗頁面再開都仲喺度
+- 資料唔使上網，私隱第一
+
+`;
+        }
+        outputLine = '請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。';
+    }
+
     const prompt = `【角色】你係資深前端工程師，專門設計互動式網頁應用。
 
-【任務】生成一個「${typeMap[siteType]}」網站，單一 HTML 檔案，可直接開啟使用。
+【任務】生成一個「${typeMap[siteType]}」網站，單一 HTML 檔案。
+
+【使用場景】${audienceMap[audience]}
 
 【目標用戶】${targetUser}
 
@@ -937,16 +1019,12 @@ ${description.split('\n').map(line => '- ' + line).join('\n')}
 - 手機優先設計（響應式）
 - 按鈕易按，字體清晰
 - 加入適當動畫提升體驗
-- 使用 Emoji 代替圖片，確保離線可用
-
-【技術限制】
-- 單一 HTML 檔案，內嵌 CSS + JavaScript
-- 唔使用外部圖片或框架
-- 支援離線使用
-- 程式碼要有註釋，方便用戶理解
+- 使用 Emoji 代替圖片
+${dataSection}
+${techSection}
 
 【輸出】
-請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。`;
+${outputLine}`;
 
     document.getElementById('resultContent').textContent = prompt;
     document.getElementById('resultBox').classList.add('show');
