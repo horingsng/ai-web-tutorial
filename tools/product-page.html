@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>產品介紹頁模板｜小商店一頁式開賣・免費模板｜AI建站教學</title>
-    <meta name="description" content="免費產品介紹頁模板：店名、產品卡、價錢、WhatsApp 落單制，一頁式開賣。單檔離線用得，改兩行就變你間店。網店、小店、市集擺檔啱用。">
+    <meta name="description" content="免費產品介紹頁模板：橫額、產品分類、產品卡、客戶評價、聯絡資料、WhatsApp 落單浮制，一頁式開賣。改幾行就變你間店。網店、小店、市集擺檔啱用。">
     <meta name="keywords" content="產品介紹網頁, 一頁式網頁, 網店模板, 小店網站, 免費網頁模板, WhatsApp落單">
     <link rel="stylesheet" href="../style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
 <style>
-.pp-demo{max-width:640px;margin:0 auto;background:#fffdf7;border:1px solid #e7d9b8;border-radius:16px;overflow:hidden;color:#3f3a2e;}
-.pp-hero{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;text-align:center;padding:2rem 1rem;}
-.pp-hero h2{font-size:1.6rem;margin-bottom:.3rem;}
+.pp-demo{max-width:680px;margin:0 auto;background:#fffdf7;border:1px solid #e7d9b8;border-radius:16px;overflow:hidden;color:#3f3a2e;position:relative;}
+.pp-hero{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;text-align:center;padding:2.2rem 1rem 1.6rem;}
+.pp-hero h2{font-size:1.7rem;margin-bottom:.3rem;}
 .pp-hero p{opacity:.92;font-size:.95rem;}
+.pp-badges{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;}
+.pp-badge{background:rgba(255,255,255,.2);border-radius:999px;padding:.25rem .8rem;font-size:.78rem;}
+.pp-cats{display:flex;gap:.45rem;flex-wrap:wrap;padding:.9rem 1rem 0;}
+.pp-cat{background:#fff;border:1px solid #e7d9b8;color:#8a8271;border-radius:999px;padding:.3rem .85rem;font-size:.82rem;cursor:pointer;}
+.pp-cat.pp-on{background:#d97706;border-color:#d97706;color:#fff;}
 .pp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;padding:1rem;}
 .pp-item{background:#fff;border:1px solid #eee0bd;border-radius:12px;padding:.9rem;text-align:center;}
 .pp-item .pp-emoji{font-size:2.2rem;}
@@ -20,8 +25,15 @@
 .pp-item .pp-price{color:#d97706;font-weight:800;font-size:1.05rem;}
 .pp-item p{font-size:.8rem;color:#8a8271;margin:.3rem 0 .5rem;}
 .pp-order{display:inline-block;background:#25d366;color:#fff;text-decoration:none;font-size:.85rem;font-weight:700;padding:.4rem .9rem;border-radius:999px;}
-.pp-foot{text-align:center;padding:1rem;font-size:.85rem;color:#8a8271;border-top:1px solid #eee0bd;}
-.pp-foot a{color:#25d366;font-weight:700;text-decoration:none;}
+.pp-sec{padding:1.2rem 1rem;border-top:1px solid #eee0bd;}
+.pp-sec h3{font-size:1.05rem;color:#92400e;margin-bottom:.7rem;text-align:center;}
+.pp-review{background:#fff;border:1px solid #eee0bd;border-radius:12px;padding:.8rem .9rem;margin-bottom:.6rem;font-size:.87rem;}
+.pp-review .pp-stars{color:#f59e0b;font-size:.9rem;}
+.pp-review .pp-who{color:#8a8271;font-size:.78rem;margin-top:.2rem;}
+.pp-info{font-size:.88rem;line-height:2;color:#5c5546;}
+.pp-info b{color:#3f3a2e;}
+.pp-float{position:sticky;bottom:1rem;text-align:center;padding:0 1rem 1rem;}
+.pp-float a{display:inline-block;background:#25d366;color:#fff;text-decoration:none;font-weight:800;padding:.85rem 1.6rem;border-radius:999px;box-shadow:0 6px 18px rgba(37,211,102,.4);font-size:1rem;}
 .pp-note{text-align:center;color:#64748b;font-size:.85rem;margin:.8rem 0 0;}
 </style>
 </head>
@@ -40,22 +52,22 @@
 <main class="container">
     <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 產品介紹頁模板</div>
     <h1 style="text-align:center;margin:1rem 0 0.5rem;">🏪 產品介紹頁模板</h1>
-    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">小商店一頁式開賣：產品卡＋價錢＋WhatsApp 落單制</p>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">橫額＋分類＋產品卡＋客戶評價＋聯絡資料＋WhatsApp 落單浮制</p>
 
     <div class="pp-demo" id="ppDemo"></div>
-    <p class="pp-note">👆 上面係示範店，下載之後改兩行就係你間店</p>
+    <p class="pp-note">👆 上面係示範店「開心果雜貨店」，下載之後改幾行就係你間店</p>
 
     <div class="pp-demo" style="margin-top:1.5rem;background:#1e293b;border-color:#334155;color:#cbd5e1;padding:1.5rem;">
         <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 拎走佢，變成你間店</h2>
-        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">撳下面個制下載個 HTML 檔。店名、產品、價錢全部寫喺檔案最頂嘅<strong style="color:#7dd3fc;">一個資料陣列</strong>入面，用記事本改都得；WhatsApp 號碼都係改一個數字。</p>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">撳下面個制下載個 HTML 檔。店名、地址、產品、評價全部寫喺檔案最頂嘅<strong style="color:#7dd3fc;">幾個資料陣列</strong>入面，用記事本改都得；WhatsApp 號碼都係改一個數字。</p>
         <button class="pp-order" id="ppDownload" style="border:none;cursor:pointer;font-size:1rem;padding:.8rem 1.4rem;margin-top:.4rem;">⬇️ 下載模板（HTML 單檔）</button>
         <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講（連方法都教埋你）</h2>
         <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載個檔，上載去 ChatGPT / Claude / Kimi，跟住抄。每句都講埋<strong style="color:#7dd3fc;">用咩技術做</strong>：</p>
         <ul style="color:#cbd5e1;font-size:.9rem;line-height:1.9;padding-left:1.2rem;">
-            <li><strong style="color:#fbbf24;">換你嘅產品</strong>：「產品資料係檔案頂部一個 JavaScript 陣列（PRODUCTS），每項有 emoji／名／價錢／簡介。幫我換成：……（貼你嘅產品清單）」</li>
-            <li><strong style="color:#fbbf24;">加產品相</strong>：「而家產品用 emoji 做圖。幫我加個 image 欄位支援本地相：如果 image 有值就顯示相，冇就用 emoji，相用 base64 內嵌保持單檔。」</li>
-            <li><strong style="color:#fbbf24;">改落單方式</strong>：「而家撳制係開 wa.me 帶預設訊息。幫我加多個選擇：可以揀 WhatsApp 或者複製訂單文字，電話號碼同訊息格式放喺頂部 SHOP 設定度。」</li>
-            <li><strong style="color:#fbbf24;">放上网</strong>：整完跟<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>放上网，你間店就有條正式 link 可以印落卡片度。</li>
+            <li><strong style="color:#fbbf24;">換你嘅嘢</strong>：「檔案頂部有 SHOP、PRODUCTS、REVIEWS 三個 JavaScript 資料陣列。幫我換成我間店嘅資料：……（貼你嘅產品同評價），格式跟返原本結構。」</li>
+            <li><strong style="color:#fbbf24;">加產品相</strong>：「而家產品用 emoji 做圖。幫我加個 image 欄位：有值就顯示相，冇就用 emoji。相用 base64 內嵌，保持單檔。」</li>
+            <li><strong style="color:#fbbf24;">加 Google Map</strong>：「聯絡區加個 Google Maps 嵌入：用 iframe embed 我個地址（……），放喺地址下面，寬 100% 高 250px。」</li>
+            <li><strong style="color:#fbbf24;">放上网</strong>：整完跟<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>放上网，你間店就有條正式 link 印落卡片度。</li>
         </ul>
     </div>
 
@@ -81,37 +93,80 @@
     </div>
 </footer>
 <script>
-// ===== 示範店設定（下載後改呢度就係你間店）=====
+// ===== 示範店資料（下載後改呢度就係你間店）=====
 const SHOP = {
   name: '開心果雜貨店',
   slogan: '新鮮・抵買・今日訂聽日攞',
-  phone: '91234567'
+  badges: ['📍 深水埗', '🕘 朝9晚8', '🚚 滿$300送貨'],
+  phone: '91234567',
+  address: '深水埗汝州街 123 號地舖',
+  hours: '星期一至六 09:00–20:00（星期日休息）',
+  about: '開咗十五年嘅街坊雜貨店，每日朝早親自去果欄揀貨。唔新鮮唔賣，就係咁簡單。'
 };
 const PRODUCTS = [
-  { emoji: '🍊', name: '澳洲香橙', price: 28, unit: '袋', desc: '一袋六個，甜過初戀' },
-  { emoji: '🥬', name: '有機菜心', price: 18, unit: '斤', desc: '每日朝早新鮮到貨' },
-  { emoji: '🥚', name: '湖北土雞蛋', price: 38, unit: '排', desc: '一排十隻，蛋香濃' },
-  { emoji: '🍯', name: '自家蜂蜜', price: 88, unit: '樽', desc: '無添加，500g' },
-  { emoji: '🍞', name: '手作方包', price: 25, unit: '條', desc: '每日出爐兩次' },
-  { emoji: '🧃', name: '鮮榨橙汁', price: 22, unit: '支', desc: '落單先榨' }
+  { emoji: '🍊', cat: '生果', name: '澳洲香橙', price: 28, unit: '袋', desc: '一袋六個，甜過初戀' },
+  { emoji: '🍎', cat: '生果', name: '富士蘋果', price: 35, unit: '袋', desc: '爽甜，小朋友最愛' },
+  { emoji: '🍇', cat: '生果', name: '無核青提', price: 48, unit: '盒', desc: '冰凍食最正' },
+  { emoji: '🥬', cat: '蔬菜', name: '有機菜心', price: 18, unit: '斤', desc: '每日朝早新鮮到貨' },
+  { emoji: '🥕', cat: '蔬菜', name: '甘筍', price: 12, unit: '斤', desc: '煲湯甜嘅秘密' },
+  { emoji: '🥚', cat: '雜貨', name: '湖北土雞蛋', price: 38, unit: '排', desc: '一排十隻，蛋香濃' },
+  { emoji: '🍯', cat: '雜貨', name: '自家蜂蜜', price: 88, unit: '樽', desc: '無添加，500g' },
+  { emoji: '🧃', cat: '飲品', name: '鮮榨橙汁', price: 22, unit: '支', desc: '落單先榨' },
+  { emoji: '🥤', cat: '飲品', name: '自家酸梅湯', price: 15, unit: '支', desc: '落少咗糖，健康啲' }
+];
+const REVIEWS = [
+  { stars: 5, text: '啲橙真係甜，阿伯仲會幫我留埋靚貨。', who: '街坊陳太' },
+  { stars: 5, text: 'WhatsApp 落單聽日攞，方便到唔慳得。', who: '附近返工嘅 Kelvin' },
+  { stars: 4, text: '價錢公道，老闆娘好健談。', who: '新搬嚟嘅租客' }
 ];
 // ===== 以下係程式，唔使郁 =====
 
+const $ = id => document.getElementById(id);
 const wa = p => `https://wa.me/852${SHOP.phone}?text=` + encodeURIComponent(`你好！我想訂：${p.name}（$${p.price}/${p.unit}）`);
-$('ppDemo').innerHTML = `
-  <div class="pp-hero"><h2>🏪 ${SHOP.name}</h2><p>${SHOP.slogan}</p></div>
-  <div class="pp-grid">
-    ${PRODUCTS.map(p => `
-      <div class="pp-item">
-        <div class="pp-emoji">${p.emoji}</div>
-        <h3>${p.name}</h3>
-        <div class="pp-price">$${p.price}／${p.unit}</div>
-        <p>${p.desc}</p>
-        <a class="pp-order" href="${wa(p)}" target="_blank" rel="noopener">📲 落單</a>
-      </div>`).join('')}
-  </div>
-  <div class="pp-foot">📲 直接 WhatsApp 我哋：<a href="https://wa.me/852${SHOP.phone}" target="_blank" rel="noopener">${SHOP.phone}</a></div>
-`;
+const cats = ['全部', ...new Set(PRODUCTS.map(p => p.cat))];
+let curCat = '全部';
+
+function render(){
+  const list = curCat === '全部' ? PRODUCTS : PRODUCTS.filter(p => p.cat === curCat);
+  $('ppDemo').innerHTML = `
+    <div class="pp-hero">
+      <h2>🏪 ${SHOP.name}</h2>
+      <p>${SHOP.slogan}</p>
+      <div class="pp-badges">${SHOP.badges.map(b => `<span class="pp-badge">${b}</span>`).join('')}</div>
+    </div>
+    <div class="pp-cats">${cats.map(c => `<button class="pp-cat ${curCat === c ? 'pp-on' : ''}" data-c="${c}">${c}</button>`).join('')}</div>
+    <div class="pp-grid">
+      ${list.map(p => `
+        <div class="pp-item">
+          <div class="pp-emoji">${p.emoji}</div>
+          <h3>${p.name}</h3>
+          <div class="pp-price">$${p.price}／${p.unit}</div>
+          <p>${p.desc}</p>
+          <a class="pp-order" href="${wa(p)}" target="_blank" rel="noopener">📲 落單</a>
+        </div>`).join('')}
+    </div>
+    <div class="pp-sec">
+      <h3>💬 街坊點評</h3>
+      ${REVIEWS.map(r => `
+        <div class="pp-review">
+          <div class="pp-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
+          ${r.text}
+          <div class="pp-who">— ${r.who}</div>
+        </div>`).join('')}
+    </div>
+    <div class="pp-sec">
+      <h3>📍 關於我哋</h3>
+      <div class="pp-info">
+        ${SHOP.about}<br>
+        <b>地址：</b>${SHOP.address}<br>
+        <b>營業時間：</b>${SHOP.hours}<br>
+        <b>WhatsApp：</b>${SHOP.phone}
+      </div>
+    </div>
+    <div class="pp-float"><a href="https://wa.me/852${SHOP.phone}?text=${encodeURIComponent('你好！我想問吓：')}" target="_blank" rel="noopener">📲 WhatsApp 我哋</a></div>`;
+  document.querySelectorAll('.pp-cat').forEach(b => b.onclick = () => { curCat = b.dataset.c; render(); });
+}
+render();
 
 $('ppDownload').onclick = () => {
   const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});

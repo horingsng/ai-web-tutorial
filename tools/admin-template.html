@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司後台管理模板｜登入＋多人共用資料・免費模板｜AI建站教學</title>
-    <meta name="description" content="免費公司後台管理模板：員工登入、訂單列表、狀態篩選、新增刪改，接駁 Firebase 就多人即時同步。未接駁前內置示範模式，即刻試到。">
-    <meta name="keywords" content="公司後台系統, 管理系統模板, Firebase教學, 訂單管理系統, 員工管理系統, 免費網頁模板">
+    <title>公司後台管理模板｜訂單＋存貨＋出糧・登入多人共用・免費模板｜AI建站教學</title>
+    <meta name="description" content="免費公司後台管理模板：總覽數據卡、訂單管理、存貨管理、出糧管理、員工登入。接駁 Firebase 即變多人同步正式版；未接駁前內置示範模式，假資料齊全即刻試到。">
+    <meta name="keywords" content="公司後台系統, 管理系統模板, Firebase教學, 訂單管理系統, 存貨管理, 出糧管理, 員工管理系統, 免費網頁模板">
     <link rel="stylesheet" href="../style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
 <style>
-.ad-wrap{max-width:860px;margin:0 auto;}
+.ad-wrap{max-width:900px;margin:0 auto;}
 .ad-banner{background:#422006;border:1px solid #f59e0b;color:#fbbf24;border-radius:10px;padding:.7rem 1rem;font-size:.85rem;margin-bottom:1rem;line-height:1.6;}
 .ad-shell{background:#0f172a;border:1px solid #334155;border-radius:16px;overflow:hidden;}
 .ad-top{display:flex;justify-content:space-between;align-items:center;background:#1e293b;padding:.8rem 1.2rem;border-bottom:1px solid #334155;}
 .ad-top b{color:#f1f5f9;font-size:1.05rem;}
 .ad-top .ad-user{color:#64748b;font-size:.8rem;}
-.ad-body{display:flex;min-height:420px;}
+.ad-body{display:flex;min-height:460px;}
 .ad-side{width:150px;background:#1e293b;border-right:1px solid #334155;padding:1rem .6rem;flex-shrink:0;}
 .ad-side button{display:block;width:100%;background:none;border:none;color:#94a3b8;text-align:left;padding:.6rem .7rem;border-radius:8px;cursor:pointer;font-size:.92rem;margin-bottom:.2rem;}
 .ad-side button.ad-act{background:#0c2233;color:#7dd3fc;}
-.ad-main{flex:1;padding:1.2rem;min-width:0;}
+.ad-main{flex:1;padding:1.2rem;min-width:0;overflow-x:auto;}
+.ad-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.7rem;margin-bottom:1.1rem;}
+.ad-stat{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:.9rem;}
+.ad-stat .n{font-size:1.5rem;font-weight:800;color:#7dd3fc;}
+.ad-stat .t{font-size:.78rem;color:#64748b;margin-top:.1rem;}
 .ad-filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;}
 .ad-chip{background:#0f172a;border:1px solid #475569;color:#94a3b8;border-radius:999px;padding:.3rem .8rem;font-size:.8rem;cursor:pointer;}
 .ad-chip.ad-on{border-color:#0ea5e9;color:#7dd3fc;background:#0c2233;}
 .ad-table{width:100%;border-collapse:collapse;font-size:.9rem;}
-.ad-table th{color:#64748b;text-align:left;padding:.5rem .6rem;border-bottom:1px solid #334155;font-weight:600;}
-.ad-table td{color:#e2e8f0;padding:.55rem .6rem;border-bottom:1px solid #1e293b;}
-.ad-badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.75rem;font-weight:700;}
+.ad-table th{color:#64748b;text-align:left;padding:.5rem .6rem;border-bottom:1px solid #334155;font-weight:600;white-space:nowrap;}
+.ad-table td{color:#e2e8f0;padding:.55rem .6rem;border-bottom:1px solid #1e293b;white-space:nowrap;}
+.ad-badge{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.75rem;font-weight:700;cursor:pointer;}
 .ad-b0{background:#422006;color:#fbbf24;}
 .ad-b1{background:#0c2233;color:#38bdf8;}
 .ad-b2{background:#052e16;color:#4ade80;}
 .ad-del{background:none;border:none;color:#f87171;cursor:pointer;font-size:.85rem;}
+.ad-low{color:#f87171;font-weight:700;}
+.ad-qty{display:inline-flex;align-items:center;gap:.45rem;}
+.ad-qty button{background:#0f172a;border:1px solid #475569;color:#f1f5f9;border-radius:6px;width:1.7rem;height:1.7rem;cursor:pointer;font-size:1rem;line-height:1;}
+.ad-tr td{font-weight:800;color:#fbbf24;border-top:2px solid #334155;}
 .ad-form{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:1rem;margin-bottom:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
 .ad-form input,.ad-form select{background:#0f172a;border:1px solid #475569;color:#f1f5f9;border-radius:8px;padding:.6rem .8rem;font-size:.95rem;width:100%;}
 .ad-form .ad-full{grid-column:1 / -1;}
@@ -42,7 +50,8 @@
 .ad-login .ad-btn{width:100%;}
 .ad-err{color:#f87171;font-size:.85rem;text-align:center;margin-top:.5rem;min-height:1.2rem;}
 .ad-ghost{width:100%;background:none;border:1px solid #475569;color:#94a3b8;border-radius:10px;padding:.7rem;font-size:.9rem;cursor:pointer;margin-top:.6rem;}
-@media (max-width:640px){.ad-side{width:110px;}.ad-form{grid-template-columns:1fr;}}
+.ad-sec-title{color:#f1f5f9;font-size:1rem;font-weight:700;margin-bottom:.7rem;}
+@media (max-width:640px){.ad-side{width:104px;}.ad-side button{font-size:.8rem;padding:.55rem .5rem;}.ad-form{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -60,19 +69,21 @@
 <main class="container">
     <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 公司後台管理模板</div>
     <h1 style="text-align:center;margin:1rem 0 0.5rem;">🗂️ 公司後台管理模板</h1>
-    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">員工登入・訂單列表・多人即時同步（接駁 Firebase 後）</p>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">總覽・訂單・存貨・出糧・員工登入（接駁 Firebase 後多人即時同步）</p>
 
     <div class="ad-wrap">
         <div class="ad-banner" id="adBanner">🧪 <strong>示範模式</strong>：而家資料只存喺你部機，可以即刻試玩。貼上你自己嘅 Firebase 密鑰，就會自動變成多人同步嘅正式版（<a href="../articles/company-website-firebase.html" style="color:#fbbf24;">睇教學點攞密鑰</a>，10 分鐘搞掂）。</div>
         <div class="ad-shell">
             <div class="ad-top">
-                <b>🗂️ 公司後台（訂單管理）</b>
+                <b>🗂️ 開心果集團 後台</b>
                 <span class="ad-user" id="adUser"></span>
             </div>
             <div class="ad-body">
                 <div class="ad-side">
-                    <button class="ad-act" id="adNavList">📋 訂單列表</button>
-                    <button id="adNavAdd">➕ 新增訂單</button>
+                    <button class="ad-act" id="adNavDash">📊 總覽</button>
+                    <button id="adNavOrders">📋 訂單</button>
+                    <button id="adNavInv">📦 存貨</button>
+                    <button id="adNavPay">💰 出糧</button>
                     <button id="adLogout" style="margin-top:1rem;color:#f87171;">🚪 登出</button>
                 </div>
                 <div class="ad-main" id="adMain"></div>
@@ -88,9 +99,10 @@
             <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講（連方法都教埋你）</h2>
             <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載個檔，上載去 ChatGPT / Claude / Kimi，跟住抄。每句都講埋<strong style="color:#7dd3fc;">用咩技術做</strong>：</p>
             <ul style="color:#cbd5e1;font-size:.9rem;line-height:1.9;padding-left:1.2rem;">
-                <li><strong style="color:#fbbf24;">換用途</strong>：「呢個後台係用 Firestore 一個叫 orders 嘅 collection 存資料。幫我改成『客戶管理』：欄位變成 客戶名／電話／跟進狀態／下次跟進日期，collection 改名做 customers，介面用字跟住改。」</li>
-                <li><strong style="color:#fbbf24;">加搜尋同分頁</strong>：「幫個列表加搜尋框：用 Firestore 嘅 where 加 orderBy 做 server-side 篩選，或者資料少就直接前端 filter。加個簡單分頁（每頁 20 條）。」</li>
-                <li><strong style="color:#fbbf24;">加權限分級</strong>：「加返個 role 欄位：Firestore 入面每個 user 文檔記住 admin 定 staff，admin 先見到刪除制。Firestore Rules 都要跟住改，寫明俾我貼。」</li>
+                <li><strong style="color:#fbbf24;">換用途</strong>：「呢個後台用三個 Firestore collection：orders／inventory／payroll。幫我將『存貨』改成『預約管理』：欄位變 客人／服務／日期時間／狀態，collection 改名 bookings，總覽嗰張低存貨卡改成今日預約數。」</li>
+                <li><strong style="color:#fbbf24;">加搜尋同分頁</strong>：「幫訂單列表加搜尋框：資料少就直接前端 filter 客戶名。加個簡單分頁（每頁 20 條），唔好用外部分頁插件。」</li>
+                <li><strong style="color:#fbbf24;">加權限分級</strong>：「加個 role 欄位：Firestore 每個 user 文檔記住 admin 定 staff，admin 先見到刪除制同出糧頁。Firestore Rules 都要跟住改，寫明俾我貼。」</li>
+                <li><strong style="color:#fbbf24;">加圖表</strong>：「總覽頁加個最近 30 日營業額走勢：用純 canvas 畫條折線圖，唔好用外部圖表庫，資料由 orders collection 按日加總。」</li>
             </ul>
         </div>
     </div>
@@ -121,7 +133,7 @@
 // 👇👇👇 貼上你自己嘅 Firebase 密鑰（睇教學：company-website-firebase.html）
 // 貼咗之後，呢個模板就會由「示範模式」變成多人同步嘅正式版
 const firebaseConfig = null;
-/* 貼嘅話會係咁嘅格式：
+/* 格式係咁：
 const firebaseConfig = {
   apiKey: "AIza...",
   authDomain: "xxx.firebaseapp.com",
@@ -135,10 +147,13 @@ const firebaseConfig = {
 
 const $ = id => document.getElementById(id);
 const STATUSES = ['未出貨', '已出貨', '已收錢'];
-let orders = [], filter = '全部', view = 'list', user = null;
+const COLLS = ['orders', 'inventory', 'payroll'];
+let data = { orders: [], inventory: [], payroll: [] };
+let filter = '全部', view = 'dash', user = null;
 let demoMode = !firebaseConfig;
-let fb = {}; // firebase functions
+let fb = {};
 
+// ---------- Firebase 初始化 ----------
 async function initFirebase(){
   const app = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
   const auth = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js');
@@ -149,52 +164,61 @@ async function initFirebase(){
   fb.fns = { ...auth, ...fs };
   fb.fns.onAuthStateChanged(fb.auth, u => {
     user = u;
-    if(u){ showApp(); subscribe(); }else{ showLogin(); }
+    if(u){ showApp(); subscribeAll(); }else{ showLogin(); }
   });
 }
 
-// ---------- 資料層：demo 用 localStorage，正式用 Firestore ----------
-function seedOrders(){
+// ---------- 假資料（示範模式用） ----------
+function seed(coll){
+  if(coll === 'orders') return [
+    { id:'d1', customer:'陳記茶餐廳', item:'廣告燈箱', amount:3800, status:0, ts:Date.now()-86400000*2 },
+    { id:'d2', customer:'ABC 補習社', item:'宣傳單張 x500', amount:680, status:1, ts:Date.now()-86400000 },
+    { id:'d3', customer:'開心果雜貨店', item:'產品介紹網頁', amount:2500, status:2, ts:Date.now()-3600000*5 },
+    { id:'d4', customer:'海富酒樓', item:'菜牌印刷 x200', amount:1200, status:0, ts:Date.now()-3600000*2 },
+    { id:'d5', customer:'陳記茶餐廳', item:'會員卡 x1000', amount:1500, status:1, ts:Date.now()-1800000 }
+  ];
+  if(coll === 'inventory') return [
+    { id:'i1', name:'A4 粉紙', qty:38, minQty:20, price:45 },
+    { id:'i2', name:'燈箱 LED 燈條', qty:6, minQty:10, price:120 },
+    { id:'i3', name:'會員卡白卡', qty:2400, minQty:500, price:0.8 },
+    { id:'i4', name:'裱膜膠卷', qty:3, minQty:5, price:260 }
+  ];
   return [
-    { id: 'd1', customer: '陳記茶餐廳', item: '廣告燈箱', amount: 3800, status: 0 },
-    { id: 'd2', customer: 'ABC 補習社', item: '宣傳單張 x500', amount: 680, status: 1 },
-    { id: 'd3', customer: '開心果雜貨店', item: '產品介紹網頁', amount: 2500, status: 2 }
+    { id:'p1', name:'阿明', role:'設計師', base:18000, commission:2400, paid:1 },
+    { id:'p2', name:'阿 May', role:'跟單', base:15000, commission:1800, paid:1 },
+    { id:'p3', name:'細榮', role:'安裝師傅', base:16000, commission:900, paid:0 }
   ];
 }
-function loadDemo(){ orders = JSON.parse(localStorage.getItem('adOrders') || 'null') || seedOrders(); saveDemo(); render(); }
-function saveDemo(){ localStorage.setItem('adOrders', JSON.stringify(orders)); }
-function subscribe(){
-  const { collection, onSnapshot, query, orderBy } = fb.fns;
-  onSnapshot(query(collection(fb.db, 'orders'), orderBy('createdAt', 'desc')), snap => {
-    orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    render();
+function loadDemo(coll){ data[coll] = JSON.parse(localStorage.getItem('ad_' + coll) || 'null') || seed(coll); saveDemo(coll); }
+function saveDemo(coll){ localStorage.setItem('ad_' + coll, JSON.stringify(data[coll])); }
+function subscribeAll(){
+  COLLS.forEach(coll => {
+    fb.fns.onSnapshot(fb.fns.collection(fb.db, coll), snap => {
+      data[coll] = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if(coll === 'orders') data[coll].sort((a, b) => (b.ts || 0) - (a.ts || 0));
+      render();
+    });
   });
 }
-async function addOrder(data){
+async function addItem(coll, obj){
+  if(demoMode){ data[coll].unshift({ id: 'x' + Date.now(), ts: Date.now(), ...obj }); saveDemo(coll); render(); }
+  else await fb.fns.addDoc(fb.fns.collection(fb.db, coll), { ts: Date.now(), ...obj });
+}
+async function delItem(coll, id){
+  if(demoMode){ data[coll] = data[coll].filter(o => o.id !== id); saveDemo(coll); render(); }
+  else await fb.fns.deleteDoc(fb.fns.doc(fb.db, coll, id));
+}
+async function updItem(coll, id, patch){
   if(demoMode){
-    orders.unshift({ id: 'd' + Date.now(), ...data });
-    saveDemo(); render();
-  }else{
-    const { collection, addDoc, serverTimestamp } = fb.fns;
-    await addDoc(collection(fb.db, 'orders'), { ...data, createdAt: serverTimestamp() });
-  }
-}
-async function delOrder(id){
-  if(demoMode){ orders = orders.filter(o => o.id !== id); saveDemo(); render(); }
-  else{ const { doc, deleteDoc } = fb.fns; await deleteDoc(doc(fb.db, 'orders', id)); }
-}
-async function cycleStatus(id){
-  const o = orders.find(x => x.id === id);
-  if(!o) return;
-  const ns = (o.status + 1) % STATUSES.length;
-  if(demoMode){ o.status = ns; saveDemo(); render(); }
-  else{ const { doc, updateDoc } = fb.fns; await updateDoc(doc(fb.db, 'orders', id), { status: ns }); }
+    const o = data[coll].find(x => x.id === id);
+    if(o) Object.assign(o, patch);
+    saveDemo(coll); render();
+  }else await fb.fns.updateDoc(fb.fns.doc(fb.db, coll, id), patch);
 }
 
-// ---------- 畫面 ----------
+// ---------- 登入 ----------
 function showLogin(){
   $('adUser').textContent = '';
-  $('adMain').innerHTML = '';
   document.querySelector('.ad-side').style.display = 'none';
   $('adMain').innerHTML = `
     <div class="ad-login" style="margin:2rem auto;">
@@ -207,70 +231,166 @@ function showLogin(){
     </div>`;
   $('adDoLogin').onclick = async () => {
     if(demoMode){ enterDemo(); return; }
-    try{
-      await fb.fns.signInWithEmailAndPassword(fb.auth, $('adEmail').value, $('adPass').value);
-    }catch(e){ $('adErr').textContent = '登入失敗：' + e.message; }
+    try{ await fb.fns.signInWithEmailAndPassword(fb.auth, $('adEmail').value, $('adPass').value); }
+    catch(e){ $('adErr').textContent = '登入失敗：' + e.message; }
   };
   if(demoMode) $('adDemo').onclick = enterDemo;
 }
 function enterDemo(){
   user = { email: 'demo@示範模式' };
-  document.querySelector('.ad-side').style.display = 'block';
+  COLLS.forEach(loadDemo);
   showApp();
-  loadDemo();
 }
 function showApp(){
   document.querySelector('.ad-side').style.display = 'block';
   $('adUser').textContent = user && user.email ? user.email : '';
-  view = 'list';
+  view = 'dash';
   render();
 }
+
+// ---------- 畫面 ----------
+const money = n => '$' + Number(n).toLocaleString();
 function render(){
   if(!user) return;
-  $('adNavList').classList.toggle('ad-act', view === 'list');
-  $('adNavAdd').classList.toggle('ad-act', view === 'add');
-  if(view === 'add'){
-    $('adMain').innerHTML = `
-      <div class="ad-form">
-        <input id="fCustomer" placeholder="客戶名">
-        <input id="fItem" placeholder="項目／貨品">
-        <input id="fAmount" type="number" min="0" placeholder="金額（$）">
-        <select id="fStatus">${STATUSES.map((s, i) => `<option value="${i}">${s}</option>`).join('')}</select>
-        <button class="ad-btn ad-full" id="fAdd">➕ 加入訂單</button>
-      </div>`;
-    $('fAdd').onclick = async () => {
-      const c = $('fCustomer').value.trim(), it = $('fItem').value.trim(), am = parseFloat($('fAmount').value) || 0;
-      if(!c || !it || am <= 0) return;
-      await addOrder({ customer: c, item: it, amount: am, status: parseInt($('fStatus').value) });
-      view = 'list';
-      if(demoMode) render();
-    };
-    return;
-  }
-  const list = filter === '全部' ? orders : orders.filter(o => STATUSES[o.status] === filter);
+  $('adNavDash').classList.toggle('ad-act', view === 'dash');
+  $('adNavOrders').classList.toggle('ad-act', view === 'orders');
+  $('adNavInv').classList.toggle('ad-act', view === 'inventory');
+  $('adNavPay').classList.toggle('ad-act', view === 'payroll');
+  if(view === 'dash') return renderDash();
+  if(view === 'orders') return renderOrders();
+  if(view === 'inventory') return renderInv();
+  renderPay();
+}
+
+function renderDash(){
+  const today = new Date().setHours(0,0,0,0);
+  const todayOrders = data.orders.filter(o => (o.ts || 0) >= today);
+  const unpaid = data.orders.filter(o => o.status === 0);
+  const revenue = data.orders.filter(o => o.status === 2).reduce((s, o) => s + Number(o.amount), 0);
+  const lowStock = data.inventory.filter(o => Number(o.qty) <= Number(o.minQty));
   $('adMain').innerHTML = `
+    <div class="ad-sec-title">📊 今日總覽</div>
+    <div class="ad-stats">
+      <div class="ad-stat"><div class="n">${todayOrders.length}</div><div class="t">今日新單</div></div>
+      <div class="ad-stat"><div class="n">${unpaid.length}</div><div class="t">未出貨</div></div>
+      <div class="ad-stat"><div class="n">${money(revenue)}</div><div class="t">已收錢總額</div></div>
+      <div class="ad-stat"><div class="n" style="color:${lowStock.length ? '#f87171' : '#4ade80'}">${lowStock.length}</div><div class="t">低存貨警報</div></div>
+    </div>
+    <div class="ad-sec-title">🕐 最近訂單</div>
+    <table class="ad-table">
+      <tr><th>客戶</th><th>項目</th><th>金額</th><th>狀態</th></tr>
+      ${data.orders.slice(0, 5).map(o => `
+        <tr><td>${o.customer}</td><td>${o.item}</td><td>${money(o.amount)}</td>
+        <td><span class="ad-badge ad-b${o.status}">${STATUSES[o.status]}</span></td></tr>`).join('') || '<tr><td colspan="4" style="color:#64748b;text-align:center;padding:1.5rem;">暫時冇單</td></tr>'}
+    </table>`;
+}
+
+function renderOrders(){
+  const list = filter === '全部' ? data.orders : data.orders.filter(o => STATUSES[o.status] === filter);
+  $('adMain').innerHTML = `
+    <div class="ad-sec-title">📋 訂單管理</div>
+    <div class="ad-form">
+      <input id="fCustomer" placeholder="客戶名">
+      <input id="fItem" placeholder="項目／貨品">
+      <input id="fAmount" type="number" min="0" placeholder="金額（$）">
+      <select id="fStatus">${STATUSES.map((s, i) => `<option value="${i}">${s}</option>`).join('')}</select>
+      <button class="ad-btn ad-full" id="fAdd">➕ 新增訂單</button>
+    </div>
     <div class="ad-filters">
       ${['全部', ...STATUSES].map(s => `<button class="ad-chip ${filter === s ? 'ad-on' : ''}" data-f="${s}">${s}</button>`).join('')}
     </div>
     <table class="ad-table">
       <tr><th>客戶</th><th>項目</th><th>金額</th><th>狀態</th><th></th></tr>
       ${list.map(o => `
-        <tr>
-          <td>${o.customer}</td>
-          <td>${o.item}</td>
-          <td>$${Number(o.amount).toLocaleString()}</td>
-          <td><span class="ad-badge ad-b${o.status}" style="cursor:pointer" onclick="cycleStatus('${o.id}')" title="撳一下轉狀態">${STATUSES[o.status]}</span></td>
-          <td><button class="ad-del" onclick="delOrder('${o.id}')">刪除</button></td>
-        </tr>`).join('') || '<tr><td colspan="5" style="color:#64748b;text-align:center;padding:2rem;">暫時冇單</td></tr>'}
+        <tr><td>${o.customer}</td><td>${o.item}</td><td>${money(o.amount)}</td>
+        <td><span class="ad-badge ad-b${o.status}" onclick="cycleStatus('${o.id}')" title="撳一下轉狀態">${STATUSES[o.status]}</span></td>
+        <td><button class="ad-del" onclick="delItem('orders','${o.id}')">刪除</button></td></tr>`).join('') || '<tr><td colspan="5" style="color:#64748b;text-align:center;padding:1.5rem;">暫時冇單</td></tr>'}
     </table>
     <p style="color:#64748b;font-size:.78rem;margin-top:.6rem;">💡 撳狀態標籤可以直接轉狀態（未出貨 → 已出貨 → 已收錢）</p>`;
   document.querySelectorAll('.ad-chip').forEach(ch => ch.onclick = () => { filter = ch.dataset.f; render(); });
+  $('fAdd').onclick = async () => {
+    const c = $('fCustomer').value.trim(), it = $('fItem').value.trim(), am = parseFloat($('fAmount').value) || 0;
+    if(!c || !it || am <= 0) return;
+    await addItem('orders', { customer: c, item: it, amount: am, status: parseInt($('fStatus').value) });
+  };
+}
+function cycleStatus(id){
+  const o = data.orders.find(x => x.id === id);
+  if(o) updItem('orders', id, { status: (o.status + 1) % STATUSES.length });
 }
 
-$('adNavList').onclick = () => { view = 'list'; render(); };
-$('adNavAdd').onclick = () => { view = 'add'; render(); };
+function renderInv(){
+  $('adMain').innerHTML = `
+    <div class="ad-sec-title">📦 存貨管理</div>
+    <div class="ad-form">
+      <input id="fName" placeholder="貨品名">
+      <input id="fQty" type="number" min="0" placeholder="現有數量">
+      <input id="fMin" type="number" min="0" placeholder="警報線（低過就標紅）">
+      <input id="fPrice" type="number" min="0" step="any" placeholder="單價（$）">
+      <button class="ad-btn ad-full" id="fAdd">➕ 新增貨品</button>
+    </div>
+    <table class="ad-table">
+      <tr><th>貨品</th><th>數量</th><th>警報線</th><th>單價</th><th></th></tr>
+      ${data.inventory.map(o => `
+        <tr>
+          <td>${o.name}</td>
+          <td><span class="ad-qty ${Number(o.qty) <= Number(o.minQty) ? 'ad-low' : ''}">
+            <button onclick="adjQty('${o.id}',-1)">−</button>${o.qty}<button onclick="adjQty('${o.id}',1)">＋</button>
+            ${Number(o.qty) <= Number(o.minQty) ? '⚠️' : ''}</span></td>
+          <td>${o.minQty}</td><td>${money(o.price)}</td>
+          <td><button class="ad-del" onclick="delItem('inventory','${o.id}')">刪除</button></td>
+        </tr>`).join('') || '<tr><td colspan="5" style="color:#64748b;text-align:center;padding:1.5rem;">暫時冇貨品</td></tr>'}
+    </table>`;
+  $('fAdd').onclick = async () => {
+    const n = $('fName').value.trim(), q = parseInt($('fQty').value) || 0, m = parseInt($('fMin').value) || 0, p = parseFloat($('fPrice').value) || 0;
+    if(!n) return;
+    await addItem('inventory', { name: n, qty: q, minQty: m, price: p });
+  };
+}
+function adjQty(id, d){
+  const o = data.inventory.find(x => x.id === id);
+  if(o) updItem('inventory', id, { qty: Math.max(0, Number(o.qty) + d) });
+}
+
+function renderPay(){
+  const total = data.payroll.reduce((s, o) => s + Number(o.base) + Number(o.commission), 0);
+  $('adMain').innerHTML = `
+    <div class="ad-sec-title">💰 出糧管理</div>
+    <div class="ad-form">
+      <input id="fName" placeholder="員工名">
+      <input id="fRole" placeholder="職位">
+      <input id="fBase" type="number" min="0" placeholder="底薪（$）">
+      <input id="fComm" type="number" min="0" placeholder="今月佣金（$）">
+      <button class="ad-btn ad-full" id="fAdd">➕ 新增員工</button>
+    </div>
+    <table class="ad-table">
+      <tr><th>員工</th><th>職位</th><th>底薪</th><th>佣金</th><th>合計</th><th>狀態</th><th></th></tr>
+      ${data.payroll.map(o => `
+        <tr>
+          <td>${o.name}</td><td>${o.role}</td><td>${money(o.base)}</td><td>${money(o.commission)}</td>
+          <td><b>${money(Number(o.base) + Number(o.commission))}</b></td>
+          <td><span class="ad-badge ${o.paid ? 'ad-b2' : 'ad-b0'}" onclick="togglePaid('${o.id}')" title="撳一下轉狀態">${o.paid ? '已出糧' : '未出糧'}</span></td>
+          <td><button class="ad-del" onclick="delItem('payroll','${o.id}')">刪除</button></td>
+        </tr>`).join('') || '<tr><td colspan="7" style="color:#64748b;text-align:center;padding:1.5rem;">暫時冇員工</td></tr>'}
+      <tr class="ad-tr"><td>合計</td><td></td><td></td><td></td><td>${money(total)}</td><td></td><td></td></tr>
+    </table>`;
+  $('fAdd').onclick = async () => {
+    const n = $('fName').value.trim(), r = $('fRole').value.trim(), b = parseFloat($('fBase').value) || 0, c = parseFloat($('fComm').value) || 0;
+    if(!n) return;
+    await addItem('payroll', { name: n, role: r || '員工', base: b, commission: c, paid: 0 });
+  };
+}
+function togglePaid(id){
+  const o = data.payroll.find(x => x.id === id);
+  if(o) updItem('payroll', id, { paid: o.paid ? 0 : 1 });
+}
+
+$('adNavDash').onclick = () => { view = 'dash'; render(); };
+$('adNavOrders').onclick = () => { view = 'orders'; render(); };
+$('adNavInv').onclick = () => { view = 'inventory'; render(); };
+$('adNavPay').onclick = () => { view = 'payroll'; render(); };
 $('adLogout').onclick = async () => {
-  if(demoMode){ user = null; orders = []; showLogin(); }
+  if(demoMode){ user = null; showLogin(); }
   else await fb.fns.signOut(fb.auth);
 };
 
