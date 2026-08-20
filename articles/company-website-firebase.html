@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【實戰教學】幫公司整個「真」網站：登入＋資料庫＋免費上架｜Firebase 教學</title>
+    <meta name="description" content="想整公司管理系統、會員網站、多人共用工具？要登入、要存資料、要多人見到同一份數據。用 Firebase 免費額度就搞得掂，唔使租伺服器。手把手教你開 Firebase、攞密鑰、放上网。">
+    <meta name="keywords" content="Firebase教學, 公司網站, 整管理系統, 網站登入功能, 免費資料庫, 公司後台, AI教學, 免費架網站">
+    <meta property="og:title" content="幫公司整個「真」網站：登入＋資料庫＋免費上架">
+    <meta property="og:description" content="Firebase 免費額度＋AI 寫碼＋GitHub Pages 上架，公司系統零成本搞掂。">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#tools">免費工具</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <span class="article-tag-hero">進階實戰 · 公司適用</span>
+        <h1>幫公司整個<br><span>「真」網站</span></h1>
+        <p>要登入、要存資料、要幾個同事一齊用——呢啲離線單檔做唔到，但 Firebase 免費額度做到，仲唔使你識伺服器。</p>
+        <div class="article-meta">更新日期：2026年8月 ｜ 閱讀時間：約12分鐘 ｜ 難度：⭐⭐</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › <a href="../index.html#articles">教學文章</a> › 公司網站 Firebase 教學</div>
+
+    <article class="prose">
+        <h2>之前教嘅工具，同「公司系統」差喺邊？</h2>
+        <p>我哋之前整嘅分帳器、記帳工具，全部係「離線單檔」：資料存喺你部機，自己用自己知。但公司嘢唔同——</p>
+        <ul>
+            <li>阿明入咗張單，<strong>阿 May 喺另一部機要即刻見到</strong></li>
+            <li>唔係個個入到，<strong>員工要登入</strong>先用得</li>
+            <li>資料量會越嚟越多，唔可以淨係擺喺某個人部機</li>
+        </ul>
+        <p>要做到呢啲，個網站後面要有一個「資料庫＋登入系統」，行內叫<strong>後端</strong>。傳統做法要租伺服器、請人寫，一年幾千蚊起步。而我哋用 <strong>Firebase</strong>——Google 出品嘅免費後端服務，免費額度夠中小企用，開通全過程撳滑鼠就得，一行伺服器碼都唔使寫。</p>
+
+        <div class="tip-box">💡 <strong>一句講晒 Firebase 係咩：</strong>你嘅網站（HTML 檔）放喺 GitHub Pages，資料同帳號就放喺 Firebase。用戶開你條 link → 登入 → 寫嘢入 Firebase → 其他同事開同一條 link 就見到。你嘅電腦閂咗都冇影響。</div>
+
+        <h2>成個流程係咁行</h2>
+        <p>1️⃣ 開個 Firebase 戶口（10 分鐘，撳滑鼠）→ 2️⃣ 攞到一串「密鑰」（一串設定文字）→ 3️⃣ 叫 AI 寫個系統，話俾佢知「用 Firebase」→ 4️⃣ 將密鑰貼入檔案頂部 → 5️⃣ 放上网（跟返我哋<a href="publish-github-pages.html">免費發佈教學</a>）。</p>
+        <p>睇落五步，其實最難嗰步係「諗清楚你要咩功能」。開 Firebase 嗰啲全部係撳制，而家逐步同你行：</p>
+
+        <h2>第一步：開 Firebase Project</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <p>開 <strong>console.firebase.google.com</strong>，用你公司嘅 Google 帳號登入（冇就開個免費嘅）。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p>撳「<strong>Create a project / 新增專案</strong>」，個名隨你（例如「company-system」）。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <p>問你使唔使 Google Analytics → <strong>可以閂咗佢</strong>（慳返啲設定）。撳 Create，等十幾秒，搞掂。</p>
+        </div>
+
+        <h2>第二步：開登入功能（Authentication）</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <p>左邊選單撳「<strong>Build → Authentication</strong>」→「Get started」。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p>喺 Sign-in method 入面開「<strong>Email/Password</strong>」（Enable → Save）。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <p>去「Users」分頁撳「Add user」，幫你同同事開帳號（email＋密碼）。開幾個都得。</p>
+        </div>
+
+        <h2>第三步：開資料庫（Firestore）</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <p>左邊選單「<strong>Build → Firestore Database</strong>」→「Create database」。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p>揀「<strong>Start in production mode</strong>」（安全啲，之後我哋會教你校規則）。地區揀「asia-east1」或最近香港嗰個。</p>
+        </div>
+
+        <h2>第四步：攞你嘅密鑰（firebaseConfig）</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <p>左上的⚙️「<strong>Project settings / 專案設定</strong>」，拉到落去「Your apps」，撳個 <strong>&lt;/&gt;</strong>（Web）圖示。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p>幫個 app 改個名（隨便，例如「web」），撳 Register。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <p>畫面會彈出一舊 <code>firebaseConfig = { ... }</code> 嘅設定文字——<strong>成舊複製落嚟</strong>，收埋喺記事本。呢舊嘢就係你個系統嘅「鑰匙」。</p>
+        </div>
+        <div class="warn-box">⚠️ 呢串密鑰唔係密碼，俾人見到唔會即刻出事（Firebase 有規則擋住），但都係唔好周圍貼。第六步嘅安全規則會教你鎖好佢。</div>
+
+        <h2>第五步：叫 AI 寫你嘅系統</h2>
+        <p>用我哋首頁嘅 <a href="../index.html#tool">Prompt 生成器</a>，揀「商業用途」＋「公司同事一齊用」＋「多人共享資料」＋「要登入」，佢會自動生成商業路線嘅指令。或者直接用下面呢個範本：</p>
+
+        <div class="prompt-box">【角色】你係資深前端工程師，擅長用 Firebase 整中小企管理系統。
+
+【任務】生成一個「員工訂單管理系統」，單一 HTML 檔案。
+
+【使用場景】公司內部 5-10 個同事用，要登入先用到。
+
+【功能規格】
+- 登入頁：email＋密碼，未登入見唔到主頁
+- 主頁：訂單列表（客戶名、貨品、金額、狀態：未出貨/已出貨/已收錢）
+- 加單制、改狀態制、刪單制
+- 所有同事見到同一份即時資料
+
+【技術要求】
+- 用 Firebase Authentication 做 email/密碼登入
+- 用 Cloud Firestore 存訂單，資料改動即時同步
+- Firebase SDK 用官方 CDN 載入
+- 喺檔案最頂留一個 firebaseConfig 物件位，寫明「貼上你自己嘅密鑰」
+- 程式碼要有註釋，教我點貼密鑰
+
+【設計要求】深色專業風、手機電腦都用得
+
+【輸出】完整 HTML code，我會貼上密鑰後放上网。</div>
+
+        <p>AI 出咗個檔之後，開個檔（用文字編輯器），喺頂部搵到 <code>firebaseConfig</code> 嗰位，<strong>將第四步複製咗嗰舊嘢貼落去</strong>，儲存。然後跟<a href="publish-github-pages.html">免費發佈教學</a>放上网，你公司系統就有一條正式網址。</p>
+
+        <h2>第六步（重要）：鎖好你嘅資料庫</h2>
+        <p>開通咗 Firestore 之後，預設規則係「30 日內任讀任寫」——過咗期會自動鎖，但你而家就要設定好，唔係到時個系統會突然罷工：</p>
+        <div class="step">
+            <div class="step-num">1</div>
+            <p>Firestore Database →「<strong>Rules / 規則</strong>」分頁。</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p>將規則改成「<strong>只有登入咗嘅人先可以讀寫</strong>」：</p>
+        </div>
+        <div class="prompt-box">rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}</div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <p>撳「Publish」。搞掂——而家只有你喺 Authentication 開咗嘅員工帳號先掂到啲資料。</p>
+        </div>
+
+        <h2>常見問題</h2>
+        <div class="faq-item">
+            <h3>Q：真係免費？用到幾多先收費？</h3>
+            <p>A：Firebase 免費額度（Spark plan）包：每日 50,000 次讀取、20,000 次寫入、1GB 儲存。十個八個員工嘅公司系統根本用唔晒，真係爆咗先至要升級，到時你啲生意都做得唔錯啦。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：我唔識寫碼，貼密鑰會唔會好難？</h3>
+            <p>A：唔會。AI 出嘅檔會喺最頂留個好明顯嘅位置（通常寫住「貼上你自己嘅密鑰」），你就係刪走佢嘅示範字、貼上你複製嗰舊嘢，同填表格冇分別。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：員工離職點算？</h3>
+            <p>A：入 Firebase → Authentication → Users，撳佢個帳號隔籬嘅選單 → Disable 或 Delete，佢即刻入唔返個系統。</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q：可唔可以唔使 Firebase？</h3>
+            <p>A：可以，Supabase 都係免費代替品，玩法九成像。但 Firebase 文件最多、AI 最熟，新手建議由 Firebase 入手。</p>
+        </div>
+    </article>
+
+    <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="related">
+        <h2>📚 相關教學</h2>
+        <div class="related-grid">
+            <a class="related-card" href="publish-github-pages.html">
+                <div class="emoji">🚀</div>
+                <h3>點樣將工具免費放上网？</h3>
+                <p>整完之後，10 分鐘變成正式網址</p>
+            </a>
+            <a class="related-card" href="prompt-tips.html">
+                <div class="emoji">🎯</div>
+                <h3>落 Prompt 五個技巧</h3>
+                <p>商業系統更加要識落指令</p>
+            </a>
+            <a class="related-card" href="../tools/product-page.html">
+                <div class="emoji">🏪</div>
+                <h3>產品介紹頁模板</h3>
+                <p>唔使登入嘅簡單商業頁，攞去即用</p>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+</body>
+</html>
