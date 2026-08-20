@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>出氣公仔｜上載老細張相變出氣袋・上班摸魚遊戲・免費工具｜AI建站教學</title>
-    <meta name="description" content="免費出氣小遊戲：上載任何相片，拖一拖縮一縮抽出個頭變出氣公仔，摑到佢又跳又叫仲會瘀晒。相片只留喺你部機。上班摸魚必備。">
-    <meta name="keywords" content="上班摸魚遊戲, 出氣遊戲, 發洩遊戲, 打老細遊戲, 解壓小遊戲, 免費網頁遊戲">
+    <title>教訓老細｜上載張相老細任你教訓・整蠱老闆遊戲・免費工具｜AI建站教學</title>
+    <meta name="description" content="免費整蠱老闆遊戲：上載任何相片做老細塊面，辦公室入面 6 樣道具任你拎嚟教訓佢——顯示器冚頭、水機淋濕、摺凳橫掃！相片只留喺你部機。上班摸魚發洩必備。">
+    <meta name="keywords" content="整蠱老闆遊戲, 上班摸魚遊戲, 發洩遊戲, 打老細遊戲, 辦公室遊戲, 出氣遊戲, 免費網頁遊戲">
     <link rel="stylesheet" href="../style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
 <style>
@@ -13,36 +13,52 @@
 .sl-upload{border:2px dashed #475569;border-radius:12px;padding:2rem 1rem;color:#94a3b8;cursor:pointer;}
 .sl-upload:hover{border-color:#38bdf8;color:#7dd3fc;}
 .sl-upload .sl-icon{font-size:2.5rem;display:block;margin-bottom:.5rem;}
-/* 裁剪畫面：圈固定，相可拖可縮放 */
+/* 裁剪：頭型框固定，相可拖可縮放 */
 .sl-cal{display:none;}
 .sl-cal.sl-on{display:block;}
 .sl-calbox{position:relative;width:100%;max-width:340px;height:340px;margin:0 auto .8rem;overflow:hidden;border-radius:12px;background:#0f172a;touch-action:none;cursor:grab;}
 .sl-calbox:active{cursor:grabbing;}
 .sl-calbox img{position:absolute;transform-origin:0 0;max-width:none;pointer-events:none;}
-.sl-ring{position:absolute;width:150px;height:150px;border:3px solid #fbbf24;border-radius:50%;box-shadow:0 0 0 9999px rgba(0,0,0,.55);left:calc(50% - 75px);top:calc(50% - 75px);pointer-events:none;}
+.sl-ring{position:absolute;width:140px;height:180px;border:3px solid #fbbf24;border-radius:50% 50% 50% 50% / 58% 58% 42% 42%;box-shadow:0 0 0 9999px rgba(0,0,0,.55);left:calc(50% - 70px);top:calc(50% - 90px);pointer-events:none;}
 .sl-zoomrow{display:flex;justify-content:center;gap:.6rem;margin-bottom:.9rem;}
 .sl-zoom{background:#0f172a;border:1px solid #475569;color:#f1f5f9;border-radius:10px;padding:.5rem 1.2rem;font-size:1.2rem;cursor:pointer;}
 .sl-btn{background:#0ea5e9;border:none;color:#fff;border-radius:10px;padding:.8rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;}
 .sl-btn:active{transform:scale(.96);}
-/* 公仔 */
-.sl-arena{display:none;}
-.sl-arena.sl-on{display:block;}
-.sl-doll{position:relative;width:260px;margin:0 auto;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:transform .3s;}
-.sl-doll.sl-jump{animation:jump .35s ease;}
-@keyframes jump{0%{transform:translateY(0);}40%{transform:translateY(-40px) rotate(-5deg);}70%{transform:translateY(5px);}100%{transform:translateY(0);}}
-.sl-doll.sl-ko{transform:rotate(90deg) translateY(36px);}
-.sl-head{position:relative;width:160px;height:160px;margin:0 auto;border-radius:50%;overflow:hidden;border:4px solid #fbbf24;background:#0f172a;z-index:2;}
-.sl-head img{width:100%;height:100%;object-fit:cover;display:block;}
-.sl-bruise{position:absolute;font-size:1.6rem;pointer-events:none;}
-.sl-body{font-size:6.5rem;line-height:1;margin-top:-16px;position:relative;z-index:1;}
-.sl-eyes{position:absolute;top:0;left:0;right:0;text-align:center;font-size:2.4rem;pointer-events:none;z-index:3;display:none;padding-top:48px;}
+/* 辦公室場景 */
+.sl-game{display:none;}
+.sl-game.sl-on{display:block;}
+.sl-hp{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;color:#f1f5f9;font-size:.9rem;}
+.sl-hpbar{flex:1;height:16px;background:#0f172a;border:1px solid #475569;border-radius:8px;overflow:hidden;}
+.sl-hpfill{height:100%;width:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);transition:width .3s;border-radius:8px;}
+.sl-stage{position:relative;width:100%;height:400px;margin:0 auto;border-radius:12px;overflow:hidden;background:linear-gradient(#dfe6ee 0 68%, #c9b48f 68% 100%);border:1px solid #334155;}
+.sl-desk{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);width:250px;height:80px;background:linear-gradient(#a87b4f,#7c5a36);border-radius:10px 10px 6px 6px;z-index:3;}
+.sl-desk::before{content:'';position:absolute;top:-8px;left:-8px;right:-8px;height:16px;background:#c89b6d;border-radius:8px;}
+.sl-boss{position:absolute;bottom:96px;left:50%;transform:translateX(-50%);transform-origin:50% 100%;z-index:2;width:130px;text-align:center;}
+.sl-boss.sl-sway{animation:sway .6s ease;}
+@keyframes sway{0%{transform:translateX(-50%) rotate(0);}18%{transform:translateX(-50%) rotate(calc(var(--dir,1)*13deg));}40%{transform:translateX(-50%) rotate(calc(var(--dir,1)*-9deg));}60%{transform:translateX(-50%) rotate(calc(var(--dir,1)*5deg));}78%{transform:translateX(-50%) rotate(calc(var(--dir,1)*-2deg));}100%{transform:translateX(-50%) rotate(0);}}
+.sl-boss.sl-ko{transform:translateX(-50%) rotate(85deg) translateY(30px);transition:transform .5s ease-in;}
+.sl-bhead{position:relative;width:96px;height:122px;margin:0 auto;border-radius:50% 50% 50% 50% / 58% 58% 42% 42%;overflow:hidden;border:3px solid #fbbf24;background:#0f172a;z-index:3;}
+.sl-bhead img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .4s;}
+.sl-bhead{transition:transform .4s;}
+.sl-facefx{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;z-index:3;
+  background:
+    radial-gradient(circle at 28% 32%, rgba(88,28,135,.85) 0 9%, transparent 14%),
+    radial-gradient(circle at 68% 28%, rgba(88,28,135,.8) 0 8%, transparent 13%),
+    radial-gradient(circle at 45% 62%, rgba(124,45,18,.7) 0 7%, transparent 12%),
+    radial-gradient(circle at 70% 70%, rgba(88,28,135,.65) 0 9%, transparent 14%),
+    radial-gradient(circle at 30% 75%, rgba(69,26,3,.6) 0 6%, transparent 11%);}
+.sl-eyes{position:absolute;top:0;left:0;right:0;text-align:center;font-size:1.7rem;pointer-events:none;z-index:4;display:none;padding-top:34px;}
 .sl-eyes.sl-on{display:block;}
-.sl-yell{position:absolute;top:-2.6rem;left:50%;transform:translateX(-50%);background:#fef3c7;color:#92400e;padding:.3rem .8rem;border-radius:12px;font-size:.95rem;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none;z-index:4;}
+.sl-btorso{width:92px;height:64px;background:linear-gradient(#475569,#1e293b);border-radius:26px 26px 0 0;margin:-4px auto 0;z-index:2;position:relative;}
+.sl-yell{position:absolute;top:-2.4rem;left:50%;transform:translateX(-50%);background:#fef3c7;color:#92400e;padding:.3rem .8rem;border-radius:12px;font-size:.9rem;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none;z-index:6;}
 .sl-yell.sl-show{opacity:1;}
-.sl-count{margin:1rem 0 .3rem;font-size:1.2rem;color:#f1f5f9;}
-.sl-count b{color:#7dd3fc;font-size:1.8rem;}
-.sl-msg{color:#94a3b8;font-size:.9rem;min-height:1.4rem;}
-.sl-reset{background:none;border:1px solid #475569;color:#94a3b8;border-radius:10px;padding:.5rem 1rem;margin-top:.8rem;cursor:pointer;font-size:.9rem;}
+/* 道具 */
+.sl-prop{position:absolute;font-size:2rem;cursor:pointer;z-index:4;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:transform .12s, left .18s ease-in, top .18s ease-in;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3));}
+.sl-prop:hover{transform:scale(1.15);}
+.sl-prop.sl-fly{z-index:7;}
+.sl-tag{position:absolute;top:-1.3rem;left:50%;transform:translateX(-50%);background:#0f172a;color:#7dd3fc;font-size:.7rem;padding:.1rem .5rem;border-radius:8px;white-space:nowrap;border:1px solid #334155;}
+.sl-msg{color:#94a3b8;font-size:.9rem;min-height:1.4rem;margin-top:.6rem;}
+.sl-reset{background:none;border:1px solid #475569;color:#94a3b8;border-radius:10px;padding:.5rem 1rem;margin-top:.5rem;cursor:pointer;font-size:.9rem;}
 .sl-note{color:#64748b;font-size:.8rem;margin-top:1rem;}
 .sl-dl{background:none;border:1px solid #22c55e;color:#22c55e;width:100%;padding:.8rem;font-weight:700;border-radius:10px;cursor:pointer;font-size:1rem;margin-top:.5rem;}
 .sl-dl:active{transform:scale(.97);}
@@ -61,20 +77,20 @@
 </header>
 
 <main class="container">
-    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 出氣公仔</div>
-    <h1 style="text-align:center;margin:1rem 0 0.5rem;">👊 出氣公仔</h1>
-    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">上載張相，佢就變成你嘅出氣袋・又跳又叫仲會瘀</p>
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 教訓老細</div>
+    <h1 style="text-align:center;margin:1rem 0 0.5rem;">👊 教訓老細</h1>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">上載張相做老細塊面・辦公室 6 樣道具任你教訓佢</p>
 
     <div class="sl-card">
         <div class="sl-upload" id="slUpload">
             <span class="sl-icon">🖼️</span>
-            撳呢度上載張相<br>
-            <small>（老細？前度？星期一？你話事）</small>
+            撳呢度上載老細張相<br>
+            <small>（前度、星期一、邊個都得，你話事）</small>
         </div>
         <input type="file" id="slFile" accept="image/*" style="display:none;">
 
         <div class="sl-cal" id="slCal">
-            <p style="color:#94a3b8;font-size:.9rem;margin-bottom:.6rem;line-height:1.6;">拖郁張相、兩指縮放（或撳 ＋−），將佢個頭對入黃圈：</p>
+            <p style="color:#94a3b8;font-size:.9rem;margin-bottom:.6rem;line-height:1.6;">拖郁張相、兩指縮放（或撳 ＋−），將佢個頭對入頭型框：</p>
             <div class="sl-calbox" id="slCalbox">
                 <img id="slCalImg" alt="校準">
                 <div class="sl-ring"></div>
@@ -83,37 +99,48 @@
                 <button class="sl-zoom" id="slZoomOut">−</button>
                 <button class="sl-zoom" id="slZoomIn">＋</button>
             </div>
-            <button class="sl-btn" id="slStart">👊 開打！</button>
+            <button class="sl-btn" id="slStart">😈 開波！</button>
         </div>
 
-        <div class="sl-arena" id="slArena">
-            <div class="sl-doll" id="slDoll">
-                <div class="sl-yell" id="slYell">哎吔！</div>
-                <div class="sl-head" id="slHead">
-                    <img id="slHeadImg" alt="">
-                    <div class="sl-eyes" id="slEyes">😵‍💫</div>
+        <div class="sl-game" id="slGame">
+            <div class="sl-hp">🤵 老細血量 <div class="sl-hpbar"><div class="sl-hpfill" id="slHp"></div></div></div>
+            <div class="sl-stage" id="slStage">
+                <div class="sl-boss" id="slBoss">
+                    <div class="sl-yell" id="slYell">哎吔！</div>
+                    <div class="sl-bhead" id="slHead">
+                        <img id="slHeadImg" alt="">
+                        <div class="sl-facefx" id="slFacefx"></div>
+                        <div class="sl-eyes" id="slEyes">😵‍💫</div>
+                    </div>
+                    <div class="sl-btorso"></div>
                 </div>
-                <div class="sl-body">🧍</div>
+                <div class="sl-desk"></div>
+                <div class="sl-prop" data-dmg="6" data-rate="0.9" data-yell="我部 mon！好貴㗎！" style="bottom:128px;left:42%;">🖥️<span class="sl-tag">顯示器</span></div>
+                <div class="sl-prop" data-dmg="8" data-rate="0.7" data-yell="摺凳？！你嚟真㗎？" style="bottom:20px;left:8%;">🪑<span class="sl-tag">摺凳</span></div>
+                <div class="sl-prop" data-dmg="7" data-rate="0.8" data-yell="哎呀！啲紙呀！" style="bottom:24px;left:24%;">🖨️<span class="sl-tag">影印機</span></div>
+                <div class="sl-prop" data-dmg="4" data-rate="1.3" data-yell="好辣呀我塊面！" style="bottom:124px;left:58%;">☕<span class="sl-tag">熱咖啡</span></div>
+                <div class="sl-prop" data-dmg="5" data-rate="1.1" data-yell="濕晒啦！仲要出幻燈片㗎！" style="bottom:20px;right:20%;">🚰<span class="sl-tag">水機</span></div>
+                <div class="sl-prop" data-dmg="5" data-rate="1.0" data-yell="盤發財樹係風水嚟㗎！" style="bottom:24px;right:6%;">🪴<span class="sl-tag">盆栽</span></div>
             </div>
-            <div class="sl-count">已摑 <b id="slNum">0</b> 吓</div>
-            <div class="sl-msg" id="slMsg">摑啦，唔使客氣。</div>
+            <div class="sl-msg" id="slMsg">撳任何一樣道具教訓佢！</div>
             <button class="sl-reset" id="slReset">🔄 換張相</button>
         </div>
-        <div class="sl-note">🔒 張相只喺你部機處理，唔會上傳去任何地方，放心摑。</div>
+        <div class="sl-note">🔒 張相只喺你部機處理，唔會上傳去任何地方，放心玩。</div>
     </div>
 
     <div class="sl-card" style="margin-top:1.5rem;text-align:left;">
         <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 鍾意？拎走佢！</h2>
-        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">呢個遊戲係一個獨立 HTML 檔。撳下面個制下載落部機——雙擊即用，<strong style="color:#7dd3fc;">離線都玩得</strong>，send 俾同事一齊出氣都得。</p>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">呢個遊戲係一個獨立 HTML 檔。撳下面個制下載落部機——雙擊即用，<strong style="color:#7dd3fc;">離線都玩得</strong>，send 俾同事一齊教訓老細都得。</p>
         <button class="sl-dl" id="slDownload">⬇️ 下載呢個遊戲（HTML 單檔）</button>
-        <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講</h2>
-        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載咗個檔之後，上載去 ChatGPT / Claude / Kimi，跟住抄下面任何一句：</p>
-        <ul style="color:#cbd5e1;font-size:.9rem;line-height:2;padding-left:1.2rem;">
-            <li>「加武器系統：拖鞋、藤條、摺凳，唔同武器唔同威力同聲效」</li>
-            <li>「加多啲慘叫對白，我想自己寫十句俾佢講」</li>
-            <li>「加個 30 秒限時模式，同朋友鬥摑得多」</li>
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講（連方法都教埋你）</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載個檔，上載去 ChatGPT / Claude / Kimi，跟住抄。留意每句都講埋<strong style="color:#7dd3fc;">用咩技術做</strong>——你唔使識，但 AI 見到關鍵字就會行啲路：</p>
+        <ul style="color:#cbd5e1;font-size:.9rem;line-height:1.9;padding-left:1.2rem;">
+            <li><strong style="color:#fbbf24;">加新道具</strong>：「參考現有道具嘅做法，每樣道具係一行 HTML，用 data-dmg 控制威力、data-yell 控制對白、data-rate 控制聲效音調。幫我加：電話、鍵盤、文件櫃。」</li>
+            <li><strong style="color:#fbbf24;">加/改音效</strong>：「而家嘅聲效係用 Web Audio API 即場生成（冇外置音效檔，先可以單檔離線玩）。幫我加多幾種：重擊用低頻 noise＋慢衰減，摑擊用高頻短促，水機加個水花聲。全部要 Web Audio 生成，唔好叫我另外下載檔案。」</li>
+            <li><strong style="color:#fbbf24;">老細變樣（而家已經係咁做）</strong>：「而家係用 CSS filter（saturate/brightness/hue-rotate）加半透明 radial-gradient 瘀痕疊層，跟血量逐漸加深。幫我加：眼鏡碎裂（半血先出現）、甩頭髮、最後變豬頭。」</li>
+            <li><strong style="color:#fbbf24;">加對白</strong>：「老細對白分兩層：道具專屬（data-yell）同求饒池（begs 陣列隨機抽）。幫我將求饒池加到 30 句，語氣越嚟越衰，最後十句要講到喊。」</li>
         </ul>
-        <p style="color:#64748b;font-size:.85rem;line-height:1.7;">唔識落 prompt？睇我哋篇<a href="../articles/prompt-tips.html" style="color:#38bdf8;">落 Prompt 五個技巧</a>；整完想放上网？睇<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>。</p>
+        <p style="color:#64748b;font-size:.85rem;line-height:1.7;">想學點解咁樣落指令最有效？睇<a href="../articles/prompt-tips.html" style="color:#38bdf8;">落 Prompt 五個技巧</a>；整完想放上网？睇<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>。</p>
     </div>
 
     <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
@@ -139,11 +166,11 @@
 </footer>
 <script>
 const $ = id => document.getElementById(id);
-let count = 0, audioCtx = null, natW = 0, natH = 0;
+let hp = 300, audioCtx = null, natW = 0, natH = 0;
 let px = 0, py = 0, ps = 1;
 
 $('slUpload').onclick = () => $('slFile').click();
-$('slReset').onclick = () => { $('slArena').classList.remove('sl-on'); $('slCal').classList.remove('sl-on'); $('slUpload').style.display = 'block'; $('slFile').click(); };
+$('slReset').onclick = () => { $('slGame').classList.remove('sl-on'); $('slCal').classList.remove('sl-on'); $('slUpload').style.display = 'block'; $('slFile').click(); };
 
 function applyTransform(){
   const img = $('slCalImg');
@@ -166,21 +193,22 @@ $('slFile').onchange = async e => {
   img.src = URL.createObjectURL(f);
   await img.decode();
   natW = img.naturalWidth; natH = img.naturalHeight;
+  $('slUpload').style.display = 'none';
+  $('slGame').classList.remove('sl-on');
+  $('slCal').classList.add('sl-on');
+  await new Promise(r => requestAnimationFrame(r));
   const box = $('slCalbox');
   ps = box.clientWidth / natW;
   px = 0;
   py = (box.clientHeight - natH * ps) / 2;
   applyTransform();
-  $('slUpload').style.display = 'none';
-  $('slArena').classList.remove('sl-on');
-  $('slCal').classList.add('sl-on');
   try{
     if('FaceDetector' in window){
       const det = new FaceDetector();
       const faces = await det.detect(img);
       if(faces.length){
         const b = faces[0].boundingBox;
-        ps = 150 / Math.max(b.width, b.height);
+        ps = Math.max(140 / b.width, 180 / b.height);
         px = box.clientWidth / 2 - (b.x + b.width / 2) * ps;
         py = box.clientHeight / 2 - (b.y + b.height / 2) * ps;
         applyTransform();
@@ -231,79 +259,101 @@ $('slStart').onclick = () => {
   const box = $('slCalbox');
   const cx = (box.clientWidth / 2 - px) / ps;
   const cy = (box.clientHeight / 2 - py) / ps;
-  const r = 75 / ps;
+  const rx = 70 / ps, ry = 90 / ps;
   const c = document.createElement('canvas');
-  c.width = c.height = 320;
-  c.getContext('2d').drawImage($('slCalImg'), cx - r, cy - r, r * 2, r * 2, 0, 0, 320, 320);
+  c.width = 280; c.height = 360;
+  c.getContext('2d').drawImage($('slCalImg'), cx - rx, cy - ry, rx * 2, ry * 2, 0, 0, 280, 360);
   $('slHeadImg').src = c.toDataURL();
   $('slCal').classList.remove('sl-on');
-  $('slArena').classList.add('sl-on');
-  count = 0; $('slNum').textContent = 0;
-  $('slMsg').textContent = '摑啦，唔使客氣。';
-  $('slDoll').classList.remove('sl-ko');
+  $('slGame').classList.add('sl-on');
+  hp = 300;
+  hits = 0;
+  $('slHp').style.width = '100%';
+  $('slMsg').textContent = '撳任何一樣道具教訓佢！';
+  $('slBoss').classList.remove('sl-ko');
   $('slEyes').classList.remove('sl-on');
-  document.querySelectorAll('.sl-bruise').forEach(b => b.remove());
+  $('slFacefx').style.opacity = 0;
+  $('slHeadImg').style.filter = 'none';
+  $('slHead').style.transform = 'none';
 };
 
-function slapSound(){
+function hitSound(rate){
   audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
   const t = audioCtx.currentTime;
-  const buf = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.08, audioCtx.sampleRate);
+  const buf = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.12, audioCtx.sampleRate);
   const d = buf.getChannelData(0);
   for(let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 2);
   const src = audioCtx.createBufferSource();
   src.buffer = buf;
+  src.playbackRate.value = rate;
   const g = audioCtx.createGain();
   g.gain.setValueAtTime(0.6, t);
-  g.gain.exponentialRampToValueAtTime(0.01, t + 0.08);
+  g.gain.exponentialRampToValueAtTime(0.01, t + 0.12);
   src.connect(g); g.connect(audioCtx.destination);
   src.start();
 }
 
-const yells = ['哎吔！','唔好打塊面！','我錯啦！','救命呀！','點解又係我！','停手啦老闆……咪玩啦！','我請你食飯好冇？','呢吓真係痛！'];
-const bruises = ['🤕','🩹','🤕','🩹','👊'];
-const msgs = [
-  [10, '唔錯，開始有火。'],
-  [30, '佢塊面開始瘀喇……'],
-  [50, '眼冒金星！繼續！'],
-  [100, 'KO！佢瞓低咗。你順氣未？']
-];
+// 求饒池：打得多佢越求饒
+const begs = ['哎吔！','好痛呀！','唔好打呀！','對唔住呀！','我知錯啦！','你大人有大量！','其實你先至係啱㗎！','我加你人工！','以後你話事！','放過我啦……','我請你食飯！饒命！','唔該停手呀……','我唔敢再鬧你㗎啦！','OT 補水照俾！唔打得好冇？','你想幾點收工都得！'];
 
-$('slDoll').addEventListener('pointerdown', () => {
-  if($('slDoll').classList.contains('sl-ko')) return;
-  count++;
-  $('slNum').textContent = count;
-  const d = $('slDoll');
-  d.classList.remove('sl-jump');
-  void d.offsetWidth;
-  d.classList.add('sl-jump');
-  slapSound();
-  const y = $('slYell');
-  y.textContent = yells[Math.floor(Math.random() * yells.length)];
-  y.classList.add('sl-show');
-  clearTimeout(y._t);
-  y._t = setTimeout(() => y.classList.remove('sl-show'), 600);
-  if(count % 10 === 0){
-    const b = document.createElement('span');
-    b.className = 'sl-bruise';
-    b.textContent = bruises[(count / 10 - 1) % bruises.length];
-    b.style.left = (15 + Math.random() * 100) + 'px';
-    b.style.top = (15 + Math.random() * 100) + 'px';
-    $('slHead').appendChild(b);
-  }
-  if(count >= 50) $('slEyes').classList.add('sl-on');
-  if(count === 100){
-    d.classList.add('sl-ko');
-    $('slMsg').textContent = 'KO！佢瞓低咗。換張相再嚟過？';
-  }
-  for(const [n, m] of msgs) if(count === n && n !== 100) $('slMsg').textContent = m;
+let hits = 0;
+
+document.querySelectorAll('.sl-prop').forEach(prop => {
+  prop.addEventListener('pointerdown', () => {
+    const boss = $('slBoss');
+    if(boss.classList.contains('sl-ko')) return;
+    hits++;
+    const stage = $('slStage').getBoundingClientRect();
+    const pr = prop.getBoundingClientRect();
+    const hr = $('slHead').getBoundingClientRect();
+    const ox = pr.left - stage.left, oy = pr.top - stage.top;
+    const tx = hr.left - stage.left + hr.width / 2 - pr.width / 2;
+    const ty = hr.top - stage.top + hr.height / 2 - pr.height / 2;
+    prop.classList.add('sl-fly');
+    prop.style.left = tx + 'px';
+    prop.style.top = ty + 'px';
+    prop.style.bottom = 'auto';
+    prop.style.right = 'auto';
+    hitSound(parseFloat(prop.dataset.rate));
+    setTimeout(() => {
+      prop.style.left = ox + 'px';
+      prop.style.top = oy + 'px';
+      setTimeout(() => prop.classList.remove('sl-fly'), 200);
+    }, 260);
+    const dir = tx < stage.width / 2 ? -1 : 1;
+    boss.style.setProperty('--dir', dir);
+    boss.classList.remove('sl-sway');
+    void boss.offsetWidth;
+    boss.classList.add('sl-sway');
+    const y = $('slYell');
+    // 三成人句係道具專屬對白，其餘求饒
+    y.textContent = Math.random() < 0.3 ? prop.dataset.yell : begs[Math.floor(Math.random() * begs.length)];
+    y.classList.add('sl-show');
+    clearTimeout(y._t);
+    y._t = setTimeout(() => y.classList.remove('sl-show'), 900);
+    hp = Math.max(0, hp - parseInt(prop.dataset.dmg));
+    $('slHp').style.width = (hp / 300 * 100) + '%';
+    // 塊面跟住血量真係變樣：瘀痕疊層加深＋變色變暗＋微微變腫
+    const dmg01 = 1 - hp / 300;
+    $('slFacefx').style.opacity = dmg01 * 0.9;
+    $('slHeadImg').style.filter = `saturate(${1 - dmg01 * 0.55}) brightness(${1 - dmg01 * 0.18}) hue-rotate(${dmg01 * -28}deg)`;
+    $('slHead').style.transform = `scale(${1 + dmg01 * 0.07})`;
+    if(hp <= 120) $('slEyes').classList.add('sl-on');
+    if(hp <= 0){
+      boss.classList.remove('sl-sway');
+      boss.classList.add('sl-ko');
+      y.textContent = '我……我放你大假……你睇住辦……';
+      y.classList.add('sl-show');
+      $('slMsg').textContent = '🏆 KO！老細瞓咗喺地下。撳「換張相」教訓下一個。';
+    }
+  });
 });
 
 $('slDownload').onclick = () => {
   const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = '出氣公仔.html';
+  a.download = '教訓老細.html';
   a.click();
   URL.revokeObjectURL(a.href);
 };
