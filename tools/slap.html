@@ -62,6 +62,20 @@
         <div class="sl-note">🔒 張相只喺你部機處理，唔會上傳去任何地方，放心摑。</div>
     </div>
 
+    <div class="sl-card" style="margin-top:1.5rem;text-align:left;">
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 鍾意？拎走佢！</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">呢個遊戲係一個獨立 HTML 檔。撳下面個制下載落部機——雙擊即用，<strong style="color:#7dd3fc;">離線都玩得</strong>，send 俾同事一齊出氣都得。</p>
+        <button class="sl-reset" id="slDownload" style="border-color:#22c55e;color:#22c55e;width:100%;padding:.8rem;font-weight:700;">⬇️ 下載呢個遊戲（HTML 單檔）</button>
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載咗個檔之後，上載去 ChatGPT / Claude / Kimi，跟住抄下面任何一句：</p>
+        <ul style="color:#cbd5e1;font-size:.9rem;line-height:2;padding-left:1.2rem;">
+            <li>「加個 30 秒限時模式，同朋友鬥摑得多」</li>
+            <li>「加手機震動，每摑一吓機身震一下」</li>
+            <li>「加個最高紀錄，用 localStorage 記住」</li>
+        </ul>
+        <p style="color:#64748b;font-size:.85rem;line-height:1.7;">唔識落 prompt？睇我哋篇<a href="../articles/prompt-tips.html" style="color:#38bdf8;">落 Prompt 五個技巧</a>；整完想放上网？睇<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>。</p>
+    </div>
+
     <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
         <ins class="adsbygoogle" style="display:block"
              data-ad-client="ca-pub-5952182039504663"
@@ -129,6 +143,15 @@ const msgs = [
   [500, '五百吓！！呢個唔係遊戲，係治療。'],
   [1000, '一千吓。你贏咗，張相已經唔敢郁。']
 ];
+
+$('slDownload').onclick = () => {
+  const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '出氣相靶.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
 
 $('slTarget').addEventListener('pointerdown', e => {
   count++;
