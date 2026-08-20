@@ -83,6 +83,24 @@
         </div>
     </div>
 
+    <div class="aa-card" style="margin-top:1.5rem;">
+        <div class="aa-sec">
+            <h2>📥 鍾意？拎走佢！</h2>
+            <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">呢個工具係一個獨立 HTML 檔。撳下面個制，成個工具下載落你部機——之後雙擊個檔就用得，<strong style="color:#7dd3fc;">離線都得</strong>，仲可以 WhatsApp / email 俾朋友。</p>
+            <button class="aa-copy" id="aaDownload">⬇️ 下載呢個工具（HTML 單檔）</button>
+        </div>
+        <div class="aa-sec">
+            <h2>🛠️ 想改？咁樣同 AI 講</h2>
+            <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載咗個檔之後，上載去 ChatGPT / Claude / Kimi，跟住抄下面任何一句：</p>
+            <ul style="color:#cbd5e1;font-size:.9rem;line-height:2;padding-left:1.2rem;">
+                <li>「幫我加個功能：某啲人可以俾雙倍或半份（按比例分帳）」</li>
+                <li>「加埋港幣以外嘅貨幣選擇，例如日元台幣」</li>
+                <li>「加個『邊個找數』功能，標記邊個已經俾咗錢」</li>
+            </ul>
+            <p style="color:#64748b;font-size:.85rem;line-height:1.7;">唔識落 prompt？睇我哋篇<a href="../articles/bill-splitter.html" style="color:#38bdf8;">AA 分帳器教學</a>同<a href="../articles/prompt-tips.html" style="color:#38bdf8;">落 Prompt 五個技巧</a>就明。</p>
+        </div>
+    </div>
+
     <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
         <ins class="adsbygoogle" style="display:block"
              data-ad-client="ca-pub-5952182039504663"
@@ -171,6 +189,15 @@ function calc(){
 }
 $('aaSvc').onchange = calc;
 $('aaAddItem').addEventListener('click', calc);
+
+$('aaDownload').onclick = () => {
+  const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'AA分帳器.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
 
 $('aaCopy').onclick = () => {
   if(!names.length || !items.length) return;
