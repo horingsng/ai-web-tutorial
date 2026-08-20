@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品介紹頁模板｜小商店一頁式開賣・免費模板｜AI建站教學</title>
+    <meta name="description" content="免費產品介紹頁模板：店名、產品卡、價錢、WhatsApp 落單制，一頁式開賣。單檔離線用得，改兩行就變你間店。網店、小店、市集擺檔啱用。">
+    <meta name="keywords" content="產品介紹網頁, 一頁式網頁, 網店模板, 小店網站, 免費網頁模板, WhatsApp落單">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+<style>
+.pp-demo{max-width:640px;margin:0 auto;background:#fffdf7;border:1px solid #e7d9b8;border-radius:16px;overflow:hidden;color:#3f3a2e;}
+.pp-hero{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;text-align:center;padding:2rem 1rem;}
+.pp-hero h2{font-size:1.6rem;margin-bottom:.3rem;}
+.pp-hero p{opacity:.92;font-size:.95rem;}
+.pp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;padding:1rem;}
+.pp-item{background:#fff;border:1px solid #eee0bd;border-radius:12px;padding:.9rem;text-align:center;}
+.pp-item .pp-emoji{font-size:2.2rem;}
+.pp-item h3{font-size:1rem;margin:.3rem 0 .1rem;}
+.pp-item .pp-price{color:#d97706;font-weight:800;font-size:1.05rem;}
+.pp-item p{font-size:.8rem;color:#8a8271;margin:.3rem 0 .5rem;}
+.pp-order{display:inline-block;background:#25d366;color:#fff;text-decoration:none;font-size:.85rem;font-weight:700;padding:.4rem .9rem;border-radius:999px;}
+.pp-foot{text-align:center;padding:1rem;font-size:.85rem;color:#8a8271;border-top:1px solid #eee0bd;}
+.pp-foot a{color:#25d366;font-weight:700;text-decoration:none;}
+.pp-note{text-align:center;color:#64748b;font-size:.85rem;margin:.8rem 0 0;}
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#tools">免費工具</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 產品介紹頁模板</div>
+    <h1 style="text-align:center;margin:1rem 0 0.5rem;">🏪 產品介紹頁模板</h1>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">小商店一頁式開賣：產品卡＋價錢＋WhatsApp 落單制</p>
+
+    <div class="pp-demo" id="ppDemo"></div>
+    <p class="pp-note">👆 上面係示範店，下載之後改兩行就係你間店</p>
+
+    <div class="pp-demo" style="margin-top:1.5rem;background:#1e293b;border-color:#334155;color:#cbd5e1;padding:1.5rem;">
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 拎走佢，變成你間店</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">撳下面個制下載個 HTML 檔。店名、產品、價錢全部寫喺檔案最頂嘅<strong style="color:#7dd3fc;">一個資料陣列</strong>入面，用記事本改都得；WhatsApp 號碼都係改一個數字。</p>
+        <button class="pp-order" id="ppDownload" style="border:none;cursor:pointer;font-size:1rem;padding:.8rem 1.4rem;margin-top:.4rem;">⬇️ 下載模板（HTML 單檔）</button>
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講（連方法都教埋你）</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載個檔，上載去 ChatGPT / Claude / Kimi，跟住抄。每句都講埋<strong style="color:#7dd3fc;">用咩技術做</strong>：</p>
+        <ul style="color:#cbd5e1;font-size:.9rem;line-height:1.9;padding-left:1.2rem;">
+            <li><strong style="color:#fbbf24;">換你嘅產品</strong>：「產品資料係檔案頂部一個 JavaScript 陣列（PRODUCTS），每項有 emoji／名／價錢／簡介。幫我換成：……（貼你嘅產品清單）」</li>
+            <li><strong style="color:#fbbf24;">加產品相</strong>：「而家產品用 emoji 做圖。幫我加個 image 欄位支援本地相：如果 image 有值就顯示相，冇就用 emoji，相用 base64 內嵌保持單檔。」</li>
+            <li><strong style="color:#fbbf24;">改落單方式</strong>：「而家撳制係開 wa.me 帶預設訊息。幫我加多個選擇：可以揀 WhatsApp 或者複製訂單文字，電話號碼同訊息格式放喺頂部 SHOP 設定度。」</li>
+            <li><strong style="color:#fbbf24;">放上网</strong>：整完跟<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>放上网，你間店就有條正式 link 可以印落卡片度。</li>
+        </ul>
+    </div>
+
+    <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+<script>
+// ===== 示範店設定（下載後改呢度就係你間店）=====
+const SHOP = {
+  name: '開心果雜貨店',
+  slogan: '新鮮・抵買・今日訂聽日攞',
+  phone: '91234567'
+};
+const PRODUCTS = [
+  { emoji: '🍊', name: '澳洲香橙', price: 28, unit: '袋', desc: '一袋六個，甜過初戀' },
+  { emoji: '🥬', name: '有機菜心', price: 18, unit: '斤', desc: '每日朝早新鮮到貨' },
+  { emoji: '🥚', name: '湖北土雞蛋', price: 38, unit: '排', desc: '一排十隻，蛋香濃' },
+  { emoji: '🍯', name: '自家蜂蜜', price: 88, unit: '樽', desc: '無添加，500g' },
+  { emoji: '🍞', name: '手作方包', price: 25, unit: '條', desc: '每日出爐兩次' },
+  { emoji: '🧃', name: '鮮榨橙汁', price: 22, unit: '支', desc: '落單先榨' }
+];
+// ===== 以下係程式，唔使郁 =====
+
+const wa = p => `https://wa.me/852${SHOP.phone}?text=` + encodeURIComponent(`你好！我想訂：${p.name}（$${p.price}/${p.unit}）`);
+$('ppDemo').innerHTML = `
+  <div class="pp-hero"><h2>🏪 ${SHOP.name}</h2><p>${SHOP.slogan}</p></div>
+  <div class="pp-grid">
+    ${PRODUCTS.map(p => `
+      <div class="pp-item">
+        <div class="pp-emoji">${p.emoji}</div>
+        <h3>${p.name}</h3>
+        <div class="pp-price">$${p.price}／${p.unit}</div>
+        <p>${p.desc}</p>
+        <a class="pp-order" href="${wa(p)}" target="_blank" rel="noopener">📲 落單</a>
+      </div>`).join('')}
+  </div>
+  <div class="pp-foot">📲 直接 WhatsApp 我哋：<a href="https://wa.me/852${SHOP.phone}" target="_blank" rel="noopener">${SHOP.phone}</a></div>
+`;
+
+$('ppDownload').onclick = () => {
+  const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '產品介紹頁.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+</script>
+</body>
+</html>
