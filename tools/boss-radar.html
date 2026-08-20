@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老細雷達｜一撳即變返工作畫面・上班摸魚遊戲・免費工具｜AI建站教學</title>
+    <meta name="description" content="免費上班摸魚神器：一邊玩小遊戲一邊睇住門口，老細一埋嚟撳一下就即刻變返 Excel 工作畫面。電腦撳 Esc 都得。單檔離線用得。">
+    <meta name="keywords" content="上班摸魚遊戲, 老細鍵, boss key, 摸魚神器, 扮工做嘢, 免費網頁遊戲">
+    <link rel="stylesheet" href="../style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
+<style>
+.br-card{max-width:520px;margin:0 auto;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:1.5rem;text-align:center;}
+.br-arena{position:relative;background:#0f172a;border:1px solid #475569;border-radius:12px;height:320px;overflow:hidden;margin-bottom:1rem;}
+.br-coin{position:absolute;font-size:2.2rem;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:transform .1s;}
+.br-coin:active{transform:scale(1.3);}
+.br-hud{display:flex;justify-content:space-between;color:#f1f5f9;margin-bottom:.8rem;font-size:1.05rem;}
+.br-hud b{color:#fbbf24;}
+.br-panic{width:100%;background:#dc2626;border:none;color:#fff;font-weight:800;font-size:1.15rem;border-radius:12px;padding:1rem;cursor:pointer;letter-spacing:.05em;}
+.br-panic:active{transform:scale(.97);}
+.br-tip{color:#64748b;font-size:.85rem;margin-top:.8rem;line-height:1.6;}
+/* 扮工畫面 */
+.br-cover{display:none;position:fixed;inset:0;background:#f3f4f6;z-index:9999;padding:1.5rem;overflow:auto;font-family:Calibri,Arial,sans-serif;color:#111;}
+.br-cover.br-on{display:block;}
+.br-cover h3{color:#1f4e79;font-size:1.1rem;margin-bottom:.3rem;}
+.br-cover .br-sub{color:#6b7280;font-size:.8rem;margin-bottom:1rem;}
+.br-cover table{border-collapse:collapse;width:100%;background:#fff;font-size:.85rem;}
+.br-cover th{background:#1f4e79;color:#fff;padding:.45rem .6rem;text-align:left;border:1px solid #d1d5db;}
+.br-cover td{padding:.4rem .6rem;border:1px solid #d1d5db;}
+.br-cover tr:nth-child(even) td{background:#f9fafb;}
+.br-cover .br-back{margin-top:1rem;background:#1f4e79;color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;opacity:.25;}
+.br-cover .br-back:hover{opacity:1;}
+.br-dl{background:none;border:1px solid #22c55e;color:#22c55e;width:100%;padding:.8rem;font-weight:700;border-radius:10px;cursor:pointer;font-size:1rem;margin-top:.5rem;}
+.br-dl:active{transform:scale(.97);}
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="../index.html">AI<span>建站</span>教學</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#tool">Prompt生成器</a></li>
+            <li><a href="../index.html#articles">教學文章</a></li>
+            <li><a href="../index.html#tools">免費工具</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> › 免費工具 › 老細雷達</div>
+    <h1 style="text-align:center;margin:1rem 0 0.5rem;">🎯 老細雷達</h1>
+    <p style="text-align:center;color:#94a3b8;margin-bottom:1.5rem;">摸住魚，睇住門口・一撳即變返工作畫面</p>
+
+    <div class="br-card">
+        <div class="br-hud"><span>💰 執到 <b id="brScore">0</b> 蚊</span><span>🏆 最高 <b id="brBest">0</b></span></div>
+        <div class="br-arena" id="brArena">
+            <div style="color:#64748b;padding-top:8rem;font-size:.95rem;">撳金幣執錢，金幣會四圍跳<br>執得越多跳得越快！</div>
+        </div>
+        <button class="br-panic" id="brPanic">🚨 老細嚟啦！（電腦可撳 Esc）</button>
+        <p class="br-tip">撳紅制或者 Esc，畫面即刻變成一份「Q3 銷售數據分析」Excel 報表。<br>想返嚟繼續玩？撳報表最底嗰粒灰色制。</p>
+    </div>
+
+    <div class="br-card" style="margin-top:1.5rem;text-align:left;">
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin-bottom:.6rem;">📥 鍾意？拎走佢！</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">呢個工具係一個獨立 HTML 檔。撳下面個制下載落部機——雙擊即用，<strong style="color:#7dd3fc;">離線都玩得</strong>，send 俾同事一齊摸魚都得。</p>
+        <button class="br-dl" id="brDownload">⬇️ 下載呢個工具（HTML 單檔）</button>
+        <h2 style="font-size:1.05rem;color:#7dd3fc;margin:1.4rem 0 .6rem;">🛠️ 想改？咁樣同 AI 講</h2>
+        <p style="color:#94a3b8;font-size:.95rem;line-height:1.7;">下載咗個檔之後，上載去 ChatGPT / Claude / Kimi，跟住抄下面任何一句：</p>
+        <ul style="color:#cbd5e1;font-size:.9rem;line-height:2;padding-left:1.2rem;">
+            <li>「扮工畫面改做扮 Outlook 收件箱／Word 文件」</li>
+            <li>「小遊戲轉做打地鼠，30 秒限時計分」</li>
+            <li>「加入音量偵測：咪高峰聽到腳步聲自動切換」</li>
+        </ul>
+        <p style="color:#64748b;font-size:.85rem;line-height:1.7;">唔識落 prompt？睇我哋篇<a href="../articles/prompt-tips.html" style="color:#38bdf8;">落 Prompt 五個技巧</a>；整完想放上网？睇<a href="../articles/publish-github-pages.html" style="color:#38bdf8;">免費發佈教學</a>。</p>
+    </div>
+
+    <div class="ad-container" style="margin:2rem auto;max-width:728px;text-align:center;">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-5952182039504663"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+</main>
+
+<!-- 扮工畫面：假 Excel -->
+<div class="br-cover" id="brCover">
+    <h3>📊 Q3_Sales_Analysis_final_v3.xlsx — Excel</h3>
+    <div class="br-sub">最後儲存：今日 14:32 ｜ 共用活頁簿</div>
+    <table>
+        <tr><th>區域</th><th>產品線</th><th>Q2 銷售額</th><th>Q3 銷售額</th><th>增長</th><th>備註</th></tr>
+        <tr><td>香港</td><td>A 系列</td><td>1,240,000</td><td>1,318,500</td><td>+6.3%</td><td>符合預期</td></tr>
+        <tr><td>香港</td><td>B 系列</td><td>860,000</td><td>905,200</td><td>+5.3%</td><td>持續觀察</td></tr>
+        <tr><td>九龍</td><td>A 系列</td><td>975,000</td><td>1,102,800</td><td>+13.1%</td><td>超出目標</td></tr>
+        <tr><td>九龍</td><td>C 系列</td><td>430,500</td><td>428,100</td><td>-0.6%</td><td>待跟進</td></tr>
+        <tr><td>新界</td><td>A 系列</td><td>688,000</td><td>745,600</td><td>+8.4%</td><td>符合預期</td></tr>
+        <tr><td>新界</td><td>B 系列</td><td>512,300</td><td>590,000</td><td>+15.2%</td><td>加大推廣</td></tr>
+        <tr><td>澳門</td><td>A 系列</td><td>220,000</td><td>236,400</td><td>+7.5%</td><td>穩定</td></tr>
+        <tr><td><b>總計</b></td><td>—</td><td><b>4,925,800</b></td><td><b>5,326,600</b></td><td><b>+8.1%</b></td><td>達標</td></tr>
+    </table>
+    <button class="br-back" id="brBack">← 返去繼續</button>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="../about.html">關於我們</a>
+            <a href="../privacy.html">隱私政策</a>
+            <a href="../contact.html">聯絡我們</a>
+            <a href="../disclaimer.html">免責聲明</a>
+        </div>
+        <p class="copyright">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
+    </div>
+</footer>
+<script>
+const $ = id => document.getElementById(id);
+let score = 0, best = +(localStorage.getItem('brBest') || 0), speed = 900, timer = null, coin = null;
+$('brBest').textContent = best;
+
+function spawnCoin(){
+  if(coin) coin.remove();
+  coin = document.createElement('span');
+  coin.className = 'br-coin';
+  coin.textContent = '💰';
+  moveCoin();
+  coin.onpointerdown = () => {
+    score++;
+    $('brScore').textContent = score;
+    if(score > best){ best = score; $('brBest').textContent = best; localStorage.setItem('brBest', best); }
+    if(speed > 250) speed -= 25;
+    spawnCoin();
+  };
+  $('brArena').appendChild(coin);
+  clearTimeout(timer);
+  timer = setTimeout(spawnCoin, speed);
+}
+function moveCoin(){
+  const a = $('brArena');
+  coin.style.left = Math.random() * (a.clientWidth - 50) + 'px';
+  coin.style.top = Math.random() * (a.clientHeight - 50) + 'px';
+}
+spawnCoin();
+
+function panicOn(){ $('brCover').classList.add('br-on'); }
+function panicOff(){ $('brCover').classList.remove('br-on'); }
+$('brPanic').onclick = panicOn;
+$('brBack').onclick = panicOff;
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') panicOn();
+});
+
+$('brDownload').onclick = () => {
+  const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '老細雷達.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+</script>
+</body>
+</html>
