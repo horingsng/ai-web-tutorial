@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>出氣公仔｜上載老細張相變出氣袋・上班摸魚遊戲・免費工具｜AI建站教學</title>
-    <meta name="description" content="免費出氣小遊戲：上載任何相片，自動抽出個頭變成出氣公仔，摑到佢又跳又叫仲會瘀晒。相片只留喺你部機。上班摸魚必備。">
+    <meta name="description" content="免費出氣小遊戲：上載任何相片，拖一拖縮一縮抽出個頭變出氣公仔，摑到佢又跳又叫仲會瘀晒。相片只留喺你部機。上班摸魚必備。">
     <meta name="keywords" content="上班摸魚遊戲, 出氣遊戲, 發洩遊戲, 打老細遊戲, 解壓小遊戲, 免費網頁遊戲">
     <link rel="stylesheet" href="../style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
@@ -13,26 +13,31 @@
 .sl-upload{border:2px dashed #475569;border-radius:12px;padding:2rem 1rem;color:#94a3b8;cursor:pointer;}
 .sl-upload:hover{border-color:#38bdf8;color:#7dd3fc;}
 .sl-upload .sl-icon{font-size:2.5rem;display:block;margin-bottom:.5rem;}
+/* 裁剪畫面：圈固定，相可拖可縮放 */
 .sl-cal{display:none;}
 .sl-cal.sl-on{display:block;}
-.sl-calbox{position:relative;width:100%;max-width:320px;margin:0 auto 1rem;touch-action:none;}
-.sl-calbox img{width:100%;display:block;border-radius:12px;}
-.sl-ring{position:absolute;width:110px;height:110px;border:3px solid #fbbf24;border-radius:50%;box-shadow:0 0 0 9999px rgba(0,0,0,.55);cursor:move;left:calc(50% - 55px);top:20%;}
+.sl-calbox{position:relative;width:100%;max-width:340px;height:340px;margin:0 auto .8rem;overflow:hidden;border-radius:12px;background:#0f172a;touch-action:none;cursor:grab;}
+.sl-calbox:active{cursor:grabbing;}
+.sl-calbox img{position:absolute;transform-origin:0 0;max-width:none;pointer-events:none;}
+.sl-ring{position:absolute;width:150px;height:150px;border:3px solid #fbbf24;border-radius:50%;box-shadow:0 0 0 9999px rgba(0,0,0,.55);left:calc(50% - 75px);top:calc(50% - 75px);pointer-events:none;}
+.sl-zoomrow{display:flex;justify-content:center;gap:.6rem;margin-bottom:.9rem;}
+.sl-zoom{background:#0f172a;border:1px solid #475569;color:#f1f5f9;border-radius:10px;padding:.5rem 1.2rem;font-size:1.2rem;cursor:pointer;}
 .sl-btn{background:#0ea5e9;border:none;color:#fff;border-radius:10px;padding:.8rem 1.4rem;font-size:1rem;font-weight:700;cursor:pointer;}
 .sl-btn:active{transform:scale(.96);}
+/* 公仔 */
 .sl-arena{display:none;}
 .sl-arena.sl-on{display:block;}
-.sl-doll{position:relative;width:220px;margin:0 auto;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:transform .3s;}
+.sl-doll{position:relative;width:260px;margin:0 auto;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:transform .3s;}
 .sl-doll.sl-jump{animation:jump .35s ease;}
-@keyframes jump{0%{transform:translateY(0);}40%{transform:translateY(-36px) rotate(-4deg);}70%{transform:translateY(4px);}100%{transform:translateY(0);}}
-.sl-doll.sl-ko{transform:rotate(90deg) translateY(30px);}
-.sl-head{position:relative;width:130px;height:130px;margin:0 auto;border-radius:50%;overflow:hidden;border:4px solid #fbbf24;background:#0f172a;z-index:2;}
-.sl-head img{position:absolute;}
-.sl-bruise{position:absolute;font-size:1.3rem;pointer-events:none;}
-.sl-body{font-size:5.5rem;line-height:1;margin-top:-14px;position:relative;z-index:1;}
-.sl-eyes{position:absolute;top:0;left:0;right:0;text-align:center;font-size:2rem;pointer-events:none;z-index:3;display:none;padding-top:38px;}
+@keyframes jump{0%{transform:translateY(0);}40%{transform:translateY(-40px) rotate(-5deg);}70%{transform:translateY(5px);}100%{transform:translateY(0);}}
+.sl-doll.sl-ko{transform:rotate(90deg) translateY(36px);}
+.sl-head{position:relative;width:160px;height:160px;margin:0 auto;border-radius:50%;overflow:hidden;border:4px solid #fbbf24;background:#0f172a;z-index:2;}
+.sl-head img{width:100%;height:100%;object-fit:cover;display:block;}
+.sl-bruise{position:absolute;font-size:1.6rem;pointer-events:none;}
+.sl-body{font-size:6.5rem;line-height:1;margin-top:-16px;position:relative;z-index:1;}
+.sl-eyes{position:absolute;top:0;left:0;right:0;text-align:center;font-size:2.4rem;pointer-events:none;z-index:3;display:none;padding-top:48px;}
 .sl-eyes.sl-on{display:block;}
-.sl-yell{position:absolute;top:-2.6rem;left:50%;transform:translateX(-50%);background:#fef3c7;color:#92400e;padding:.3rem .8rem;border-radius:12px;font-size:.9rem;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none;z-index:4;}
+.sl-yell{position:absolute;top:-2.6rem;left:50%;transform:translateX(-50%);background:#fef3c7;color:#92400e;padding:.3rem .8rem;border-radius:12px;font-size:.95rem;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none;z-index:4;}
 .sl-yell.sl-show{opacity:1;}
 .sl-count{margin:1rem 0 .3rem;font-size:1.2rem;color:#f1f5f9;}
 .sl-count b{color:#7dd3fc;font-size:1.8rem;}
@@ -69,10 +74,14 @@
         <input type="file" id="slFile" accept="image/*" style="display:none;">
 
         <div class="sl-cal" id="slCal">
-            <p style="color:#94a3b8;font-size:.9rem;margin-bottom:.6rem;">黃圈對準佢個頭（可以拖郁），啱位就開打：</p>
+            <p style="color:#94a3b8;font-size:.9rem;margin-bottom:.6rem;line-height:1.6;">拖郁張相、兩指縮放（或撳 ＋−），將佢個頭對入黃圈：</p>
             <div class="sl-calbox" id="slCalbox">
                 <img id="slCalImg" alt="校準">
-                <div class="sl-ring" id="slRing"></div>
+                <div class="sl-ring"></div>
+            </div>
+            <div class="sl-zoomrow">
+                <button class="sl-zoom" id="slZoomOut">−</button>
+                <button class="sl-zoom" id="slZoomIn">＋</button>
             </div>
             <button class="sl-btn" id="slStart">👊 開打！</button>
         </div>
@@ -131,18 +140,37 @@
 <script>
 const $ = id => document.getElementById(id);
 let count = 0, audioCtx = null, natW = 0, natH = 0;
+let px = 0, py = 0, ps = 1;
 
 $('slUpload').onclick = () => $('slFile').click();
 $('slReset').onclick = () => { $('slArena').classList.remove('sl-on'); $('slCal').classList.remove('sl-on'); $('slUpload').style.display = 'block'; $('slFile').click(); };
 
+function applyTransform(){
+  const img = $('slCalImg');
+  img.style.width = (natW * ps) + 'px';
+  img.style.left = px + 'px';
+  img.style.top = py + 'px';
+}
+function zoomAt(factor, cx, cy){
+  const ns = Math.max(0.05, Math.min(ps * factor, 5));
+  px = cx - (cx - px) * ns / ps;
+  py = cy - (cy - py) * ns / ps;
+  ps = ns;
+  applyTransform();
+}
+
 $('slFile').onchange = async e => {
   const f = e.target.files[0];
   if(!f) return;
-  const url = URL.createObjectURL(f);
   const img = $('slCalImg');
-  img.src = url;
+  img.src = URL.createObjectURL(f);
   await img.decode();
   natW = img.naturalWidth; natH = img.naturalHeight;
+  const box = $('slCalbox');
+  ps = box.clientWidth / natW;
+  px = 0;
+  py = (box.clientHeight - natH * ps) / 2;
+  applyTransform();
   $('slUpload').style.display = 'none';
   $('slArena').classList.remove('sl-on');
   $('slCal').classList.add('sl-on');
@@ -152,11 +180,10 @@ $('slFile').onchange = async e => {
       const faces = await det.detect(img);
       if(faces.length){
         const b = faces[0].boundingBox;
-        const box = $('slCalbox');
-        const sx = box.clientWidth / natW;
-        const ring = $('slRing');
-        ring.style.left = (b.x * sx + b.width * sx / 2 - 55) + 'px';
-        ring.style.top = (b.y * sx + b.height * sx / 2 - 55) + 'px';
+        ps = 150 / Math.max(b.width, b.height);
+        px = box.clientWidth / 2 - (b.x + b.width / 2) * ps;
+        py = box.clientHeight / 2 - (b.y + b.height / 2) * ps;
+        applyTransform();
       }
     }
   }catch(err){}
@@ -164,28 +191,50 @@ $('slFile').onchange = async e => {
 };
 
 (function(){
-  const ring = $('slRing'), box = $('slCalbox');
-  let dragging = false, ox = 0, oy = 0;
-  ring.addEventListener('pointerdown', e => { dragging = true; ox = e.clientX - ring.offsetLeft; oy = e.clientY - ring.offsetTop; ring.setPointerCapture(e.pointerId); });
-  ring.addEventListener('pointermove', e => {
-    if(!dragging) return;
-    let x = e.clientX - ox, y = e.clientY - oy;
-    x = Math.max(0, Math.min(x, box.clientWidth - 110));
-    y = Math.max(0, Math.min(y, box.clientHeight - 110));
-    ring.style.left = x + 'px'; ring.style.top = y + 'px';
+  const box = $('slCalbox');
+  const pts = new Map();
+  let lastDist = 0;
+  box.addEventListener('pointerdown', e => { box.setPointerCapture(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]); });
+  box.addEventListener('pointermove', e => {
+    if(!pts.has(e.pointerId)) return;
+    if(pts.size === 1){
+      const [ox, oy] = pts.get(e.pointerId);
+      px += e.clientX - ox;
+      py += e.clientY - oy;
+      pts.set(e.pointerId, [e.clientX, e.clientY]);
+      applyTransform();
+    }else if(pts.size === 2){
+      pts.set(e.pointerId, [e.clientX, e.clientY]);
+      const arr = [...pts.values()];
+      const d = Math.hypot(arr[0][0] - arr[1][0], arr[0][1] - arr[1][1]);
+      if(lastDist){
+        const r = box.getBoundingClientRect();
+        zoomAt(d / lastDist, r.width / 2, r.height / 2);
+      }
+      lastDist = d;
+    }
   });
-  ring.addEventListener('pointerup', () => dragging = false);
+  const up = e => { pts.delete(e.pointerId); if(pts.size < 2) lastDist = 0; };
+  box.addEventListener('pointerup', up);
+  box.addEventListener('pointercancel', up);
+  box.addEventListener('wheel', e => {
+    e.preventDefault();
+    const r = box.getBoundingClientRect();
+    zoomAt(e.deltaY < 0 ? 1.1 : 0.9, r.width / 2, r.height / 2);
+  }, {passive: false});
 })();
 
+$('slZoomIn').onclick = () => { const r = $('slCalbox').getBoundingClientRect(); zoomAt(1.25, r.width / 2, r.height / 2); };
+$('slZoomOut').onclick = () => { const r = $('slCalbox').getBoundingClientRect(); zoomAt(0.8, r.width / 2, r.height / 2); };
+
 $('slStart').onclick = () => {
-  const box = $('slCalbox'), ring = $('slRing');
-  const sx = natW / box.clientWidth, sy = natH / box.clientHeight;
-  const cx = (ring.offsetLeft + 55) * sx, cy = (ring.offsetTop + 55) * sy;
-  const r = 55 * sx;
+  const box = $('slCalbox');
+  const cx = (box.clientWidth / 2 - px) / ps;
+  const cy = (box.clientHeight / 2 - py) / ps;
+  const r = 75 / ps;
   const c = document.createElement('canvas');
-  c.width = c.height = 260;
-  const ctx = c.getContext('2d');
-  ctx.drawImage($('slCalImg'), cx - r, cy - r, r * 2, r * 2, 0, 0, 260, 260);
+  c.width = c.height = 320;
+  c.getContext('2d').drawImage($('slCalImg'), cx - r, cy - r, r * 2, r * 2, 0, 0, 320, 320);
   $('slHeadImg').src = c.toDataURL();
   $('slCal').classList.remove('sl-on');
   $('slArena').classList.add('sl-on');
@@ -238,8 +287,8 @@ $('slDoll').addEventListener('pointerdown', () => {
     const b = document.createElement('span');
     b.className = 'sl-bruise';
     b.textContent = bruises[(count / 10 - 1) % bruises.length];
-    b.style.left = (10 + Math.random() * 80) + 'px';
-    b.style.top = (10 + Math.random() * 80) + 'px';
+    b.style.left = (15 + Math.random() * 100) + 'px';
+    b.style.top = (15 + Math.random() * 100) + 'px';
     $('slHead').appendChild(b);
   }
   if(count >= 50) $('slEyes').classList.add('sl-on');
