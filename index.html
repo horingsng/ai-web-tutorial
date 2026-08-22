@@ -11,7 +11,7 @@
     <meta property="og:title" content="AI網站生成教學｜唔識Coding都能5分鐘整出專業網站">
     <meta property="og:description" content="免費AI教學：教完全不懂Coding的人如何用AI快速生成實用網站">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/4F46E5/FFFFFF?text=AI+Website+Generator">
+    <meta property="og:image" content="https://aibuildhk.com/og.png">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5952182039504663" crossorigin="anonymous"></script>
@@ -502,6 +502,7 @@
             <ul class="nav-links">
                 <li><a href="#tool">Prompt生成器</a></li>
                 <li><a href="#articles">教學文章</a></li>
+                <li><a href="#tools">免費工具</a></li>
                 <li><a href="#features">為何選我們</a></li>
             </ul>
             <div class="mobile-menu">☰</div>
@@ -544,7 +545,7 @@
     <div class="container">
         <div class="section-header">
             <h2>🎯 AI Prompt 生成器</h2>
-            <p>輸入你想要嘅網站功能，我幫你生成「AI聽得明」嘅專業指令</p>
+            <p>自己玩嘅小工具定係公司多人用嘅系統都得——答幾條問題，我幫你生成「AI聽得明」嘅專業指令</p>
         </div>
 
         <div class="tool-box">
@@ -577,6 +578,32 @@
                     <option value="minimal">簡約專業（適合商務）</option>
                     <option value="dark">深色模式（適合工具）</option>
                     <option value="cute">可愛卡通（適合遊戲）</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>邊個會用呢個網站？</label>
+                <select id="audience">
+                    <option value="self">自己／屋企人／小朋友（單機用）</option>
+                    <option value="team">公司同事／熟客（幾個至幾十人一齊用）</option>
+                    <option value="public">公開放上網俾任何人用</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>資料要點存？</label>
+                <select id="storage">
+                    <option value="none">唔使存（玩完就算，例如小遊戲）</option>
+                    <option value="local">存喺用家自己部機（離線都用得）</option>
+                    <option value="cloud">多人共享資料（要雲端資料庫，例如公司系統）</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>需唔需要登入？</label>
+                <select id="login">
+                    <option value="no">唔使，開到即用</option>
+                    <option value="yes">要，email／密碼登入（員工或會員先用到）</option>
                 </select>
             </div>
 
@@ -614,6 +641,16 @@
 
         <div class="article-grid">
             <article class="article-card">
+                <div class="article-image">🏢</div>
+                <div class="article-content">
+                    <span class="article-tag">公司適用</span>
+                    <h3>【實戰】幫公司整個「真」網站：登入＋資料庫＋免費上架</h3>
+                    <p>要多人用、要存資料、要登入？Firebase 免費額度搞掂，手把手教你開戶口攞密鑰，唔使租伺服器。</p>
+                    <a href="articles/company-website-firebase.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
                 <div class="article-image">🌐</div>
                 <div class="article-content">
                     <span class="article-tag">新手必讀</span>
@@ -630,6 +667,86 @@
                     <h3>點解要自己整工具？現成App嘅4大罪狀</h3>
                     <p>廣告轟炸、訂閱吸血、功能唔啱、資料俾人收——自己整嘅工具冇廣告冇月費，功能100%啱自己，資料唔出你部機。</p>
                     <a href="articles/custom-tools.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🎯</div>
+                <div class="article-content">
+                    <span class="article-tag">核心技能</span>
+                    <h3>AI 寫 Prompt 嘅 5 個秘訣：點樣「落柯打」先有完美成品</h3>
+                    <p>同一個AI，識問同唔識問，出嚟嘅嘢差10倍。俾角色、寫數值、設限制、逐步加、報症狀——五句口訣一次過教晒你。</p>
+                    <a href="articles/prompt-tips.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🔤</div>
+                <div class="article-content">
+                    <span class="article-tag">家長必學</span>
+                    <h3>【實戰】整個「生字卡認字練習」俾小朋友溫書</h3>
+                    <p>老師派咩生字就入咩生字：雙模式字卡、星星獎勵、答錯重溫清單。默書前溫習神器，附完整Prompt範本。</p>
+                    <a href="articles/flashcards.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🐷</div>
+                <div class="article-content">
+                    <span class="article-tag">新手入門</span>
+                    <h3>【實戰】整個「儲蓄目標追蹤器」：睇住個進度條儲錢</h3>
+                    <p>儲錢最緊要見到進度！自訂目標、每次入數、進度條變色、里程碑慶祝。資料只存自己部機，5分鐘整完。</p>
+                    <a href="articles/savings-tracker.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🚀</div>
+                <div class="article-content">
+                    <span class="article-tag">最後一步</span>
+                    <h3>【實戰】點樣將整好嘅工具免費放上网？GitHub Pages 教學</h3>
+                    <p>唔使租伺服器、唔使打指令：10分鐘將你嘅HTML檔案變成一條可以分享嘅網址，朋友撳link就用得。</p>
+                    <a href="articles/publish-github-pages.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">💱</div>
+                <div class="article-content">
+                    <span class="article-tag">旅行必備</span>
+                    <h3>【實戰】整個「匯率換算器」：旅行唱錢一撳即計</h3>
+                    <p>日元港元台幣一撳即計、對住找換店牌價較準匯率、離線用得。唔使再下載廣告App。</p>
+                    <a href="articles/currency-converter.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🍻</div>
+                <div class="article-content">
+                    <span class="article-tag">聚會必備</span>
+                    <h3>【實戰】整個「飯局AA制分帳器」：夾錢一撳計清</h3>
+                    <p>「我冇食到嗰碟和牛喎」——唔均分都計到、加一自動攤、結果一撳貼上WhatsApp。</p>
+                    <a href="articles/bill-splitter.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">💪</div>
+                <div class="article-content">
+                    <span class="article-tag">健康工具</span>
+                    <h3>【實戰】整個「BMI健康計算機」：TDEE卡路里一撳計到</h3>
+                    <p>BMI、TDEE、每日卡路里上限一次過計好，用亞洲標準，數據唔出你部機。</p>
+                    <a href="articles/bmi-calculator.html" class="read-more">閱讀全文 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">✅</div>
+                <div class="article-content">
+                    <span class="article-tag">效率工具</span>
+                    <h3>【實戰】整個「To-do List待辦清單」：極簡無廣告</h3>
+                    <p>三秒加一項：優先級、到期提醒、進度統計。冇帳號冇廣告冇訂閱。</p>
+                    <a href="articles/todo-list.html" class="read-more">閱讀全文 →</a>
                 </div>
             </article>
 
@@ -686,7 +803,88 @@
     </div>
 </section>
 
-<!-- Features -->
+<!-- 免費工具 -->
+<section class="articles" id="tools">
+    <div class="container">
+        <div class="section-header">
+            <h2>🧰 免費工具</h2>
+            <p>即刻用得・一撫下載・仲可以叫 AI 幫你改</p>
+        </div>
+
+        <div class="article-grid">
+            <article class="article-card">
+                <div class="article-image">🍻</div>
+                <div class="article-content">
+                    <span class="article-tag">上班摸魚・飯局必備</span>
+                    <h3>AA制分帳器</h3>
+                    <p>逐項消費剔邊個有份、加一自動攤分，結果一撫複製貼去 WhatsApp。人名記住下次直接用。</p>
+                    <a href="tools/bill-splitter.html" class="read-more">即刻用 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">👊</div>
+                <div class="article-content">
+                    <span class="article-tag">上班摸魚遊戲</span>
+                    <h3>教訓老細</h3>
+                    <p>上載任何張相做老細塊面，辦公室 6 樣道具任你教訓佢，打到佢求饒！</p>
+                    <a href="tools/slap.html" class="read-more">即刻玩 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🎯</div>
+                <div class="article-content">
+                    <span class="article-tag">上班摸魚遊戲</span>
+                    <h3>老細雷達</h3>
+                    <p>摸住魚睇住門口：撳金幣小遊戲，老細一埋嚟撫一下（或 Esc）即刻變返 Excel 報表。</p>
+                    <a href="tools/boss-radar.html" class="read-more">即刻玩 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🎡</div>
+                <div class="article-content">
+                    <span class="article-tag">上班摸魚遊戲</span>
+                    <h3>午餐輪盤</h3>
+                    <p>「今日食咩」一轉定局！自訂選項自動記住，成個辦公室圍住轉，唔准反口。</p>
+                    <a href="tools/lunch-wheel.html" class="read-more">即刻玩 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🏪</div>
+                <div class="article-content">
+                    <span class="article-tag">小商店開賣</span>
+                    <h3>產品介紹頁模板</h3>
+                    <p>一頁式開賣：產品卡、價錢、WhatsApp 落單制。改兩行就係你間店。</p>
+                    <a href="tools/product-page.html" class="read-more">即刻睇 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🗂️</div>
+                <div class="article-content">
+                    <span class="article-tag">公司適用</span>
+                    <h3>公司後台管理模板</h3>
+                    <p>員工登入＋訂單列表＋多人即時同步。未接駁前有示範模式即刻試玩，貼密鑰就變正式版。</p>
+                    <a href="tools/admin-template.html" class="read-more">即刻試 →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image">🎠</div>
+                <div class="article-content">
+                    <span class="article-tag">小朋友學習</span>
+                    <h3>學習小樂園</h3>
+                    <p>五個範疇三階段嘅兒童學習遊戲合集，色彩繽紛，小朋友自己撫得住。</p>
+                    <a href="tools/learning-park.html" class="read-more">即刻玩 →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
 <section class="features" id="features">
     <div class="container">
         <div class="section-header">
@@ -760,6 +958,9 @@ function generatePrompt() {
     const targetUser = document.getElementById('targetUser').value || '一般用戶';
     const description = document.getElementById('description').value;
     const style = document.getElementById('style').value;
+    const audience = document.getElementById('audience').value;
+    const storage = document.getElementById('storage').value;
+    const login = document.getElementById('login').value;
 
     if (!siteType || !description) {
         alert('請填寫網站類型同功能描述！');
@@ -781,9 +982,52 @@ function generatePrompt() {
         other: '自定義工具'
     };
 
+    const audienceMap = {
+        self: '自己或屋企人單機使用',
+        team: '公司同事或熟客一齊用（幾個至幾十人）',
+        public: '公開放上網俾任何人用'
+    };
+
+    // 商業路線：多人用／雲端資料／要登入
+    const isOnline = storage === 'cloud' || audience !== 'self' || login === 'yes';
+
+    let techSection, dataSection = '', outputLine;
+    if (isOnline) {
+        dataSection = `
+【資料與帳號（重要）】
+- 用 Firebase（免費額度夠中小企用）做後端：
+${login === 'yes' ? '- 用 Firebase Authentication 做 email／密碼登入，未登入唔俾入主頁面\n' : ''}${storage === 'cloud' ? '- 用 Cloud Firestore 存取共享資料，所有用戶見到同一份最新資料\n' : ''}- 喺檔案最頂留一個 firebaseConfig 物件位（寫明「貼上你自己嘅 Firebase 密鑰」），我會自己貼
+- Firebase SDK 可以用官方 CDN 載入
+
+`;
+        techSection = `【技術要求】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- Firebase SDK 可以用官方 CDN，其餘唔好用外部框架
+- 程式碼要有註釋，特別係 firebaseConfig 嗰位，教我點貼
+- 我之後會用 GitHub Pages 免費放上网`;
+        outputLine = '請輸出完整 HTML code，我會貼上自己嘅 Firebase 密鑰後放上网使用。';
+    } else {
+        techSection = `【技術限制】
+- 單一 HTML 檔案，內嵌 CSS + JavaScript
+- 唔使用外部圖片或框架
+- 支援離線使用
+- 程式碼要有註釋，方便用戶理解`;
+        if (storage === 'local') {
+            dataSection = `
+【資料儲存】
+- 用 localStorage 將資料存喺用家自己部機，閂咗頁面再開都仲喺度
+- 資料唔使上網，私隱第一
+
+`;
+        }
+        outputLine = '請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。';
+    }
+
     const prompt = `【角色】你係資深前端工程師，專門設計互動式網頁應用。
 
-【任務】生成一個「${typeMap[siteType]}」網站，單一 HTML 檔案，可直接開啟使用。
+【任務】生成一個「${typeMap[siteType]}」網站，單一 HTML 檔案。
+
+【使用場景】${audienceMap[audience]}
 
 【目標用戶】${targetUser}
 
@@ -795,16 +1039,12 @@ ${description.split('\n').map(line => '- ' + line).join('\n')}
 - 手機優先設計（響應式）
 - 按鈕易按，字體清晰
 - 加入適當動畫提升體驗
-- 使用 Emoji 代替圖片，確保離線可用
-
-【技術限制】
-- 單一 HTML 檔案，內嵌 CSS + JavaScript
-- 唔使用外部圖片或框架
-- 支援離線使用
-- 程式碼要有註釋，方便用戶理解
+- 使用 Emoji 代替圖片
+${dataSection}
+${techSection}
 
 【輸出】
-請輸出完整 HTML code，我會直接儲存為 .html 檔案使用。`;
+${outputLine}`;
 
     document.getElementById('resultContent').textContent = prompt;
     document.getElementById('resultBox').classList.add('show');
