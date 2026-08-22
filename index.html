@@ -18,475 +18,81 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --primary: #4F46E5;
-            --primary-dark: #3730A3;
-            --secondary: #F59E0B;
-            --bg: #FAFBFC;
-            --card: #FFFFFF;
-            --text: #1F2937;
-            --text-light: #6B7280;
-            --border: #E5E7EB;
-            --success: #10B981;
-            --danger: #EF4444;
+            --primary: #4F46E5; --primary-dark: #3730A3; --secondary: #F59E0B;
+            --bg: #FAFBFC; --card: #FFFFFF; --text: #1F2937; --text-light: #6B7280;
+            --border: #E5E7EB; --success: #10B981; --danger: #EF4444;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
         .logo span { color: var(--secondary); }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--secondary); }
-
         .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 5rem 0 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: var(--secondary);
-            position: relative;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .badge {
-            background: rgba(255,255,255,0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245,158,11,0.4);
-        }
-
-        /* Ad Slot */
-        .ad-container {
-            background: var(--card);
-            border: 2px dashed var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem auto;
-            max-width: 728px;
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-
-        .ad-label {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Tool Section */
-        .tool-section {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .tool-box {
-            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
-            border-radius: 20px;
-            padding: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid var(--border);
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .input-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .input-group input,
-        .input-group select,
-        .input-group textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            font-family: inherit;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus,
-        .input-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .input-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .generate-btn {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .generate-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-        }
-
-        .result-box {
-            margin-top: 2rem;
-            background: #1F2937;
-            color: #E5E7EB;
-            padding: 1.5rem;
-            border-radius: 12px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            line-height: 1.8;
-            white-space: pre-wrap;
-            display: none;
-            position: relative;
-        }
-
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 5rem 0 4rem; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero h1 span { color: var(--secondary); position: relative; }
+        .hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
+        .hero-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .badge { background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.875rem; backdrop-filter: blur(10px); }
+        .cta-button { display: inline-block; background: var(--secondary); color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(245,158,11,0.4); }
+        .ad-container { background: var(--card); border: 2px dashed var(--border); border-radius: 12px; padding: 2rem; text-align: center; margin: 2rem auto; max-width: 728px; min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 0.875rem; }
+        .ad-label { font-size: 0.75rem; color: var(--text-light); text-align: center; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .tool-section { padding: 4rem 0; background: white; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text-light); font-size: 1.1rem; }
+        .tool-box { background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%); border-radius: 20px; padding: 2.5rem; max-width: 800px; margin: 0 auto; border: 1px solid var(--border); }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; transition: border-color 0.3s; font-family: inherit; }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { outline: none; border-color: var(--primary); }
+        .input-group textarea { min-height: 120px; resize: vertical; }
+        .generate-btn { width: 100%; background: var(--primary); color: white; padding: 1rem; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .generate-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        .result-box { margin-top: 2rem; background: #1F2937; color: #E5E7EB; padding: 1.5rem; border-radius: 12px; font-family: 'Courier New', monospace; font-size: 0.875rem; line-height: 1.8; white-space: pre-wrap; display: none; position: relative; }
         .result-box.show { display: block; }
-
-        .copy-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.875rem;
-        }
-
+        .copy-btn { position: absolute; top: 1rem; right: 1rem; background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.875rem; }
         .copy-btn:hover { background: var(--primary-dark); }
-
-        /* Articles */
-        .articles {
-            padding: 4rem 0;
-        }
-
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .article-card {
-            background: var(--card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .article-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .article-content {
-            padding: 1.5rem;
-        }
-
-        .article-tag {
-            display: inline-block;
-            background: #EEF2FF;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .article-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .article-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
+        .articles { padding: 4rem 0; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .article-card { background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid var(--border); }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .article-image { height: 200px; background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .article-content { padding: 1.5rem; }
+        .article-tag { display: inline-block; background: #EEF2FF; color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .article-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.4; }
+        .article-card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+        .read-more { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; }
         .read-more:hover { text-decoration: underline; }
-
-        /* Features */
-        .features {
-            background: white;
-            padding: 4rem 0;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1rem;
-            color: white;
-        }
-
-        .feature-item h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text);
-            color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
+        .features { background: white; padding: 4rem 0; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .feature-item { text-align: center; padding: 2rem; }
+        .feature-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; color: white; }
+        .feature-item h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .feature-item p { color: var(--text-light); font-size: 0.95rem; }
+        footer { background: var(--text); color: white; padding: 3rem 0 2rem; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
         .footer-links a:hover { color: white; }
-
-        .footer-ad {
-            background: rgba(255,255,255,0.05);
-            border: 1px dashed rgba(255,255,255,0.2);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 728px;
-            color: rgba(255,255,255,0.4);
-            font-size: 0.875rem;
-        }
-
-        /* Responsive */
+        .footer-ad { background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); border-radius: 8px; padding: 1.5rem; margin: 2rem auto; max-width: 728px; color: rgba(255,255,255,0.4); font-size: 0.875rem; }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .nav-links { display: none; }
-            .nav-links.show {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--primary-dark);
-                padding: 1rem 1.5rem 1.5rem;
-                gap: 1rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-                z-index: 99;
-            }
+            .nav-links.show { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary-dark); padding: 1rem 1.5rem 1.5rem; gap: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.25); z-index: 99; }
             .mobile-menu { display: block; }
             .article-grid { grid-template-columns: 1fr; }
             .hero-badges { gap: 0.5rem; }
             .badge { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { animation: fadeInUp 0.6s ease-out forwards; }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
@@ -494,7 +100,6 @@
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <div class="container">
         <nav>
@@ -510,7 +115,6 @@
     </div>
 </header>
 
-<!-- Hero -->
 <section class="hero">
     <div class="container">
         <h1 class="animate">唔識Coding？<br><span>AI幫你5分鐘</span>整出專業網站</h1>
@@ -525,22 +129,14 @@
     </div>
 </section>
 
-<!-- Top Ad -->
 <div class="container">
     <div class="ad-label">贊助商廣告</div>
     <div class="ad-container">
-        <!-- Google AdSense 廣告碼將插入這裡 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5952182039504663"
-             data-ad-slot="XXXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5952182039504663" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 </div>
 
-<!-- Tool Section -->
 <section class="tool-section" id="tool">
     <div class="container">
         <div class="section-header">
@@ -617,21 +213,14 @@
     </div>
 </section>
 
-<!-- Middle Ad -->
 <div class="container">
     <div class="ad-label">贊助商廣告</div>
     <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5952182039504663"
-             data-ad-slot="XXXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5952182039504663" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 </div>
 
-<!-- Articles -->
 <section class="articles" id="articles">
     <div class="container">
         <div class="section-header">
@@ -714,8 +303,8 @@
                 <div class="article-image">💱</div>
                 <div class="article-content">
                     <span class="article-tag">旅行必備</span>
-                    <h3>【實戰】整個「匯率換算器」：旅行唱錢一撫即計</h3>
-                    <p>日元港元台幣一撫即計、對住找換店牌價較準匯率、離線用得。唔使再下載廣告App。</p>
+                    <h3>【實戰】整個「匯率換算器」：旅行唱錢一撳即計</h3>
+                    <p>日元港元台幣一撳即計、對住找換店牌價較準匯率、離線用得。唔使再下載廣告App。</p>
                     <a href="articles/currency-converter.html" class="read-more">閱讀全文 →</a>
                 </div>
             </article>
@@ -724,8 +313,8 @@
                 <div class="article-image">🍻</div>
                 <div class="article-content">
                     <span class="article-tag">聚會必備</span>
-                    <h3>【實戰】整個「飯局AA制分帳器」：夾錢一撫計清</h3>
-                    <p>「我冇食到嗰碟和牛喎」——唔均分都計到、加一自動攤、結果一撫貼上WhatsApp。</p>
+                    <h3>【實戰】整個「飯局AA制分帳器」：夾錢一撳計清</h3>
+                    <p>「我冇食到嗰碟和牛喎」——唔均分都計到、加一自動攤、結果一撳貼上WhatsApp。</p>
                     <a href="articles/bill-splitter.html" class="read-more">閱讀全文 →</a>
                 </div>
             </article>
@@ -734,7 +323,7 @@
                 <div class="article-image">💪</div>
                 <div class="article-content">
                     <span class="article-tag">健康工具</span>
-                    <h3>【實戰】整個「BMI健康計算機」：TDEE卡路里一撫計到</h3>
+                    <h3>【實戰】整個「BMI健康計算機」：TDEE卡路里一撳計到</h3>
                     <p>BMI、TDEE、每日卡路里上限一次過計好，用亞洲標準，數據唔出你部機。</p>
                     <a href="articles/bmi-calculator.html" class="read-more">閱讀全文 →</a>
                 </div>
@@ -803,12 +392,11 @@
     </div>
 </section>
 
-<!-- 免費工具 -->
 <section class="articles" id="tools">
     <div class="container">
         <div class="section-header">
             <h2>🧰 免費工具</h2>
-            <p>即刻用得・一撫下載・仲可以叫 AI 幫你改</p>
+            <p>即刻用得・一撳下載・仲可以叫 AI 幫你改</p>
         </div>
 
         <div class="article-grid">
@@ -817,7 +405,7 @@
                 <div class="article-content">
                     <span class="article-tag">上班摸魚・飯局必備</span>
                     <h3>AA制分帳器</h3>
-                    <p>逐項消費剔邊個有份、加一自動攤分，結果一撫複製貼去 WhatsApp。人名記住下次直接用。</p>
+                    <p>逐項消費剔邊個有份、加一自動攤分，結果一撳複製貼去 WhatsApp。人名記住下次直接用。</p>
                     <a href="tools/bill-splitter.html" class="read-more">即刻用 →</a>
                 </div>
             </article>
@@ -837,7 +425,7 @@
                 <div class="article-content">
                     <span class="article-tag">上班摸魚遊戲</span>
                     <h3>老細雷達</h3>
-                    <p>摸住魚睇住門口：撫金幣小遊戲，老細一埋嚟撫一下（或 Esc）即刻變返 Excel 報表。</p>
+                    <p>摸住魚睇住門口：撳金幣小遊戲，老細一埋嚟撳一下（或 Esc）即刻變返 Excel 報表。</p>
                     <a href="tools/boss-radar.html" class="read-more">即刻玩 →</a>
                 </div>
             </article>
@@ -877,7 +465,7 @@
                 <div class="article-content">
                     <span class="article-tag">小朋友學習</span>
                     <h3>學習小樂園</h3>
-                    <p>五個範疇三階段嘅兒童學習遊戲合集，色彩繽紛，小朋友自己撫得住。</p>
+                    <p>五個範疇三階段嘅兒童學習遊戲合集，色彩繽紛，小朋友自己撳得住。</p>
                     <a href="tools/learning-park.html" class="read-more">即刻玩 →</a>
                 </div>
             </article>
@@ -917,21 +505,14 @@
     </div>
 </section>
 
-<!-- Bottom Ad -->
 <div class="container">
     <div class="ad-label">贊助商廣告</div>
     <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5952182039504663"
-             data-ad-slot="XXXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5952182039504663" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 </div>
 
-<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-links">
@@ -941,14 +522,9 @@
             <a href="disclaimer.html">免責聲明</a>
         </div>
 
-        <div class="footer-ad">
-            <!-- Footer Ad Slot -->
-            Advertisement Space
-        </div>
+        <div class="footer-ad">Advertisement Space</div>
 
-        <p style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">
-            © 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。
-        </p>
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">© 2026 AI建站教學. 所有教學內容免費提供，歡迎分享。</p>
     </div>
 </footer>
 
@@ -988,7 +564,6 @@ function generatePrompt() {
         public: '公開放上網俾任何人用'
     };
 
-    // 商業路線：多人用／雲端資料／要登入
     const isOnline = storage === 'cloud' || audience !== 'self' || login === 'yes';
 
     let techSection, dataSection = '', outputLine;
@@ -1059,12 +634,10 @@ function copyResult() {
     });
 }
 
-// Mobile menu toggle
 document.querySelector('.mobile-menu').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('show');
 });
 
-// 撫完連結自動收埋選單
 document.querySelectorAll('.nav-links a').forEach(function(link) {
     link.addEventListener('click', function() {
         document.querySelector('.nav-links').classList.remove('show');
